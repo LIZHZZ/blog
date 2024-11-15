@@ -1,0 +1,59 @@
+- class_name: 导师
+  class_desc: 大佬们！
+  flink_style: anzhiyu
+  hundredSuffix: ""
+  link_list:
+    - name: 李瑞远
+      link: http://www.kangry.net/blog/?type=about-me
+      avatar: /img/friend/lyr.png
+      descr: 时空数据管理与挖掘，数据库
+      recommend: true
+    - name: 陈超
+      link: https://faculty.cqu.edu.cn/ChaoChen/zh_CN/index.htm
+      avatar: /img/friend/cc.png
+      descr: 智能无人系统，城市计算
+      recommend: true
+
+- class_name: 小伙伴
+  class_desc: 那些人，那些事
+  flink_style: anzhiyu
+  hundredSuffix: ""
+  link_list:
+    - name: 李政
+      link: https://lizhzz.github.io/
+      avatar: /img/friend/lz.jpg
+      descr: 数据压缩，时空数据管理
+      recommend: true
+    - name: 何翔
+      link: https://cquhx.github.io/
+      avatar: /img/friend/hx.jpg
+      descr: 美团大佬，时空关键字查询
+      recommend: true
+    - name: 陈泽超
+      link: https://blog.ackth.cc/about/
+      avatar: /img/friend/czc.jpg
+      descr: 未来的院士？ 大模型之神
+      recommend: true
+    - name: 李佳俊
+      link: https://ewainliu.github.io/jiajunli.io/
+      avatar: /img/friend/ljj.png
+      descr: 古希腊掌管五花肉的神？ AI4DB
+      recommend: true
+    - name: 朱明辉
+      link: https://jjjupiterrr.github.io/AboutMe/
+      avatar: /img/friend/zmh.jpg
+      descr: 数据压缩，轨迹查询
+      recommend: true
+
+- class_name: 推荐博客
+  flink_style: telescopic
+  hundredSuffix: ""
+  link_list:
+    - name: 安知鱼
+      link: https://blog.anheyu.com/
+      avatar: https://npm.elemecdn.com/anzhiyu-blog-static@1.0.4/img/avatar.jpg
+      descr: 生活明朗，万物可爱
+      siteshot: https://npm.elemecdn.com/anzhiyu-theme-static@1.1.6/img/blog.anheyu.com.jpg
+      color: vip
+      tag: 技术
+
