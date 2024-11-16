@@ -15,6 +15,7 @@ menu:
    相册集: /album/ || anzhiyu-icon-images
 #   小空调: /air-conditioner/ || anzhiyu-icon-fan
 
+
  关于:
    关于本人: /about/ || anzhiyu-icon-paper-plane
    闲言碎语: /essay/ || anzhiyu-icon-lightbulb
@@ -136,11 +137,11 @@ katex:
 # --------------------------------------
 
 # Favicon（网站图标）
-favicon: /favicon.ico
+favicon: /yeeylztree.svg
 
 # Avatar (头像)
 avatar:
-  img: /49890814.jpg
+  img: /jhdj.jpg
   effect: false
 
 # Disable all banner image
@@ -790,7 +791,7 @@ preloader:
   source: 3
   # pace theme (see https://codebyzach.github.io/pace/)
   pace_css_url:
-  avatar: /49890814.jpg # 自定加载动画义头像
+  avatar: /jhdj.jpg # 自定加载动画义头像
 
 # aside (侧边栏)
 # --------------------------------------
@@ -1053,8 +1054,8 @@ home_top:
   subTitle: 看就完了。
   siteText: anheyu.com
   category:
-    - name: 大数据
-      path: /categories/大数据/
+    - name: 数据压缩
+      path: /categories/数据压缩/
       shadow: var(--anzhiyu-shadow-blue)
       class: blue
       icon: anzhiyu-icon-dove
