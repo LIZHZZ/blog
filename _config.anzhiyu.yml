@@ -11,7 +11,7 @@ menu:
 
  我的:
    音乐馆: /music/ || anzhiyu-icon-music
-#   追番页: /bangumis/ || anzhiyu-icon-bilibili
+   追番页: /bangumis/ || icon-goblet-fill
    相册集: /album/ || anzhiyu-icon-images
 #   小空调: /air-conditioner/ || anzhiyu-icon-fan
 
@@ -975,7 +975,7 @@ note:
   light_bg_offset: 0
 
 icons:
-  ali_iconfont_js: # 阿里图标symbol 引用链接，主题会进行加载 symbol 引用
+  ali_iconfont_js: https://at.alicdn.com/t/c/font_4748849_u3vp5a7ulic.js?spm=a313x.manage_type_myprojects.i1.10.414a3a81b5wcGQ&file=font_4748849_u3vp5a7ulic.js # 阿里图标symbol 引用链接，主题会进行加载 symbol 引用
   fontawesome: false #是否启用fontawesome6图标
   fontawesome_animation_css: #fontawesome_animation 如果有就会加载，示例值：https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@1.0.17/lib/assets/font-awesome-animation.min.css
 
