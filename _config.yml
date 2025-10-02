@@ -104,4 +104,4 @@ theme: anzhiyu
 deploy:
   type: git
   repo: https://github.com/LIZHZZ/blog.git
-  branch: blog
+  branch: gh-pages
