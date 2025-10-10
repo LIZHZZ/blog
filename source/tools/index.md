@@ -7,6 +7,16 @@ layout: "page"
 
 # 🛠️ 实用工具集
 
+## 🔗 快速导航
+
+<div class="tool-links">
+  <a href="/blog/tools/float-converter/" class="tool-link">
+    <span class="tool-icon">🔢</span>
+    <h3>浮点数二进制转换器</h3>
+    <p>Float/Double 转二进制，基于 IEEE 754</p>
+  </a>
+</div>
+
 ## 📍 坐标转换工具
 
 <div class="tool-container">
@@ -286,6 +296,48 @@ function loadTrajectory(event) {
 </script>
 
 <style>
+.tool-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  margin: 30px 0 50px 0;
+}
+
+.tool-link {
+  display: block;
+  background: white;
+  border-radius: 12px;
+  padding: 25px;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  border-top: 4px solid #667eea;
+  transition: all 0.3s ease;
+}
+
+.tool-link:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.tool-link .tool-icon {
+  font-size: 3em;
+  display: block;
+  margin-bottom: 15px;
+}
+
+.tool-link h3 {
+  margin: 0 0 10px 0;
+  color: #333;
+  font-size: 1.3em;
+}
+
+.tool-link p {
+  margin: 0;
+  color: #666;
+  font-size: 0.95em;
+}
+
 .tool-container {
   background: #f8f9fa;
   border-radius: 10px;
