@@ -4,17 +4,20 @@ menu:
    分类: /categories/ || anzhiyu-icon-shapes
    标签: /tags/ || anzhiyu-icon-tags
 
+ 学术:
+   研究成果: /research/ || anzhiyu-icon-graduation-cap
+   实用工具: /tools/ || anzhiyu-icon-tools
+   数据集: /datasets/ || anzhiyu-icon-database
+
  友链:
    友人帐: /link/ || anzhiyu-icon-link
    朋友圈: /fcircle/ || anzhiyu-icon-artstation
    留言板: /comments/ || anzhiyu-icon-envelope
 
- 我的:
+ 生活:
+   调酒台: /cocktails/ || anzhiyu-icon-wine-glass
    音乐馆: /music/ || anzhiyu-icon-music
-   调酒台: /bangumis/ || icon-goblet-fill
    相册集: /album/ || anzhiyu-icon-images
-#   小空调: /air-conditioner/ || anzhiyu-icon-fan
-
 
  关于:
    关于本人: /about/ || anzhiyu-icon-paper-plane
@@ -76,14 +79,14 @@ author_status:
   # 可以是任何图片，建议放表情包或者emoji图片，效果都很好，[表情包速查](https://emotion.xiaokang.me/)
   statusImg: "https://bu.dusays.com/2023/08/24/64e6ce9c507bb.png"
   skills:
-   - 🤖️ 数码科技爱好者
-   - 🔍 分享与热心帮助
-   - 🏠 智能家居小能手
-   - 🔨 设计开发一条龙
-   - 🤝 专修交互与设计
-   - 🏃 脚踏实地行动派
-   - 🧱 团队小组发动机
-   - 💢 壮汉人狠话不多
+   - 🗺️ 时空数据挖掘专家
+   - 🐍 Python算法工程师
+   - 📊 数据可视化达人
+   - 🔍 路网分析研究者
+   - 🚗 轨迹数据处理
+   - 📚 学术论文写作
+   - 🎯 机器学习实践者
+   - ⚡ 高性能计算优化
 
 # search (搜索)
 # see https://blog.anheyu.com/posts/c27d.html#搜索系统

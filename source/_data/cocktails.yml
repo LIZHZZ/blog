@@ -1,0 +1,204 @@
+# 调酒作品数据
+featured_cocktails:
+  - name: "Data Visualization"
+    name_cn: "数据可视化"
+    category: "创新"
+    difficulty: "困难"
+    alcohol_content: 18.5
+    description: "灵感来自数据图表的分层鸡尾酒，每一层代表不同的数据维度"
+    color: "#4facfe"
+    image: "/img/cocktails/data-viz.jpg"
+    ingredients:
+      - name: "蓝柑橘利口酒"
+        amount: "20ml"
+        color: "#0066cc"
+      - name: "伏特加"
+        amount: "40ml"
+        color: "#ffffff"
+      - name: "柠檬汁"
+        amount: "15ml"
+        color: "#ffff99"
+      - name: "蝶豆花糖浆"
+        amount: "10ml"
+        color: "#6633ff"
+      - name: "苏打水"
+        amount: "适量"
+        color: "#f0f8ff"
+    steps:
+      - "在调酒杯中加入冰块"
+      - "倒入伏特加和柠檬汁，搅拌均匀"
+      - "缓慢倒入蝶豆花糖浆，形成渐变层次"
+      - "最后加入蓝柑橘利口酒"
+      - "轻轻加入苏打水，保持分层效果"
+    tags: ["创新", "分层", "视觉效果", "科技感"]
+    created_date: "2024-12-15"
+    rating: 4.8
+    notes: "完美展现了数据可视化的美感，口感层次丰富"
+
+  - name: "Algorithm"
+    name_cn: "算法"
+    category: "创新"
+    difficulty: "中等"
+    alcohol_content: 22.3
+    description: "如算法般精确的调配比例，体现了日式调酒的精髓"
+    color: "#fa709a"
+    image: "/img/cocktails/algorithm.jpg"
+    ingredients:
+      - name: "日本威士忌"
+        amount: "45ml"
+        color: "#d4a574"
+      - name: "梅酒"
+        amount: "15ml"
+        color: "#ff6b9d"
+      - name: "柚子汁"
+        amount: "10ml"
+        color: "#fff700"
+      - name: "蜂蜜糖浆"
+        amount: "5ml"
+        color: "#ffb347"
+      - name: "抹茶粉"
+        amount: "少许"
+        color: "#9caf88"
+    steps:
+      - "将所有液体材料加入调酒器"
+      - "加入冰块，用力摇晃15秒"
+      - "双重过滤倒入冰镇的古典杯"
+      - "表面轻撒抹茶粉装饰"
+    tags: ["日式", "精确", "和风", "创新"]
+    created_date: "2024-12-10"
+    rating: 4.6
+    notes: "威士忌与梅酒的结合出人意料，柚子增添了清新感"
+
+seasonal_specials:
+  - season: "春季"
+    cocktails:
+      - name: "Spring Blossom"
+        name_cn: "春樱"
+        description: "樱花季的浪漫与温柔"
+        color: "#ffecd2"
+      - name: "Green Algorithm"
+        name_cn: "绿色算法"
+        description: "春天的生机与代码的活力"
+        color: "#a8e6cf"
+  
+  - season: "夏季"
+    cocktails:
+      - name: "Summer Breeze"
+        name_cn: "夏日微风"
+        description: "炎炎夏日的清凉救赎"
+        color: "#ff9a9e"
+      - name: "Tropical Data"
+        name_cn: "热带数据"
+        description: "热带风情与数据分析的碰撞"
+        color: "#fecfef"
+
+  - season: "秋季"
+    cocktails:
+      - name: "Autumn Leaves"
+        name_cn: "秋叶"
+        description: "枫叶般的层次与深度"
+        color: "#d4a574"
+      - name: "Harvest Moon"
+        name_cn: "收获月"
+        description: "丰收季节的温暖与满足"
+        color: "#f4e4bc"
+
+  - season: "冬季"
+    cocktails:
+      - name: "Winter Warmth"
+        name_cn: "冬日暖阳"
+        description: "寒冬中的温暖慰藉"
+        color: "#ff6b6b"
+      - name: "Snow Crystal"
+        name_cn: "雪花结晶"
+        description: "纯净如雪的清澈口感"
+        color: "#e8f4f8"
+
+bartending_philosophy:
+  principles:
+    - title: "精确性"
+      description: "如同处理时空数据一样，调酒需要精确的比例和时间控制"
+      icon: "🎯"
+    - title: "迭代优化"
+      description: "每次调制都是一次实验，通过不断调整达到最佳效果"
+      icon: "🔄"
+    - title: "创新思维"
+      description: "在经典基础上创新，如同在传统算法上的改进"
+      icon: "🎨"
+    - title: "平衡美学"
+      description: "追求味觉、视觉、嗅觉的完美平衡"
+      icon: "⚖️"
+
+tools_and_equipment:
+  essential:
+    - name: "调酒器"
+      description: "Boston调酒器，容量750ml"
+      importance: "必需"
+    - name: "量杯"
+      description: "精确测量，15ml-60ml刻度"
+      importance: "必需"
+    - name: "搅拌棒"
+      description: "不锈钢长柄搅拌棒"
+      importance: "必需"
+    - name: "过滤器"
+      description: "双重过滤，确保口感顺滑"
+      importance: "重要"
+  
+  advanced:
+    - name: "分子调酒工具"
+      description: "液氮、球化剂等现代调酒工具"
+      importance: "进阶"
+    - name: "烟熏枪"
+      description: "为鸡尾酒增添烟熏风味"
+      importance: "进阶"
+    - name: "冰球模具"
+      description: "制作完美球形冰块"
+      importance: "进阶"
+
+favorite_spirits:
+  whiskey:
+    - name: "山崎12年"
+      type: "日本威士忌"
+      rating: 5
+      notes: "完美的平衡感，适合纯饮或调制高端鸡尾酒"
+    - name: "Maker's Mark"
+      type: "波本威士忌"
+      rating: 4
+      notes: "香甜顺滑，Old Fashioned的绝佳选择"
+  
+  gin:
+    - name: "Hendrick's"
+      type: "金酒"
+      rating: 5
+      notes: "独特的黄瓜和玫瑰花瓣风味"
+    - name: "Bombay Sapphire"
+      type: "金酒"
+      rating: 4
+      notes: "经典伦敦干金酒，马天尼首选"
+  
+  rum:
+    - name: "Havana Club 7"
+      type: "古巴朗姆酒"
+      rating: 4
+      notes: "浓郁的热带风情，适合调制经典朗姆鸡尾酒"
+
+cocktail_diary:
+  - date: "2024-12-15"
+    title: "今日尝试：改良版Negroni"
+    content: "用日本威士忌替代金酒，加入一滴烟熏苦精。结果出人意料的和谐，烟熏味与苦味完美平衡。数据分析的严谨思维在调酒中同样适用——每一次调整都要有理有据。"
+    tags: ["创新", "威士忌", "平衡"]
+    rating: 4.5
+    
+  - date: "2024-12-10"
+    title: "樱花季特调"
+    content: "尝试用樱花盐做杯口装饰，配合樱花利口酒。视觉效果惊艳，但味道还需要调整。樱花的香气很微妙，需要更精确的比例控制。"
+    tags: ["季节", "樱花", "装饰"]
+    rating: 3.8
+    
+  - date: "2024-12-05"
+    title: "分子调酒初体验"
+    content: "第一次尝试球化技术，制作了爆珠马天尼。技术难度很高，但成功后的效果令人惊艳。就像编程一样，需要精确的步骤和耐心。"
+    tags: ["分子调酒", "技术", "创新"]
+    rating: 4.2
+
+
