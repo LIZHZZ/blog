@@ -7,14 +7,26 @@ layout: "page"
 
 # 🛠️ 实用工具集
 
-## 🔗 快速导航
+## 🔢 浮点数二进制转换器
 
-<div class="tool-links">
-  <a href="/blog/tools/float-converter/" class="tool-link">
-    <span class="tool-icon">🔢</span>
-    <h3>浮点数二进制转换器</h3>
-    <p>Float/Double 转二进制，基于 IEEE 754</p>
-  </a>
+<div class="tool-container">
+  <h3>Float (32位单精度)</h3>
+  <div class="input-group">
+    <label>输入浮点数:</label>
+    <input type="number" id="float-input" placeholder="例如: 3.14" step="any">
+    <button onclick="convertFloat()">转换</button>
+  </div>
+  <div id="float-result"></div>
+</div>
+
+<div class="tool-container">
+  <h3>Double (64位双精度)</h3>
+  <div class="input-group">
+    <label>输入浮点数:</label>
+    <input type="number" id="double-input" placeholder="例如: 3.14159265359" step="any">
+    <button onclick="convertDouble()">转换</button>
+  </div>
+  <div id="double-result"></div>
 </div>
 
 ## 📍 坐标转换工具
@@ -73,6 +85,99 @@ layout: "page"
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 
 <script>
+// 浮点数转换函数
+function floatToBinary32(num) {
+  const buffer = new ArrayBuffer(4);
+  const floatView = new Float32Array(buffer);
+  const intView = new Uint32Array(buffer);
+  
+  floatView[0] = num;
+  const bits = intView[0];
+  const binary = bits.toString(2).padStart(32, '0');
+  
+  return {
+    binary: binary,
+    sign: binary[0],
+    exponent: binary.slice(1, 9),
+    mantissa: binary.slice(9),
+    hex: '0x' + bits.toString(16).toUpperCase().padStart(8, '0')
+  };
+}
+
+function doubleToBinary64(num) {
+  const buffer = new ArrayBuffer(8);
+  const floatView = new Float64Array(buffer);
+  const intView = new Uint32Array(buffer);
+  
+  floatView[0] = num;
+  const low = intView[0];
+  const high = intView[1];
+  
+  const highBinary = high.toString(2).padStart(32, '0');
+  const lowBinary = low.toString(2).padStart(32, '0');
+  const binary = highBinary + lowBinary;
+  
+  return {
+    binary: binary,
+    sign: binary[0],
+    exponent: binary.slice(1, 12),
+    mantissa: binary.slice(12),
+    hex: '0x' + high.toString(16).toUpperCase().padStart(8, '0') + low.toString(16).toUpperCase().padStart(8, '0')
+  };
+}
+
+function convertFloat() {
+  const input = document.getElementById('float-input').value;
+  const num = parseFloat(input);
+  
+  if (input === '') {
+    document.getElementById('float-result').innerHTML = '<p style="color: red;">请输入一个数字</p>';
+    return;
+  }
+  
+  const result = floatToBinary32(num);
+  
+  document.getElementById('float-result').innerHTML = `
+    <div class="coord-result">
+      <h4>Float (32位) 结果:</h4>
+      <p><strong>原始值:</strong> ${num}</p>
+      <p><strong>二进制:</strong> <span style="color: #c62828;">${result.sign}</span> <span style="color: #1565c0;">${result.exponent}</span> <span style="color: #2e7d32;">${result.mantissa}</span></p>
+      <p><strong>十六进制:</strong> ${result.hex}</p>
+      <p style="font-size: 0.9em; color: #666;">
+        <span style="color: #c62828;">■</span> 符号位 
+        <span style="color: #1565c0;">■</span> 指数位 (8位)
+        <span style="color: #2e7d32;">■</span> 尾数位 (23位)
+      </p>
+    </div>
+  `;
+}
+
+function convertDouble() {
+  const input = document.getElementById('double-input').value;
+  const num = parseFloat(input);
+  
+  if (input === '') {
+    document.getElementById('double-result').innerHTML = '<p style="color: red;">请输入一个数字</p>';
+    return;
+  }
+  
+  const result = doubleToBinary64(num);
+  
+  document.getElementById('double-result').innerHTML = `
+    <div class="coord-result">
+      <h4>Double (64位) 结果:</h4>
+      <p><strong>原始值:</strong> ${num}</p>
+      <p><strong>二进制:</strong> <span style="color: #c62828;">${result.sign}</span> <span style="color: #1565c0;">${result.exponent}</span> <span style="color: #2e7d32;">${result.mantissa}</span></p>
+      <p><strong>十六进制:</strong> ${result.hex}</p>
+      <p style="font-size: 0.9em; color: #666;">
+        <span style="color: #c62828;">■</span> 符号位 
+        <span style="color: #1565c0;">■</span> 指数位 (11位)
+        <span style="color: #2e7d32;">■</span> 尾数位 (52位)
+      </p>
+    </div>
+  `;
+}
+
 // 坐标转换函数
 function convertCoordinates() {
   const lat = parseFloat(document.getElementById('lat').value);
@@ -296,48 +401,6 @@ function loadTrajectory(event) {
 </script>
 
 <style>
-.tool-links {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 20px;
-  margin: 30px 0 50px 0;
-}
-
-.tool-link {
-  display: block;
-  background: white;
-  border-radius: 12px;
-  padding: 25px;
-  text-decoration: none;
-  color: inherit;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  border-top: 4px solid #667eea;
-  transition: all 0.3s ease;
-}
-
-.tool-link:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-}
-
-.tool-link .tool-icon {
-  font-size: 3em;
-  display: block;
-  margin-bottom: 15px;
-}
-
-.tool-link h3 {
-  margin: 0 0 10px 0;
-  color: #333;
-  font-size: 1.3em;
-}
-
-.tool-link p {
-  margin: 0;
-  color: #666;
-  font-size: 0.95em;
-}
-
 .tool-container {
   background: #f8f9fa;
   border-radius: 10px;
