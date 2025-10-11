@@ -7,14 +7,49 @@ layout: "page"
 
 # 🛠️ 实用工具集
 
-## 🔢 浮点数二进制转换器
+## 🔢 数值转换器
+
+<div class="tool-container">
+  <h3>整数转换 (32位有符号)</h3>
+  <div class="input-group">
+    <label>十进制:</label>
+    <input type="text" id="int-dec" placeholder="例如: -123">
+    <button onclick="intDecToBin()">→ 二进制</button>
+  </div>
+  <div class="input-group">
+    <label>二进制:</label>
+    <input type="text" id="int-bin" placeholder="例如: 11111111111111111111111110000101">
+    <button onclick="intBinToDec()">→ 十进制</button>
+  </div>
+  <div id="int-result"></div>
+</div>
+
+<div class="tool-container">
+  <h3>ZigZag 编码转换</h3>
+  <div class="input-group">
+    <label>有符号整数:</label>
+    <input type="text" id="zigzag-signed" placeholder="例如: -1">
+    <button onclick="signedToZigZag()">→ ZigZag</button>
+  </div>
+  <div class="input-group">
+    <label>ZigZag值:</label>
+    <input type="text" id="zigzag-unsigned" placeholder="例如: 1">
+    <button onclick="zigZagToSigned()">→ 有符号</button>
+  </div>
+  <div id="zigzag-result"></div>
+</div>
 
 <div class="tool-container">
   <h3>Float (32位单精度)</h3>
   <div class="input-group">
-    <label>输入浮点数:</label>
-    <input type="number" id="float-input" placeholder="例如: 3.14" step="any">
-    <button onclick="convertFloat()">转换</button>
+    <label>十进制:</label>
+    <input type="number" id="float-dec" placeholder="例如: 3.14" step="any">
+    <button onclick="floatDecToBin()">→ 二进制</button>
+  </div>
+  <div class="input-group">
+    <label>二进制:</label>
+    <input type="text" id="float-bin" placeholder="32位二进制">
+    <button onclick="floatBinToDec()">→ 十进制</button>
   </div>
   <div id="float-result"></div>
 </div>
@@ -22,11 +57,22 @@ layout: "page"
 <div class="tool-container">
   <h3>Double (64位双精度)</h3>
   <div class="input-group">
-    <label>输入浮点数:</label>
-    <input type="number" id="double-input" placeholder="例如: 3.14159265359" step="any">
-    <button onclick="convertDouble()">转换</button>
+    <label>十进制:</label>
+    <input type="number" id="double-dec" placeholder="例如: 3.14159265359" step="any">
+    <button onclick="doubleDecToBin()">→ 二进制</button>
+  </div>
+  <div class="input-group">
+    <label>二进制:</label>
+    <input type="text" id="double-bin" placeholder="64位二进制">
+    <button onclick="doubleBinToDec()">→ 十进制</button>
   </div>
   <div id="double-result"></div>
+</div>
+
+<div class="tool-container">
+  <h3>📜 转换历史</h3>
+  <button onclick="clearHistory()" style="margin-bottom: 10px;">清空历史</button>
+  <div id="history-list" style="max-height: 300px; overflow-y: auto;"></div>
 </div>
 
 ## 📍 坐标转换工具
@@ -85,8 +131,176 @@ layout: "page"
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 
 <script>
-// 浮点数转换函数
-function floatToBinary32(num) {
+// 历史记录
+let conversionHistory = [];
+
+function addToHistory(type, from, to) {
+  const timestamp = new Date().toLocaleString('zh-CN');
+  conversionHistory.unshift({type, from, to, timestamp});
+  if (conversionHistory.length > 20) conversionHistory.pop();
+  updateHistoryDisplay();
+}
+
+function updateHistoryDisplay() {
+  const historyDiv = document.getElementById('history-list');
+  if (conversionHistory.length === 0) {
+    historyDiv.innerHTML = '<p style="color: #999;">暂无转换记录</p>';
+    return;
+  }
+  
+  historyDiv.innerHTML = conversionHistory.map(item => `
+    <div style="padding: 10px; margin: 5px 0; background: #f8f9fa; border-radius: 5px; border-left: 3px solid #007bff;">
+      <div style="font-size: 0.85em; color: #666;">${item.timestamp}</div>
+      <div style="margin: 5px 0;"><strong>${item.type}</strong></div>
+      <div style="font-size: 0.9em;">从: <code>${item.from}</code></div>
+      <div style="font-size: 0.9em;">到: <code>${item.to}</code></div>
+    </div>
+  `).join('');
+}
+
+function clearHistory() {
+  conversionHistory = [];
+  updateHistoryDisplay();
+}
+
+// 整数转换
+function intDecToBin() {
+  const input = document.getElementById('int-dec').value.trim();
+  if (!input) {
+    document.getElementById('int-result').innerHTML = '<p style="color: red;">请输入十进制整数</p>';
+    return;
+  }
+  
+  const num = parseInt(input);
+  if (isNaN(num)) {
+    document.getElementById('int-result').innerHTML = '<p style="color: red;">无效的十进制数</p>';
+    return;
+  }
+  
+  const binary = (num >>> 0).toString(2).padStart(32, '0');
+  const hex = '0x' + (num >>> 0).toString(16).toUpperCase().padStart(8, '0');
+  
+  document.getElementById('int-bin').value = binary;
+  document.getElementById('int-result').innerHTML = `
+    <div class="coord-result">
+      <h4>整数转换结果:</h4>
+      <p><strong>十进制:</strong> ${num}</p>
+      <p><strong>二进制:</strong> ${binary}</p>
+      <p><strong>十六进制:</strong> ${hex}</p>
+      <p><strong>无符号值:</strong> ${num >>> 0}</p>
+    </div>
+  `;
+  
+  addToHistory('整数 (十进制→二进制)', num, binary);
+}
+
+function intBinToDec() {
+  const input = document.getElementById('int-bin').value.trim();
+  if (!input) {
+    document.getElementById('int-result').innerHTML = '<p style="color: red;">请输入二进制数</p>';
+    return;
+  }
+  
+  if (!/^[01]+$/.test(input)) {
+    document.getElementById('int-result').innerHTML = '<p style="color: red;">无效的二进制数</p>';
+    return;
+  }
+  
+  const unsigned = parseInt(input, 2);
+  const signed = unsigned > 0x7FFFFFFF ? unsigned - 0x100000000 : unsigned;
+  const hex = '0x' + unsigned.toString(16).toUpperCase().padStart(8, '0');
+  
+  document.getElementById('int-dec').value = signed;
+  document.getElementById('int-result').innerHTML = `
+    <div class="coord-result">
+      <h4>整数转换结果:</h4>
+      <p><strong>二进制:</strong> ${input.padStart(32, '0')}</p>
+      <p><strong>有符号十进制:</strong> ${signed}</p>
+      <p><strong>无符号十进制:</strong> ${unsigned}</p>
+      <p><strong>十六进制:</strong> ${hex}</p>
+    </div>
+  `;
+  
+  addToHistory('整数 (二进制→十进制)', input, signed);
+}
+
+// ZigZag编码
+function signedToZigZag() {
+  const input = document.getElementById('zigzag-signed').value.trim();
+  if (!input) {
+    document.getElementById('zigzag-result').innerHTML = '<p style="color: red;">请输入有符号整数</p>';
+    return;
+  }
+  
+  const num = parseInt(input);
+  if (isNaN(num)) {
+    document.getElementById('zigzag-result').innerHTML = '<p style="color: red;">无效的整数</p>';
+    return;
+  }
+  
+  const zigzag = (num << 1) ^ (num >> 31);
+  const binary = (zigzag >>> 0).toString(2);
+  
+  document.getElementById('zigzag-unsigned').value = zigzag >>> 0;
+  document.getElementById('zigzag-result').innerHTML = `
+    <div class="coord-result">
+      <h4>ZigZag 编码结果:</h4>
+      <p><strong>原始值 (有符号):</strong> ${num}</p>
+      <p><strong>ZigZag 值:</strong> ${zigzag >>> 0}</p>
+      <p><strong>二进制:</strong> ${binary}</p>
+      <p style="font-size: 0.9em; color: #666;">
+        ZigZag 编码将有符号整数映射到无符号整数<br>
+        公式: (n << 1) ^ (n >> 31)
+      </p>
+    </div>
+  `;
+  
+  addToHistory('ZigZag (有符号→无符号)', num, zigzag >>> 0);
+}
+
+function zigZagToSigned() {
+  const input = document.getElementById('zigzag-unsigned').value.trim();
+  if (!input) {
+    document.getElementById('zigzag-result').innerHTML = '<p style="color: red;">请输入ZigZag值</p>';
+    return;
+  }
+  
+  const zigzag = parseInt(input);
+  if (isNaN(zigzag) || zigzag < 0) {
+    document.getElementById('zigzag-result').innerHTML = '<p style="color: red;">无效的ZigZag值</p>';
+    return;
+  }
+  
+  const num = (zigzag >>> 1) ^ -(zigzag & 1);
+  const binary = (zigzag >>> 0).toString(2);
+  
+  document.getElementById('zigzag-signed').value = num;
+  document.getElementById('zigzag-result').innerHTML = `
+    <div class="coord-result">
+      <h4>ZigZag 解码结果:</h4>
+      <p><strong>ZigZag 值:</strong> ${zigzag}</p>
+      <p><strong>原始值 (有符号):</strong> ${num}</p>
+      <p><strong>二进制:</strong> ${binary}</p>
+      <p style="font-size: 0.9em; color: #666;">
+        ZigZag 解码将无符号整数还原为有符号整数<br>
+        公式: (n >>> 1) ^ -(n & 1)
+      </p>
+    </div>
+  `;
+  
+  addToHistory('ZigZag (无符号→有符号)', zigzag, num);
+}
+
+// Float转换
+function floatDecToBin() {
+  const input = document.getElementById('float-dec').value;
+  const num = parseFloat(input);
+  
+  if (input === '') {
+    document.getElementById('float-result').innerHTML = '<p style="color: red;">请输入浮点数</p>';
+    return;
+  }
+  
   const buffer = new ArrayBuffer(4);
   const floatView = new Float32Array(buffer);
   const intView = new Uint32Array(buffer);
@@ -94,17 +308,76 @@ function floatToBinary32(num) {
   floatView[0] = num;
   const bits = intView[0];
   const binary = bits.toString(2).padStart(32, '0');
+  const hex = '0x' + bits.toString(16).toUpperCase().padStart(8, '0');
   
-  return {
-    binary: binary,
-    sign: binary[0],
-    exponent: binary.slice(1, 9),
-    mantissa: binary.slice(9),
-    hex: '0x' + bits.toString(16).toUpperCase().padStart(8, '0')
-  };
+  document.getElementById('float-bin').value = binary;
+  document.getElementById('float-result').innerHTML = `
+    <div class="coord-result">
+      <h4>Float 转换结果:</h4>
+      <p><strong>十进制:</strong> ${num}</p>
+      <p><strong>二进制:</strong> <span style="color: #c62828;">${binary[0]}</span> <span style="color: #1565c0;">${binary.slice(1, 9)}</span> <span style="color: #2e7d32;">${binary.slice(9)}</span></p>
+      <p><strong>十六进制:</strong> ${hex}</p>
+      <p style="font-size: 0.9em; color: #666;">
+        <span style="color: #c62828;">■</span> 符号位 
+        <span style="color: #1565c0;">■</span> 指数 (8位)
+        <span style="color: #2e7d32;">■</span> 尾数 (23位)
+      </p>
+    </div>
+  `;
+  
+  addToHistory('Float (十进制→二进制)', num, binary);
 }
 
-function doubleToBinary64(num) {
+function floatBinToDec() {
+  const input = document.getElementById('float-bin').value.trim();
+  
+  if (!input) {
+    document.getElementById('float-result').innerHTML = '<p style="color: red;">请输入32位二进制数</p>';
+    return;
+  }
+  
+  if (!/^[01]{32}$/.test(input)) {
+    document.getElementById('float-result').innerHTML = '<p style="color: red;">请输入有效的32位二进制数</p>';
+    return;
+  }
+  
+  const bits = parseInt(input, 2);
+  const buffer = new ArrayBuffer(4);
+  const intView = new Uint32Array(buffer);
+  const floatView = new Float32Array(buffer);
+  
+  intView[0] = bits;
+  const num = floatView[0];
+  const hex = '0x' + bits.toString(16).toUpperCase().padStart(8, '0');
+  
+  document.getElementById('float-dec').value = num;
+  document.getElementById('float-result').innerHTML = `
+    <div class="coord-result">
+      <h4>Float 转换结果:</h4>
+      <p><strong>二进制:</strong> <span style="color: #c62828;">${input[0]}</span> <span style="color: #1565c0;">${input.slice(1, 9)}</span> <span style="color: #2e7d32;">${input.slice(9)}</span></p>
+      <p><strong>十进制:</strong> ${num}</p>
+      <p><strong>十六进制:</strong> ${hex}</p>
+      <p style="font-size: 0.9em; color: #666;">
+        <span style="color: #c62828;">■</span> 符号位 
+        <span style="color: #1565c0;">■</span> 指数 (8位)
+        <span style="color: #2e7d32;">■</span> 尾数 (23位)
+      </p>
+    </div>
+  `;
+  
+  addToHistory('Float (二进制→十进制)', input, num);
+}
+
+// Double转换
+function doubleDecToBin() {
+  const input = document.getElementById('double-dec').value;
+  const num = parseFloat(input);
+  
+  if (input === '') {
+    document.getElementById('double-result').innerHTML = '<p style="color: red;">请输入浮点数</p>';
+    return;
+  }
+  
   const buffer = new ArrayBuffer(8);
   const floatView = new Float64Array(buffer);
   const intView = new Uint32Array(buffer);
@@ -116,67 +389,75 @@ function doubleToBinary64(num) {
   const highBinary = high.toString(2).padStart(32, '0');
   const lowBinary = low.toString(2).padStart(32, '0');
   const binary = highBinary + lowBinary;
+  const hex = '0x' + high.toString(16).toUpperCase().padStart(8, '0') + low.toString(16).toUpperCase().padStart(8, '0');
   
-  return {
-    binary: binary,
-    sign: binary[0],
-    exponent: binary.slice(1, 12),
-    mantissa: binary.slice(12),
-    hex: '0x' + high.toString(16).toUpperCase().padStart(8, '0') + low.toString(16).toUpperCase().padStart(8, '0')
-  };
-}
-
-function convertFloat() {
-  const input = document.getElementById('float-input').value;
-  const num = parseFloat(input);
-  
-  if (input === '') {
-    document.getElementById('float-result').innerHTML = '<p style="color: red;">请输入一个数字</p>';
-    return;
-  }
-  
-  const result = floatToBinary32(num);
-  
-  document.getElementById('float-result').innerHTML = `
-    <div class="coord-result">
-      <h4>Float (32位) 结果:</h4>
-      <p><strong>原始值:</strong> ${num}</p>
-      <p><strong>二进制:</strong> <span style="color: #c62828;">${result.sign}</span> <span style="color: #1565c0;">${result.exponent}</span> <span style="color: #2e7d32;">${result.mantissa}</span></p>
-      <p><strong>十六进制:</strong> ${result.hex}</p>
-      <p style="font-size: 0.9em; color: #666;">
-        <span style="color: #c62828;">■</span> 符号位 
-        <span style="color: #1565c0;">■</span> 指数位 (8位)
-        <span style="color: #2e7d32;">■</span> 尾数位 (23位)
-      </p>
-    </div>
-  `;
-}
-
-function convertDouble() {
-  const input = document.getElementById('double-input').value;
-  const num = parseFloat(input);
-  
-  if (input === '') {
-    document.getElementById('double-result').innerHTML = '<p style="color: red;">请输入一个数字</p>';
-    return;
-  }
-  
-  const result = doubleToBinary64(num);
-  
+  document.getElementById('double-bin').value = binary;
   document.getElementById('double-result').innerHTML = `
     <div class="coord-result">
-      <h4>Double (64位) 结果:</h4>
-      <p><strong>原始值:</strong> ${num}</p>
-      <p><strong>二进制:</strong> <span style="color: #c62828;">${result.sign}</span> <span style="color: #1565c0;">${result.exponent}</span> <span style="color: #2e7d32;">${result.mantissa}</span></p>
-      <p><strong>十六进制:</strong> ${result.hex}</p>
+      <h4>Double 转换结果:</h4>
+      <p><strong>十进制:</strong> ${num}</p>
+      <p><strong>二进制:</strong> <span style="color: #c62828;">${binary[0]}</span> <span style="color: #1565c0;">${binary.slice(1, 12)}</span> <span style="color: #2e7d32;">${binary.slice(12)}</span></p>
+      <p><strong>十六进制:</strong> ${hex}</p>
       <p style="font-size: 0.9em; color: #666;">
         <span style="color: #c62828;">■</span> 符号位 
-        <span style="color: #1565c0;">■</span> 指数位 (11位)
-        <span style="color: #2e7d32;">■</span> 尾数位 (52位)
+        <span style="color: #1565c0;">■</span> 指数 (11位)
+        <span style="color: #2e7d32;">■</span> 尾数 (52位)
       </p>
     </div>
   `;
+  
+  addToHistory('Double (十进制→二进制)', num, binary);
 }
+
+function doubleBinToDec() {
+  const input = document.getElementById('double-bin').value.trim();
+  
+  if (!input) {
+    document.getElementById('double-result').innerHTML = '<p style="color: red;">请输入64位二进制数</p>';
+    return;
+  }
+  
+  if (!/^[01]{64}$/.test(input)) {
+    document.getElementById('double-result').innerHTML = '<p style="color: red;">请输入有效的64位二进制数</p>';
+    return;
+  }
+  
+  const highBinary = input.slice(0, 32);
+  const lowBinary = input.slice(32);
+  const high = parseInt(highBinary, 2);
+  const low = parseInt(lowBinary, 2);
+  
+  const buffer = new ArrayBuffer(8);
+  const intView = new Uint32Array(buffer);
+  const floatView = new Float64Array(buffer);
+  
+  intView[0] = low;
+  intView[1] = high;
+  const num = floatView[0];
+  const hex = '0x' + high.toString(16).toUpperCase().padStart(8, '0') + low.toString(16).toUpperCase().padStart(8, '0');
+  
+  document.getElementById('double-dec').value = num;
+  document.getElementById('double-result').innerHTML = `
+    <div class="coord-result">
+      <h4>Double 转换结果:</h4>
+      <p><strong>二进制:</strong> <span style="color: #c62828;">${input[0]}</span> <span style="color: #1565c0;">${input.slice(1, 12)}</span> <span style="color: #2e7d32;">${input.slice(12)}</span></p>
+      <p><strong>十进制:</strong> ${num}</p>
+      <p><strong>十六进制:</strong> ${hex}</p>
+      <p style="font-size: 0.9em; color: #666;">
+        <span style="color: #c62828;">■</span> 符号位 
+        <span style="color: #1565c0;">■</span> 指数 (11位)
+        <span style="color: #2e7d32;">■</span> 尾数 (52位)
+      </p>
+    </div>
+  `;
+  
+  addToHistory('Double (二进制→十进制)', input, num);
+}
+
+// 初始化历史显示
+document.addEventListener('DOMContentLoaded', function() {
+  updateHistoryDisplay();
+});
 
 // 坐标转换函数
 function convertCoordinates() {
