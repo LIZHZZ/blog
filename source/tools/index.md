@@ -467,11 +467,6 @@ function doubleBinToDec() {
   addToHistory('Double (二进制→十进制)', input, num);
 }
 
-// 初始化历史显示
-document.addEventListener('DOMContentLoaded', function() {
-  updateHistoryDisplay();
-});
-
 // 坐标转换函数
 function convertCoordinates() {
   const lat = parseFloat(document.getElementById('lat').value);
@@ -637,9 +632,13 @@ function haversineDistance(lat1, lng1, lat2, lng2) {
   return R * c;
 }
 
-// 初始化轨迹地图
+// 初始化
 let trajectoryMap;
 document.addEventListener('DOMContentLoaded', function() {
+  // 初始化历史记录显示
+  updateHistoryDisplay();
+  
+  // 初始化轨迹地图
   trajectoryMap = L.map('trajectory-map').setView([30.66, 104.06], 10);
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(trajectoryMap);
 });
