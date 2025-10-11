@@ -150,22 +150,25 @@ function updateHistoryDisplay() {
     return;
   }
   
+  // 截断过长的内容的辅助函数
+  const formatValue = (val) => {
+    const str = String(val);
+    if (str.length > 40) {
+      return str.substring(0, 37) + '...';
+    }
+    return str;
+  };
+  
   historyDiv.innerHTML = conversionHistory.map(item => {
-    // 截断过长的内容
-    const formatValue = (val) => {
-      const str = String(val);
-      if (str.length > 40) {
-        return str.substring(0, 37) + '...';
-      }
-      return str;
-    };
+    const fromStr = formatValue(item.from);
+    const toStr = formatValue(item.to);
     
     return `
       <div style="padding: 10px; margin: 5px 0; background: #f8f9fa; border-radius: 5px; border-left: 3px solid #007bff;">
         <div style="font-size: 0.85em; color: #666;">${item.timestamp}</div>
         <div style="margin: 5px 0;"><strong>${item.type}</strong></div>
-        <div style="font-size: 0.9em; word-break: break-all;">从: <code style="background: #fff; padding: 2px 5px; border-radius: 3px;">${formatValue(item.from)}</code></div>
-        <div style="font-size: 0.9em; word-break: break-all;">到: <code style="background: #fff; padding: 2px 5px; border-radius: 3px;">${formatValue(item.to)}</code></div>
+        <div style="font-size: 0.9em; word-break: break-all;">从: <code style="background: #fff; padding: 2px 5px; border-radius: 3px;">${fromStr}</code></div>
+        <div style="font-size: 0.9em; word-break: break-all;">到: <code style="background: #fff; padding: 2px 5px; border-radius: 3px;">${toStr}</code></div>
       </div>
     `;
   }).join('');
