@@ -165,9 +165,9 @@ function updateHistoryDisplay() {
     
     return '<div style="padding: 10px; margin: 5px 0; background: #f8f9fa; border-radius: 5px; border-left: 3px solid #007bff;">' +
       '<div style="font-size: 0.85em; color: #666;">' + item.timestamp + '</div>' +
-      '<div style="margin: 5px 0;"><strong>' + item.type + '</strong></div>' +
-      '<div style="font-size: 0.9em; word-break: break-all;">从: <code style="background: #fff; padding: 2px 5px; border-radius: 3px;">' + fromStr + '</code></div>' +
-      '<div style="font-size: 0.9em; word-break: break-all;">到: <code style="background: #fff; padding: 2px 5px; border-radius: 3px;">' + toStr + '</code></div>' +
+      '<div style="margin: 5px 0; color: #333;"><strong>' + item.type + '</strong></div>' +
+      '<div style="font-size: 0.9em; word-break: break-all; color: #333;">从: <code style="background: #e3f2fd; padding: 2px 5px; border-radius: 3px; color: #1565c0;">' + fromStr + '</code></div>' +
+      '<div style="font-size: 0.9em; word-break: break-all; color: #333;">到: <code style="background: #e8f5e9; padding: 2px 5px; border-radius: 3px; color: #2e7d32;">' + toStr + '</code></div>' +
       '</div>';
   }).join('');
 }
