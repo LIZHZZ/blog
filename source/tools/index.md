@@ -143,19 +143,32 @@ function addToHistory(type, from, to) {
 
 function updateHistoryDisplay() {
   const historyDiv = document.getElementById('history-list');
+  if (!historyDiv) return;
+  
   if (conversionHistory.length === 0) {
     historyDiv.innerHTML = '<p style="color: #999;">暂无转换记录</p>';
     return;
   }
   
-  historyDiv.innerHTML = conversionHistory.map(item => `
-    <div style="padding: 10px; margin: 5px 0; background: #f8f9fa; border-radius: 5px; border-left: 3px solid #007bff;">
-      <div style="font-size: 0.85em; color: #666;">${item.timestamp}</div>
-      <div style="margin: 5px 0;"><strong>${item.type}</strong></div>
-      <div style="font-size: 0.9em;">从: <code>${item.from}</code></div>
-      <div style="font-size: 0.9em;">到: <code>${item.to}</code></div>
-    </div>
-  `).join('');
+  historyDiv.innerHTML = conversionHistory.map(item => {
+    // 截断过长的内容
+    const formatValue = (val) => {
+      const str = String(val);
+      if (str.length > 40) {
+        return str.substring(0, 37) + '...';
+      }
+      return str;
+    };
+    
+    return `
+      <div style="padding: 10px; margin: 5px 0; background: #f8f9fa; border-radius: 5px; border-left: 3px solid #007bff;">
+        <div style="font-size: 0.85em; color: #666;">${item.timestamp}</div>
+        <div style="margin: 5px 0;"><strong>${item.type}</strong></div>
+        <div style="font-size: 0.9em; word-break: break-all;">从: <code style="background: #fff; padding: 2px 5px; border-radius: 3px;">${formatValue(item.from)}</code></div>
+        <div style="font-size: 0.9em; word-break: break-all;">到: <code style="background: #fff; padding: 2px 5px; border-radius: 3px;">${formatValue(item.to)}</code></div>
+      </div>
+    `;
+  }).join('');
 }
 
 function clearHistory() {
