@@ -2,6 +2,7 @@
 title: 浮点数二进制转换器
 date: 2024-12-19
 type: "tools"
+layout: "page"
 comments: false
 ---
 
