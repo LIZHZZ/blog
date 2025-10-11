@@ -411,15 +411,26 @@ function loadTrajectory(event) {
 
 .input-group {
   margin: 10px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .input-group label {
-  display: inline-block;
-  width: 80px;
   font-weight: bold;
+  white-space: nowrap;
+  min-width: 100px;
 }
 
-.input-group input, .tool-container input, .tool-container textarea {
+.input-group input {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.tool-container input, .tool-container textarea {
   padding: 8px 12px;
   border: 1px solid #ddd;
   border-radius: 5px;
