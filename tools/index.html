@@ -60,7 +60,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2025-10-11 14:28:03',
+  postUpdate: '2025-10-12 02:57:42',
   postMainColor: '',
 }</script><noscript><style type="text/css">
   #nav {
@@ -349,11 +349,11 @@ function updateHistoryDisplay() {
     const fromStr = formatValue(item.from);
     const toStr = formatValue(item.to);
     
-    return '<div style="padding: 10px; margin: 5px 0; background: #f8f9fa; border-radius: 5px; border-left: 3px solid #007bff;">' +
-      '<div style="font-size: 0.85em; color: #666;">' + item.timestamp + '</div>' +
-      '<div style="margin: 5px 0; color: #333;"><strong>' + item.type + '</strong></div>' +
-      '<div style="font-size: 0.9em; word-break: break-all; color: #333;">从: <code style="background: #e3f2fd; padding: 2px 5px; border-radius: 3px; color: #1565c0;">' + fromStr + '</code></div>' +
-      '<div style="font-size: 0.9em; word-break: break-all; color: #333;">到: <code style="background: #e8f5e9; padding: 2px 5px; border-radius: 3px; color: #2e7d32;">' + toStr + '</code></div>' +
+    return '<div style="padding: 8px; margin: 3px 0; background: #f8f9fa; border-radius: 5px; border-left: 3px solid #007bff;">' +
+      '<div style="font-size: 0.8em; color: #666; margin-bottom: 3px;">' + item.timestamp + '</div>' +
+      '<div style="margin: 3px 0; color: #333; font-size: 0.9em;"><strong>' + item.type + '</strong></div>' +
+      '<div style="font-size: 0.85em; word-break: break-all; color: #333; margin: 2px 0;">从: <code style="background: #e3f2fd; padding: 2px 5px; border-radius: 3px; color: #1565c0;">' + fromStr + '</code></div>' +
+      '<div style="font-size: 0.85em; word-break: break-all; color: #333; margin: 2px 0;">到: <code style="background: #e8f5e9; padding: 2px 5px; border-radius: 3px; color: #2e7d32;">' + toStr + '</code></div>' +
       '</div>';
   }).join('');
 }
