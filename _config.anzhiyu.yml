@@ -1053,35 +1053,40 @@ css_prefix: true
 home_top:
   enable: true # 开关
   timemode: date #date/updated
-  title: 管你看没看完
-  subTitle: 看就完了。
-  siteText: anheyu.com
+  title: 探索时空数据的奥秘
+  subTitle: 用代码解析世界，用数据预见未来
+  siteText: LIZHZZ.github.io
   category:
-    - name: 数据压缩
-      path: /categories/数据压缩/
+    - name: 🗺️ 时空数据
+      path: /categories/时空数据/
       shadow: var(--anzhiyu-shadow-blue)
       class: blue
-      icon: anzhiyu-icon-dove
-    - name: 时空数据
-      path: /categories/时空数据/
+      icon: anzhiyu-icon-map
+    - name: 🐍 算法研究
+      path: /categories/算法研究/
       shadow: var(--anzhiyu-shadow-red)
       class: red
-      icon: anzhiyu-icon-fire
-    - name: 生活
-      path: /categories/生活日常/
+      icon: anzhiyu-icon-code
+    - name: 📚 论文笔记
+      path: /categories/论文笔记/
+      shadow: var(--anzhiyu-shadow-purple)
+      class: purple
+      icon: anzhiyu-icon-book
+    - name: 🍸 生活随笔
+      path: /categories/生活随笔/
       shadow: var(--anzhiyu-shadow-green)
       class: green
-      icon: anzhiyu-icon-book
-  default_descr: 再怎么看我也不知道怎么描述它的啦！
+      icon: anzhiyu-icon-coffee
+  default_descr: 一个热爱数据、热爱调酒、热爱生活的时空数据研究者
   swiper:
     enable: false
 #    swiper_css: https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/swiper/swiper.min.css #swiper css依赖
 #    swiper_js: https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/swiper/swiper.min.js #swiper js依赖
   banner:
-    tips: 新品主题
-    title: Theme-AnZhiYu
+    tips: 学术研究
+    title: 时空数据 · 算法优化
     image: https://bu.dusays.com/2023/05/13/645fa3cf90d70.webp
-    link: https://docs.anheyu.com/
+    link: /research/
 
 # 朋友圈配置
 friends_vue:
