@@ -9,7 +9,10 @@
     else
       !=partial('includes/widget/card_author', {}, {cache: true})
       !=partial('includes/widget/card_announcement', {}, {cache: true})
-      !=partial('includes/widget/card_weixin', {}, {cache: true})
+      if theme.access_stats.enable
+        !=partial('includes/widget/card_access_stats', {}, {cache: true})
+      else
+        !=partial('includes/widget/card_weixin', {}, {cache: true})
       !=partial('includes/widget/card_top_self', {}, {cache: true})
       .sticky_layout
         if showToc
@@ -20,7 +23,10 @@
     //- page
     !=partial('includes/widget/card_author', {}, {cache: true})
     !=partial('includes/widget/card_announcement', {}, {cache: true})
-    !=partial('includes/widget/card_weixin', {}, {cache: true})
+    if theme.access_stats.enable
+      !=partial('includes/widget/card_access_stats', {}, {cache: true})
+    else
+      !=partial('includes/widget/card_weixin', {}, {cache: true})
     !=partial('includes/widget/card_top_self', {}, {cache: true})
     !=partial('includes/widget/card_categories', {}, {cache: true})  
 

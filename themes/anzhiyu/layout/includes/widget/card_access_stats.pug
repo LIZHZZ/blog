@@ -1,0 +1,211 @@
+//- 侧边栏访问统计卡片
+if theme.access_stats.enable && site.data.access_stats
+  - const stats = site.data.access_stats
+  .card-widget.anzhiyu-right-widget#card-access-stats
+    .item-headline
+      i.anzhiyufont.anzhiyu-icon-chart-line
+      span 访问统计
+    .access-stats-sidebar
+      .stats-grid
+        .stats-item
+          .stats-label 今日人数
+          .stats-value.today-visitors= stats.today.visitors
+        .stats-item
+          .stats-label 昨日人数
+          .stats-value.yesterday-visitors= stats.yesterday.visitors
+        .stats-item
+          .stats-label 今日访问
+          .stats-value.today-visits= stats.today.visits
+        .stats-item
+          .stats-label 昨日访问
+          .stats-value.yesterday-visits= stats.yesterday.visits
+        .stats-item.stats-item-wide
+          .stats-label 本月访问
+          .stats-value.month-visits= stats.this_month.visits
+        .stats-item.stats-item-wide
+          .stats-label 总访问量
+          .stats-value.total-visits= stats.total.visits
+      .stats-footer
+        .stats-source= stats.source
+        a.stats-link(href="/archives/" title="查看文章")
+          i.anzhiyufont.anzhiyu-icon-arrow-up-right
+          span 文章隧道
+
+//- 侧边栏访问统计样式
+style.
+  #card-access-stats .access-stats-sidebar {
+    padding: 0;
+  }
+  
+  #card-access-stats .stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 15px;
+  }
+  
+  #card-access-stats .stats-item {
+    background: var(--anzhiyu-card-bg);
+    border-radius: 8px;
+    padding: 12px;
+    text-align: center;
+    border: 1px solid var(--anzhiyu-card-border);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  #card-access-stats .stats-item:hover {
+    background: var(--anzhiyu-card-hover-bg);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  #card-access-stats .stats-item-wide {
+    grid-column: span 2;
+  }
+  
+  #card-access-stats .stats-label {
+    font-size: 0.8em;
+    color: var(--anzhiyu-fontcolor);
+    margin-bottom: 6px;
+    opacity: 0.8;
+    font-weight: 500;
+  }
+  
+  #card-access-stats .stats-value {
+    font-size: 1.4em;
+    font-weight: 700;
+    color: var(--anzhiyu-main);
+    font-family: 'Courier New', monospace;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
+  
+  #card-access-stats .stats-item-wide .stats-value {
+    font-size: 1.6em;
+  }
+  
+  #card-access-stats .stats-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 12px;
+    border-top: 1px solid var(--anzhiyu-border);
+  }
+  
+  #card-access-stats .stats-source {
+    font-size: 0.75em;
+    color: var(--anzhiyu-fontcolor);
+    opacity: 0.6;
+    text-align: center;
+  }
+  
+  #card-access-stats .stats-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    background: var(--anzhiyu-main);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.85em;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+  
+  #card-access-stats .stats-link:hover {
+    background: var(--anzhiyu-main-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: white;
+  }
+  
+  /* 数字动画效果 */
+  #card-access-stats .stats-value {
+    animation: countUpSidebar 1.5s ease-out;
+  }
+  
+  @keyframes countUpSidebar {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* 脉冲动画 */
+  #card-access-stats .stats-value.today-visitors {
+    animation: pulseSidebar 2s infinite;
+  }
+  
+  @keyframes pulseSidebar {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+  
+  /* 响应式调整 */
+  @media (max-width: 768px) {
+    #card-access-stats .stats-grid {
+      gap: 10px;
+    }
+    
+    #card-access-stats .stats-item {
+      padding: 10px;
+    }
+    
+    #card-access-stats .stats-value {
+      font-size: 1.2em;
+    }
+    
+    #card-access-stats .stats-item-wide .stats-value {
+      font-size: 1.4em;
+    }
+  }
+
+//- JavaScript 交互效果
+script.
+  document.addEventListener('DOMContentLoaded', function() {
+    const statsCard = document.getElementById('card-access-stats');
+    if (!statsCard) return;
+    
+    // 数字递增动画
+    function animateValue(element, start, end, duration) {
+      const startTimestamp = performance.now();
+      const step = (timestamp) => {
+        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+        const current = Math.floor(progress * (end - start) + start);
+        element.textContent = current.toLocaleString();
+        if (progress < 1) {
+          requestAnimationFrame(step);
+        }
+      };
+      requestAnimationFrame(step);
+    }
+    
+    // 为所有统计数字添加动画
+    const statsValues = statsCard.querySelectorAll('.stats-value');
+    statsValues.forEach(element => {
+      const finalValue = parseInt(element.textContent.replace(/,/g, ''));
+      element.textContent = '0';
+      setTimeout(() => {
+        animateValue(element, 0, finalValue, 1500);
+      }, 300);
+    });
+    
+    // 添加点击统计项的效果
+    const statsItems = statsCard.querySelectorAll('.stats-item');
+    statsItems.forEach(item => {
+      item.addEventListener('click', function() {
+        this.style.transform = 'scale(0.95)';
+        setTimeout(() => {
+          this.style.transform = '';
+        }, 150);
+      });
+    });
+  });
