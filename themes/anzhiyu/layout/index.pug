@@ -4,5 +4,16 @@ block content
   include ./includes/mixins/post-ui.pug
   #recent-posts.recent-posts
     include includes/categoryGroup.pug
-    +postUI
-    include includes/pagination.pug
+    
+    //- 访问统计组件
+    if theme.access_stats.enable && theme.access_stats.position === 'before_posts'
+      include includes/access_stats.pug
+    
+    //- 文章列表
+    if !theme.access_stats.enable || theme.access_stats.position !== 'only'
+      +postUI
+      include includes/pagination.pug
+    
+    //- 访问统计组件（文章后显示）
+    if theme.access_stats.enable && theme.access_stats.position === 'after_posts'
+      include includes/access_stats.pug

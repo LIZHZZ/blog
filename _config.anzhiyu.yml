@@ -1049,6 +1049,12 @@ Open_Graph_meta: true
 # Add the vendor prefixes to ensure compatibility
 css_prefix: true
 
+# 访问统计配置
+access_stats:
+  enable: true # 是否显示访问统计
+  position: before_posts # before_posts/after_posts/only
+  data_source: yml # yml/51la/busuanzi
+  
 # 首页顶部相关配置
 home_top:
   enable: true # 开关

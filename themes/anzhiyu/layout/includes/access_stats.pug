@@ -1,0 +1,320 @@
+//- 访问统计组件
+if theme.access_stats.enable && site.data.access_stats
+  - const stats = site.data.access_stats
+  #access-stats.access-stats-container
+    .access-stats-card
+      .stats-header
+        h2.stats-title 访问统计
+        .stats-subtitle 实时数据监控
+      
+      .stats-content
+        .stats-row
+          .stats-item
+            .stats-label 今日人数
+            .stats-value.today-visitors= stats.today.visitors
+          .stats-item
+            .stats-label 昨日人数  
+            .stats-value.yesterday-visitors= stats.yesterday.visitors
+          .stats-item
+            .stats-label 本月访问
+            .stats-value.month-visits= stats.this_month.visits
+          
+        .stats-row
+          .stats-item
+            .stats-label 今日访问
+            .stats-value.today-visits= stats.today.visits
+          .stats-item
+            .stats-label 昨日访问
+            .stats-value.yesterday-visits= stats.yesterday.visits
+          .stats-item
+            .stats-label 总访问量
+            .stats-value.total-visits= stats.total.visits
+      
+      .stats-footer
+        .stats-source= stats.source
+        a.stats-link(href="/archives/" title="查看文章")
+          i.anzhiyufont.anzhiyu-icon-arrow-up-right
+          span 文章隧道
+        .stats-update 更新时间: #{stats.last_update}
+
+//- 添加样式
+style.
+  .access-stats-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+  }
+  
+  .access-stats-card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .access-stats-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="50" cy="10" r="0.5" fill="rgba(255,255,255,0.05)"/><circle cx="10" cy="60" r="0.5" fill="rgba(255,255,255,0.05)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+    opacity: 0.3;
+    pointer-events: none;
+  }
+  
+  .stats-header {
+    text-align: center;
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .stats-title {
+    color: white;
+    font-size: 2.5em;
+    font-weight: 700;
+    margin: 0 0 10px 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  
+  .stats-subtitle {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.1em;
+    font-weight: 300;
+  }
+  
+  .stats-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .stats-row {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .stats-item {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 15px;
+    padding: 20px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+  }
+  
+  .stats-item:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  }
+  
+  .stats-label {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.9em;
+    font-weight: 500;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  .stats-value {
+    color: white;
+    font-size: 2.2em;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    font-family: 'Courier New', monospace;
+  }
+  
+  .stats-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    position: relative;
+    z-index: 1;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .stats-source {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9em;
+  }
+  
+  .stats-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+  
+  .stats-link:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    color: white;
+  }
+  
+  .stats-update {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.85em;
+  }
+  
+  /* 响应式设计 */
+  @media (max-width: 768px) {
+    .access-stats-container {
+      margin: 20px auto;
+      padding: 0 15px;
+    }
+    
+    .access-stats-card {
+      padding: 25px;
+      border-radius: 15px;
+    }
+    
+    .stats-title {
+      font-size: 2em;
+    }
+    
+    .stats-content {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    
+    .stats-row {
+      gap: 15px;
+    }
+    
+    .stats-item {
+      padding: 15px;
+    }
+    
+    .stats-value {
+      font-size: 1.8em;
+    }
+    
+    .stats-footer {
+      flex-direction: column;
+      text-align: center;
+      gap: 10px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .stats-title {
+      font-size: 1.8em;
+    }
+    
+    .stats-value {
+      font-size: 1.6em;
+    }
+    
+    .access-stats-card {
+      padding: 20px;
+    }
+  }
+  
+  /* 数字动画效果 */
+  .stats-value {
+    animation: countUp 2s ease-out;
+  }
+  
+  @keyframes countUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* 悬停效果 */
+  .stats-item:hover .stats-value {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+  }
+  
+  /* 脉冲动画 */
+  .stats-value.today-visitors {
+    animation: pulse 2s infinite;
+  }
+  
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+
+//- JavaScript 交互效果
+script.
+  document.addEventListener('DOMContentLoaded', function() {
+    const statsContainer = document.getElementById('access-stats');
+    if (!statsContainer) return;
+    
+    // 数字递增动画
+    function animateValue(element, start, end, duration) {
+      const startTimestamp = performance.now();
+      const step = (timestamp) => {
+        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+        const current = Math.floor(progress * (end - start) + start);
+        element.textContent = current.toLocaleString();
+        if (progress < 1) {
+          requestAnimationFrame(step);
+        }
+      };
+      requestAnimationFrame(step);
+    }
+    
+    // 为所有统计数字添加动画
+    const statsValues = statsContainer.querySelectorAll('.stats-value');
+    statsValues.forEach(element => {
+      const finalValue = parseInt(element.textContent.replace(/,/g, ''));
+      element.textContent = '0';
+      setTimeout(() => {
+        animateValue(element, 0, finalValue, 2000);
+      }, 500);
+    });
+    
+    // 添加滚动显示动画
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    observer.observe(statsContainer);
+    
+    // 添加点击统计项的效果
+    const statsItems = statsContainer.querySelectorAll('.stats-item');
+    statsItems.forEach(item => {
+      item.addEventListener('click', function() {
+        this.style.transform = 'scale(0.95)';
+        setTimeout(() => {
+          this.style.transform = '';
+        }, 150);
+      });
+    });
+  });
