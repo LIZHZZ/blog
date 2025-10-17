@@ -161,13 +161,37 @@ function updateHistoryDisplay() {
       
       // 确保二进制显示完整32位
       const fullBinary = binary.toString().padStart(32, '0');
-      // 格式化二进制：每8位一组
-      const formattedBinary = fullBinary.replace(/(.{8})/g, '$1 ').trim();
       
-      displayContent = `<div style="font-size: 0.85em; line-height: 1.3;">
-        <div style="margin: 2px 0;"><strong>十进制:</strong> ${decimal}</div>
-        <div style="margin: 2px 0; word-break: break-all;"><strong>二进制:</strong> ${formattedBinary}</div>
-      </div>`;
+      // 检查是否为浮点数转换
+      if (item.type.includes('Float') || item.type.includes('Double')) {
+        // 浮点数格式：符号位 + 指数位 + 尾数位
+        let signBit, expBits, mantissaBits;
+        if (item.type.includes('Float')) {
+          // Float: 1位符号 + 8位指数 + 23位尾数
+          signBit = fullBinary.substring(0, 1);
+          expBits = fullBinary.substring(1, 9);
+          mantissaBits = fullBinary.substring(9, 32);
+        } else {
+          // Double: 1位符号 + 11位指数 + 52位尾数 (需要64位)
+          const doubleBinary = binary.toString().padStart(64, '0');
+          signBit = doubleBinary.substring(0, 1);
+          expBits = doubleBinary.substring(1, 12);
+          mantissaBits = doubleBinary.substring(12, 64);
+        }
+        
+        displayContent = `<div style="font-size: 0.85em; line-height: 1.3;">
+          <div style="margin: 2px 0;"><strong>十进制:</strong> ${decimal}</div>
+          <div style="margin: 2px 0;"><strong>二进制:</strong> ${signBit} ${expBits} ${mantissaBits}</div>
+        </div>`;
+      } else {
+        // 整数转换：每8位一组
+        const formattedBinary = fullBinary.replace(/(.{8})/g, '$1 ').trim();
+        
+        displayContent = `<div style="font-size: 0.85em; line-height: 1.3;">
+          <div style="margin: 2px 0;"><strong>十进制:</strong> ${decimal}</div>
+          <div style="margin: 2px 0; word-break: break-all;"><strong>二进制:</strong> ${formattedBinary}</div>
+        </div>`;
+      }
     } else {
       // 其他转换类型保持原格式
       displayContent = `<div style="font-size: 0.85em; line-height: 1.3;">
@@ -177,8 +201,6 @@ function updateHistoryDisplay() {
     }
     
     return '<div style="padding: 6px; margin: 2px 0; background: #f8f9fa; border-radius: 5px; border-left: 3px solid #007bff;">' +
-      '<div style="font-size: 0.75em; color: #666; margin-bottom: 2px;">' + item.timestamp + '</div>' +
-      '<div style="margin: 2px 0; color: #333; font-size: 0.9em; font-weight: bold;">' + item.type + '</div>' +
       displayContent +
       '</div>';
   }).join('');
