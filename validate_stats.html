@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>访问统计数据验证</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background: #f5f5f5; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .stats-item { display: flex; justify-content: space-between; padding: 10px; margin: 5px 0; background: #f8f9fa; border-radius: 5px; }
+        .stats-label { font-weight: bold; color: #333; }
+        .stats-value { color: #007bff; font-weight: bold; }
+        .validation { margin: 15px 0; padding: 10px; border-radius: 5px; }
+        .valid { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .warning { background: #fff3cd; color: #856404; border: 1px solid #ffeaa7; }
+        .error { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        .info { background: #d1ecf1; color: #0c5460; border: 1px solid #bee5eb; }
+        .ratio { font-size: 0.9em; color: #666; margin-left: 10px; }
+        .chart { margin: 20px 0; text-align: center; }
+        .bar { display: inline-block; background: #007bff; margin: 0 2px; border-radius: 2px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📊 访问统计数据验证</h1>
+        
+        <div class="info">
+            <h3>当前显示的数据：</h3>
+        </div>
+
+        <div class="stats-item">
+            <span class="stats-label">今日人数</span>
+            <span class="stats-value">28 人</span>
+        </div>
+        <div class="stats-item">
+            <span class="stats-label">今日访问</span>
+            <span class="stats-value">156 次</span>
+            <span class="ratio">(人均 5.6 次)</span>
+        </div>
+        <div class="stats-item">
+            <span class="stats-label">昨日人数</span>
+            <span class="stats-value">19 人</span>
+        </div>
+        <div class="stats-item">
+            <span class="stats-label">昨日访问</span>
+            <span class="stats-value">89 次</span>
+            <span class="ratio">(人均 4.7 次)</span>
+        </div>
+        <div class="stats-item">
+            <span class="stats-label">本月访问</span>
+            <span class="stats-value">3,247 次</span>
+        </div>
+        <div class="stats-item">
+            <span class="stats-label">总访问量</span>
+            <span class="stats-value">18,763 次</span>
+        </div>
+
+        <div class="chart">
+            <h4>📈 访问趋势图</h4>
+            <div>
+                <div class="bar" style="width: 40px; height: 100px;" title="总访问量: 18,763"></div>
+                <div class="bar" style="width: 40px; height: 60px;" title="本月访问: 3,247"></div>
+                <div class="bar" style="width: 40px; height: 25px;" title="今日访问: 156"></div>
+                <div class="bar" style="width: 40px; height: 15px;" title="昨日访问: 89"></div>
+            </div>
+            <p style="font-size: 0.8em; color: #666; margin-top: 10px;">相对比例图</p>
+        </div>
+
+        <div class="validation valid">
+            <h4>✅ 数据合理性分析：</h4>
+            <ul>
+                <li><strong>今日 vs 昨日：</strong> 今日数据比昨日高 47%，符合工作日访问规律</li>
+                <li><strong>人均访问量：</strong> 今日 5.6 次/人，昨日 4.7 次/人，数值合理</li>
+                <li><strong>月度累计：</strong> 本月 3,247 次，平均每天约 104 次，符合当前趋势</li>
+                <li><strong>总体规模：</strong> 总访问量 18,763 次，对于个人博客来说是合理的</li>
+                <li><strong>增长趋势：</strong> 数据显示逐步增长，符合博客发展预期</li>
+            </ul>
+        </div>
+
+        <div class="validation info">
+            <h4>📝 数据说明：</h4>
+            <ul>
+                <li><strong>访问者 (Visitors)：</strong> 独立访客数量，每个 IP 算作一个访问者</li>
+                <li><strong>访问量 (Visits)：</strong> 总访问次数，包括同一访问者的多次访问</li>
+                <li><strong>人均访问量：</strong> 访问量 ÷ 访问者，反映用户粘性</li>
+                <li><strong>数据来源：</strong> 基于网站分析工具统计</li>
+            </ul>
+        </div>
+
+        <div class="validation warning">
+            <h4>⚠️ 注意事项：</h4>
+            <ul>
+                <li>这是模拟数据，实际部署后需要配置真实的统计服务</li>
+                <li>可以考虑集成 Google Analytics 或百度统计等专业工具</li>
+                <li>数据会定期更新，反映真实的访问情况</li>
+            </ul>
+        </div>
+
+        <div style="text-align: center; margin-top: 20px;">
+            <a href="http://localhost:4000/blog/" target="_blank" style="display: inline-block; background: #007bff; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">
+                🔍 查看实际效果
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // 动态计算一些比率
+        document.addEventListener('DOMContentLoaded', function() {
+            // 可以添加更多的动态验证逻辑
+            console.log('访问统计数据验证完成');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>访问统计测试</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .test-result { margin: 10px 0; padding: 10px; border-radius: 5px; }
+        .success { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .error { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        .info { background: #d1ecf1; color: #0c5460; border: 1px solid #bee5eb; }
+    </style>
+</head>
+<body>
+    <h1>🔍 访问统计模块测试</h1>
+    
+    <div class="info">
+        <h3>📋 测试步骤：</h3>
+        <ol>
+            <li>访问本地博客：<a href="http://localhost:4000/blog/" target="_blank">http://localhost:4000/blog/</a></li>
+            <li>查看侧边栏是否显示"访问统计"卡片</li>
+            <li>检查统计数字是否正常显示</li>
+            <li>测试点击统计项是否有交互效果</li>
+        </ol>
+    </div>
+
+    <div class="info">
+        <h3>📊 预期显示内容：</h3>
+        <ul>
+            <li><strong>今日人数：</strong> 12</li>
+            <li><strong>昨日人数：</strong> 8</li>
+            <li><strong>今日访问：</strong> 45</li>
+            <li><strong>昨日访问：</strong> 32</li>
+            <li><strong>本月访问：</strong> 1,256</li>
+            <li><strong>总访问量：</strong> 8,934</li>
+        </ul>
+    </div>
+
+    <div class="info">
+        <h3>✅ 功能特性：</h3>
+        <ul>
+            <li>数字递增动画效果</li>
+            <li>悬停时的卡片动画</li>
+            <li>点击统计项的反馈效果</li>
+            <li>响应式设计</li>
+            <li>数据来源显示</li>
+        </ul>
+    </div>
+
+    <script>
+        // 自动检测服务器状态
+        fetch('http://localhost:4000/blog/')
+            .then(response => {
+                if (response.ok) {
+                    document.body.insertAdjacentHTML('beforeend', 
+                        '<div class="test-result success"><strong>✅ 服务器状态：</strong> 本地服务器运行正常</div>'
+                    );
+                } else {
+                    document.body.insertAdjacentHTML('beforeend', 
+                        '<div class="test-result error"><strong>❌ 服务器状态：</strong> 服务器响应异常</div>'
+                    );
+                }
+            })
+            .catch(error => {
+                document.body.insertAdjacentHTML('beforeend', 
+                    '<div class="test-result error"><strong>❌ 服务器状态：</strong> 无法连接到服务器，请确保 npm run server 正在运行</div>'
+                );
+            });
+    </script>
+</body>
+</html>

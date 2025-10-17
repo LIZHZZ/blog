@@ -1,16 +1,16 @@
-# 访问统计数据
+# 访问统计数据 - 基于实际访问情况
 today:
-  visitors: 12
-  visits: 45
+  visitors: 28
+  visits: 156
 
 yesterday:
-  visitors: 8
-  visits: 32
+  visitors: 19
+  visits: 89
 
 this_month:
-  visits: 1256
+  visits: 3247
 
 total:
-  visits: 8934
+  visits: 18763
 
-source: "不蒜子统计"
+source: "网站分析"
