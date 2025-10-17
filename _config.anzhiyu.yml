@@ -1053,7 +1053,7 @@ css_prefix: true
 access_stats:
   enable: true # 启用访问统计
   position: sidebar # sidebar/before_posts/after_posts/only
-  data_source: yml # 使用yml文件数据
+  data_source: busuanzi # 使用不蒜子真实统计
   
 # 首页顶部相关配置
 home_top:
