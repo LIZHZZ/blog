@@ -1,6 +1,6 @@
 //- 侧边栏访问统计卡片
-if theme.access_stats.enable && site.data.access_stats
-  - const stats = site.data.access_stats
+if theme.access_stats.enable
+  - const stats = site.data.access_stats || {today: {visitors: 0, visits: 0}, yesterday: {visitors: 0, visits: 0}, this_month: {visits: 0}, total: {visits: 0}, source: "测试数据"}
   .card-widget.anzhiyu-right-widget#card-access-stats
     .item-headline
       i.anzhiyufont.anzhiyu-icon-chart-line
