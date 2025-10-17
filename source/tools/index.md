@@ -150,24 +150,36 @@ function updateHistoryDisplay() {
     return;
   }
   
-  // 截断过长的内容的辅助函数
-  const formatValue = (val) => {
-    const str = String(val);
-    if (str.length > 40) {
-      return str.substring(0, 37) + '...';
-    }
-    return str;
-  };
-  
   historyDiv.innerHTML = conversionHistory.map(function(item) {
-    const fromStr = formatValue(item.from);
-    const toStr = formatValue(item.to);
+    // 格式化显示内容
+    let displayContent = '';
     
-    return '<div style="padding: 8px; margin: 3px 0; background: #f8f9fa; border-radius: 5px; border-left: 3px solid #007bff;">' +
-      '<div style="font-size: 0.8em; color: #666; margin-bottom: 3px;">' + item.timestamp + '</div>' +
-      '<div style="margin: 3px 0; color: #333; font-size: 0.9em;"><strong>' + item.type + '</strong></div>' +
-      '<div style="font-size: 0.85em; word-break: break-all; color: #333; margin: 2px 0;">从: <code style="background: #e3f2fd; padding: 2px 5px; border-radius: 3px; color: #1565c0;">' + fromStr + '</code></div>' +
-      '<div style="font-size: 0.85em; word-break: break-all; color: #333; margin: 2px 0;">到: <code style="background: #e8f5e9; padding: 2px 5px; border-radius: 3px; color: #2e7d32;">' + toStr + '</code></div>' +
+    if (item.type.includes('十进制→二进制') || item.type.includes('二进制→十进制')) {
+      // 整数转换：显示十进制和完整二进制
+      const decimal = item.type.includes('十进制→二进制') ? item.from : item.to;
+      const binary = item.type.includes('十进制→二进制') ? item.to : item.from;
+      
+      // 确保二进制显示完整32位
+      const fullBinary = binary.toString().padStart(32, '0');
+      // 格式化二进制：每8位一组
+      const formattedBinary = fullBinary.replace(/(.{8})/g, '$1 ').trim();
+      
+      displayContent = `<div style="font-size: 0.85em; line-height: 1.3;">
+        <div style="margin: 2px 0;"><strong>十进制:</strong> ${decimal}</div>
+        <div style="margin: 2px 0; word-break: break-all;"><strong>二进制:</strong> ${formattedBinary}</div>
+      </div>`;
+    } else {
+      // 其他转换类型保持原格式
+      displayContent = `<div style="font-size: 0.85em; line-height: 1.3;">
+        <div style="margin: 2px 0;">从: <code style="background: #e3f2fd; padding: 2px 5px; border-radius: 3px; color: #1565c0;">${item.from}</code></div>
+        <div style="margin: 2px 0;">到: <code style="background: #e8f5e9; padding: 2px 5px; border-radius: 3px; color: #2e7d32;">${item.to}</code></div>
+      </div>`;
+    }
+    
+    return '<div style="padding: 6px; margin: 2px 0; background: #f8f9fa; border-radius: 5px; border-left: 3px solid #007bff;">' +
+      '<div style="font-size: 0.75em; color: #666; margin-bottom: 2px;">' + item.timestamp + '</div>' +
+      '<div style="margin: 2px 0; color: #333; font-size: 0.9em; font-weight: bold;">' + item.type + '</div>' +
+      displayContent +
       '</div>';
   }).join('');
 }
