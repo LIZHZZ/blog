@@ -1051,9 +1051,9 @@ css_prefix: true
 
 # 访问统计配置
 access_stats:
-  enable: false # 暂时关闭访问统计，避免模板错误
+  enable: true # 启用访问统计
   position: sidebar # sidebar/before_posts/after_posts/only
-  data_source: busuanzi # 使用不蒜子统计
+  data_source: yml # 使用yml文件数据
   
 # 首页顶部相关配置
 home_top:

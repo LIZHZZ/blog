@@ -1,8 +1,16 @@
 # 访问统计数据
-# 这些是模拟数据，你可以根据需要调整
-site_uv: 128    # 站点访问用户数
-site_pv: 456    # 站点访问量
-page_pv: 789    # 当前页面访问量
+today:
+  visitors: 12
+  visits: 45
 
-# 更新说明：当你的博客有一定真实访问量后，
-# 建议删除此文件，改为使用 busuanzi 实时统计
+yesterday:
+  visitors: 8
+  visits: 32
+
+this_month:
+  visits: 1256
+
+total:
+  visits: 8934
+
+source: "不蒜子统计"
