@@ -1,3 +1,3 @@
-var posts=["2024/12/19/interactive-map-demo/","2024/12/19/cocktail-and-coding/","2024/11/12/post/","2024/12/19/spatial-data-series-01/"];function toRandomPost(){
+var posts=["2024/12/19/cocktail-and-coding/","2024/12/19/interactive-map-demo/","2024/12/19/spatial-data-series-01/","2024/11/12/post/"];function toRandomPost(){
     pjax.loadUrl('/'+posts[Math.floor(Math.random() * posts.length)]);
   };
