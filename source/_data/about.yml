@@ -79,10 +79,42 @@
   
   # 座右铭
   maxim:
-    title: "人生格言"
-    maxim_list:
-      - content: "数据是世界的语言，而生活是世界的艺术"
-        from: "我自己"
+    maxim_tips: "人生格言"
+    maxim_top: "数据是世界的语言，而生活是世界的艺术"
+    maxim_bottom: "在理性中寻找感性，在艺术中发现科学"
+  
+  # Buff（属性加成）
+  buff:
+    buff_tips: "特殊加成"
+    buff_top: "时空数据 +50"
+    buff_bottom: "调酒艺术 +30"
+  
+  # 游戏（可选）
+  game:
+    game_tips: 游戏
+    game_title: "我的游戏"
+    game_uid: "UID: 12345678"
+    game_bg: /img/game.webp
+  
+  # 漫画（可选）
+  comic:
+    comic_tips: 追番
+    comic_title: 正在追番
+    comic_list: []
+  
+  # 音乐
+  music:
+    music_tips: 音乐
+    music_title: 我喜欢的音乐
+    music_link: /music/
+    music_bg: /img/music.webp
+  
+  # 喜欢的技术
+  like:
+    like_tips: 技术
+    like_title: 我热爱的技术
+    like_bottom: Python · JavaScript · SQL · Docker
+    like_bg: /img/tech.webp
   
   # 社交链接（会使用主题配置的 social）
   socialIcons:
