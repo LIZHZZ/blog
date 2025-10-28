@@ -114,10 +114,10 @@ if site.data.about
           - let mapBackgroundDark = item.map.backgroundDark
           style.
             .author-content-item.map {
-              background-image: url(#{mapBackground});
+              background-image: url(#{mapBackground}), linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
             }
             [data-theme='dark'] .author-content-item.map {
-              background-image: url(#{mapBackgroundDark});
+              background-image: url(#{mapBackgroundDark}), linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
             }
           .author-content-item.map.single
             - let mapTitle = item.map.title
