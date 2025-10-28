@@ -162,6 +162,9 @@ body[data-type='about'] #web_bg {
   align-items: flex-start;
   flex-direction: column;
   width: 39%;
+  background: var(--anzhiyu-card-bg) !important;
+  border: var(--style-border-always) !important;
+  box-shadow: var(--anzhiyu-shadow-border) !important;
 }
 
 .aboutsiteTips h2 {
@@ -175,7 +178,7 @@ body[data-type='about'] #web_bg {
 }
 
 .aboutsiteTips .mask {
-  height: 36px;
+  height: 40px;
   position: relative;
   overflow: hidden;
   margin-top: 4px;
@@ -185,13 +188,20 @@ body[data-type='about'] #web_bg {
   display: block;
   box-sizing: border-box;
   position: absolute;
-  top: 36px;
-  padding-bottom: var(--offset);
-  background-size: 100% 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-repeat: no-repeat;
+  top: 0;
+  left: 0;
+  width: 100%;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 40px;
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  transform: translateY(40px);
+  opacity: 0;
+}
+
+.aboutsiteTips .mask span:first-child {
+  transform: translateY(0);
+  opacity: 1;
 }
 
 .aboutsiteTips .mask span[data-show] {
@@ -218,6 +228,49 @@ body[data-type='about'] #web_bg {
 
 .aboutsiteTips .mask span:nth-child(4) {
   background-image: linear-gradient(45deg, #fa7671 50%, #f45f7f);
+}
+
+.aboutsiteTips .mask span:nth-child(5) {
+  background-image: linear-gradient(45deg, #ff9a56 50%, #ff6b35);
+}
+
+// 备用方案：如果渐变文字不可见，使用普通颜色
+@media (prefers-reduced-motion: reduce) {
+  .aboutsiteTips .mask span {
+    -webkit-text-fill-color: var(--anzhiyu-main) !important;
+    color: var(--anzhiyu-main) !important;
+    background: none !important;
+  }
+}
+
+// 强制显示文字 - 优先使用普通颜色
+.aboutsiteTips .mask span {
+  -webkit-text-fill-color: unset !important;
+  color: #333 !important;
+  background: none !important;
+  font-size: 36px !important;
+  font-weight: 700 !important;
+}
+
+// 为不同的词设置不同颜色
+.aboutsiteTips .mask span:nth-child(1) {
+  color: #0ecffe !important;
+}
+
+.aboutsiteTips .mask span:nth-child(2) {
+  color: #18e198 !important;
+}
+
+.aboutsiteTips .mask span:nth-child(3) {
+  color: #8a7cfb !important;
+}
+
+.aboutsiteTips .mask span:nth-child(4) {
+  color: #fa7671 !important;
+}
+
+.aboutsiteTips .mask span:nth-child(5) {
+  color: #ff9a56 !important;
 }
 
 @media screen and (max-width: 768px) {

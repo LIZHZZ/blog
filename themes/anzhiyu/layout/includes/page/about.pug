@@ -41,11 +41,14 @@ if site.data.about
             = title2
             .mask
               each wordItem, index in word
-                if index < word.length - 2
-                  span(class=(index === 0 ? 'first-tips' : ''))= wordItem
-              span(data-up)= word[word.length - 2]
-              |  
-              span(data-show)= word[word.length - 1]
+                if index === 0
+                  span.first-tips= wordItem
+                else if index === word.length - 1
+                  span(data-show)= wordItem
+                else if index === word.length - 2
+                  span(data-up)= wordItem
+                else
+                  span= wordItem
       
       .hello-about
         .cursor(style='translate:none;rotate:none;scale:none;transform:translate(721px,180px)')
@@ -387,24 +390,13 @@ if site.data.about
             statisticUP()
           });
 
-        var pursuitInterval = null;
-        pursuitInterval = setInterval(function () {
-          const show = document.querySelector("span[data-show]");
-          const next = show.nextElementSibling || document.querySelector(".first-tips");
-          const up = document.querySelector("span[data-up]");
-
-          if (up) {
-            up.removeAttribute("data-up");
-          }
-
-          show.removeAttribute("data-show");
-          show.setAttribute("data-up", "");
-
-          next.setAttribute("data-show", "");
-        }, 2000);
+        // 简化的文字滚动动画
+        
 
         document.addEventListener("pjax:send", function () {
-          pursuitInterval && clearInterval(pursuitInterval);
+          if (window.pursuitInterval) {
+            clearInterval(window.pursuitInterval);
+          }
         });
 
         var helloAboutEl = document.querySelector(".hello-about");
@@ -423,8 +415,12 @@ if site.data.about
           });
         });
       }
+      
       if (typeof gsap === "object") {
         initAboutPage()
       } else {
         getScript("!{url_for(theme.asset.gsap_js)}").then(initAboutPage);
       }
+
+// 加载动画脚本（在条件块外面）
+script(src=url_for('/js/about-animation.js'))

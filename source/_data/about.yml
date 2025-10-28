@@ -1,36 +1,23 @@
-# 关于我页面数据配置
-# 这是你个人介绍的详细页面
-
 - name: 李政（LIZHZZ）
   subtitle: 时空数据挖掘研究员 · 调酒师 · 生活探索者
   description: |
-    你好！我是一名专注于时空数据挖掘与算法研究的研究者，
-    同时也是一名热爱调制鸡尾酒的业余调酒师。
-    
-    我对数据的洞察力和对调酒艺术的热情，
-    让我在不同领域都找到了创造与探索的乐趣。
-    
+    你好！重庆大学计算机科学与技术专业的学生，
+    还是一个在尝试不断在厨房里捣鼓各种美食的吃货。
+
     🗺️ **专业领域**：时空数据管理、轨迹挖掘、路网分析
-    🍸 **生活乐趣**：经典鸡尾酒调制、鸡尾酒文化研究
-    
+    🍸 **生活乐趣**：调过酒、炒过菜
   avatarImg: /jhdj.jpg
-  
-  # 问候语
-  helloAbout: "你好，很高兴认识你 👋"
-  
-  # 网站/博客介绍
+  helloAbout: 你好，很高兴认识你 👋
   aboutsiteTips:
     tips: 网站
     title1: 这是一个
-    title2: "关于时空数据与生活的探索空间"
+    title2: 关于时空数据与生活的探索空间
     word:
-      - "穿越时空"
-      - "捕捉数据"
-      - "调制未来"
-      - "探索"
-      - "创新"
-  
-  # 技能标签
+      - 数据科学
+      - 算法研究
+      - 空间计算
+      - 轨迹分析
+      - 创新探索
   avatarSkills:
     left:
       - 时空数据分析
@@ -40,94 +27,69 @@
       - 鸡尾酒调制
       - 创意混搭
       - 精酿品鉴
-  
-  # 技能展示
   skillsTips:
     tips: 技能
     title: 专业技能
-  
-  # 职业经历
   careers:
     tips: 职业
     title: 经历
     list:
-      - desc: "时空数据挖掘研究 | 2020-至今"
+      - desc: 时空数据挖掘研究 | 2020-至今
         color: "#357ef5"
-      - desc: "算法工程师 | Python 数据分析"
+      - desc: 算法工程师 | Python 数据分析
         color: "#35c7f5"
-      - desc: "业余调酒师 | 经典与现代融合"
+      - desc: 业余调酒师 | 经典与现代融合
         color: "#FFB6C1"
-    img: # 可以放置职业生涯图片
-  
-  # 地图配置（如果有地理位置信息）
   map:
-    title: "我的位置"
-    StrengthenTitle: "中国 · 重庆"
+    title: 我的位置
+    StrengthenTitle: 中国 · 重庆
     background: https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/116.4074,39.9042,10.5,0/800x400?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw
     backgroundDark: https://api.mapbox.com/styles/v1/mapbox/dark-v10/static/116.4074,39.9042,10.5,0/800x400?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw
-  
-  # 自我信息
   selfInfo:
-    selfInfoTips1: "专注研究"
-    selfInfoContentYear: "3+"
-    selfInfoTips2: "项目经验"
-    selfInfoContent2: "10+"
-    selfInfoTips3: "饮酒史"
-    selfInfoContent3: "5+"
-  
-  # 性格测试（MBTI/16personalities）
+    selfInfoTips1: 专注研究
+    selfInfoContentYear: "3"
+    selfInfoTips2: 项目经验
+    selfInfoContent2: "10"
+    selfInfoTips3: 饮酒史
+    selfInfoContent3: "5"
   personalities:
-    author_name: "你是？"
-    personality_type: "INTJ - 建筑师"  # 可以根据你的实际情况修改
+    author_name: 你是？
+    personality_type: INTJ - 建筑师
     personality_type_color: "#ac899c"
-    personality_img: /img/personality.webp  # 性格测试图表
-    photo_url: /img/myphoto.jpg  # 你的照片
+    personality_img: /img/personality.webp
+    photo_url: /img/myphoto.jpg
     name_url: https://www.16personalities.com/intj-personality
-  
-  # 座右铭
   maxim:
-    maxim_tips: "人生格言"
-    maxim_top: "数据是世界的语言，而生活是世界的艺术"
-    maxim_bottom: "在理性中寻找感性，在艺术中发现科学"
-  
-  # Buff（属性加成）
+    maxim_tips: 人生格言
+    maxim_top: 数据是世界的语言，而生活是世界的艺术
+    maxim_bottom: 在理性中寻找感性，在艺术中发现科学
   buff:
-    buff_tips: "特殊加成"
-    buff_top: "时空数据 +50"
-    buff_bottom: "调酒艺术 +30"
-  
-  # 游戏（可选）
+    buff_tips: 特殊加成
+    buff_top: 时空数据 +50
+    buff_bottom: 调酒艺术 +30
   game:
     game_tips: 游戏
-    game_title: "我的游戏"
+    game_title: 我的游戏
     game_uid: "UID: 12345678"
     game_bg: /img/game.webp
-  
-  # 漫画（可选）
   comic:
     comic_tips: 追番
     comic_title: 正在追番
     comic_list: []
-  
-  # 音乐
   music:
     music_tips: 音乐
     music_title: 我喜欢的音乐
     music_link: /music/
     music_bg: /img/music.webp
-  
-  # 喜欢的技术
   like:
     like_tips: 技术
     like_title: 我热爱的技术
     like_bottom: Python · JavaScript · SQL · Docker
     like_bg: /img/tech.webp
-  
-  # 社交链接（会使用主题配置的 social）
   socialIcons:
     - icon: anzhiyu-icon-github
       link: https://github.com/LIZHZZ
       name: GitHub
     - icon: anzhiyu-icon-bilibili
-      link: # 添加你的B站链接
+      link: ""
       name: Bilibili
