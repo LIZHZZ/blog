@@ -43,8 +43,8 @@
   map:
     title: 我的位置
     StrengthenTitle: 中国 · 重庆
-    background: https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/116.4074,39.9042,10.5,0/800x400?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw
-    backgroundDark: https://api.mapbox.com/styles/v1/mapbox/dark-v10/static/116.4074,39.9042,10.5,0/800x400?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw
+    background: https://staticmap.openstreetmap.de/staticmap.php?center=29.5630,106.5516&zoom=11&size=800x400&markers=29.5630,106.5516,lightblue
+    backgroundDark: https://staticmap.openstreetmap.de/staticmap.php?center=29.5630,106.5516&zoom=11&size=800x400&markers=29.5630,106.5516,lightblue
   selfInfo:
     selfInfoTips1: 专注研究
     selfInfoContentYear: "3"
