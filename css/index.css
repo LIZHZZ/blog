@@ -4484,7 +4484,7 @@ body[data-type='about'] #web_bg {
   line-height: 1.1;
 }
 .author-content-item.map {
-  min-height: 160px;
+  min-height: 200px;
   max-height: 400px;
   position: relative;
   overflow: hidden;
@@ -4495,9 +4495,7 @@ body[data-type='about'] #web_bg {
   -o-transition: 1s ease-in-out;
   -ms-transition: 1s ease-in-out;
   transition: 1s ease-in-out;
-  background-size: 100%;
-  background-repeat: no-repeat;
-  background-position: center;
+/* 背景图片和样式通过内联style属性设置，优先级最高 */
 }
 .author-content-item.single {
   width: 100%;
@@ -5554,23 +5552,8 @@ body[data-type='about'] #web_bg {
   pointer-events: none;
   z-index: 3;
 }
-#about-page .author-content-item-group.column.mapAndInfo {
-  width: 100%;
-}
-#about-page .author-content-item-group.column {
-  -webkit-box-orient: horizontal;
-  -moz-box-orient: horizontal;
-  -o-box-orient: horizontal;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-}
-#about-page .author-content-item.map {
-  width: 50%;
-}
-#about-page .author-content-item.selfInfo {
-  height: 100%;
-  width: 49%;
+ {
+  body: 1;
 }
 @-moz-keyframes loading-bar {
   0% {
