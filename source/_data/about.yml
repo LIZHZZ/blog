@@ -40,6 +40,10 @@
         color: "#35c7f5"
       - desc: 业余调酒师 | 经典与现代融合
         color: "#FFB6C1"
+  statistic:
+    cover: /img/about-bg.jpg
+    link: /archives/
+    text: 查看更多文章
   map:
     title: 我的位置
     StrengthenTitle: 中国 · 重庆

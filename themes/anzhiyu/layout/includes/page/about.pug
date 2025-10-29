@@ -109,21 +109,15 @@ if site.data.about
                   i.anzhiyufont.anzhiyu-icon-arrow-circle-right
                   |  
                   span.banner-button-text=text
+        
         .author-content-item-group.column.mapAndInfo
           - let mapBackground = item.map.background
           - let mapBackgroundDark = item.map.backgroundDark
           - let hasMapImage = mapBackground && mapBackground.trim() !== ''
           - let hasDarkMapImage = mapBackgroundDark && mapBackgroundDark.trim() !== ''
-          style.
-            #about-page .author-content-item.map {
-              background: !{hasMapImage ? 'url("' + mapBackground + '") center / cover no-repeat, ' : ''}linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%) !important;
-              min-height: 200px !important;
-            }
-            [data-theme='dark'] #about-page .author-content-item.map {
-              background: !{hasDarkMapImage ? 'url("' + mapBackgroundDark + '") center / cover no-repeat, ' : ''}linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%) !important;
-              min-height: 200px !important;
-            }
-          .author-content-item.map.single
+          - let mapStyle = hasMapImage ? 'background: url("' + mapBackground + '") center / cover no-repeat, linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%); min-height: 200px;' : 'background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%); min-height: 200px;'
+          - let mapStyleDark = hasDarkMapImage ? 'background: url("' + mapBackgroundDark + '") center / cover no-repeat, linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); min-height: 200px;' : 'background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); min-height: 200px;'
+          .author-content-item.map.single(style=mapStyle)
             - let mapTitle = item.map.title
             - let mapStrengthenTitle = item.map.StrengthenTitle
             span.map-title=mapTitle
@@ -303,11 +297,17 @@ if site.data.about
             let title = ["最近活跃", "今日人数", "今日访问", "昨日人数", "昨日访问", "本月访问", "总访问量"];
             let num = data.match(/(<\/span><span>).*?(\/span><\/p>)/g);
 
-            num = num.map(el => {
-              let val = el.replace(/(<\/span><span>)/g, "");
-              let str = val.replace(/(<\/span><\/p>)/g, "");
-              return str;
-            });
+            // 检查 num 是否为 null 或空数组
+            if (!num || num.length === 0) {
+              console.warn('51.la 统计数据解析失败，使用默认值');
+              num = ['0', '0', '0', '0', '0', '0', '0'];
+            } else {
+              num = num.map(el => {
+                let val = el.replace(/(<\/span><span>)/g, "");
+                let str = val.replace(/(<\/span><\/p>)/g, "");
+                return str;
+              });
+            }
 
             let statisticEl = document.getElementById("statistic");
 
@@ -392,6 +392,14 @@ if site.data.about
 
             selfInfoContentYearUp();
             statisticUP()
+          })
+          .catch(error => {
+            console.warn('51.la 统计服务加载失败:', error);
+            // 使用默认值显示统计
+            let statisticEl = document.getElementById("statistic");
+            if (statisticEl) {
+              statisticEl.innerHTML = '<div><span>今日访问</span><span>0</span></div><div><span>总访问量</span><span>0</span></div>';
+            }
           });
 
         // 简化的文字滚动动画
@@ -420,10 +428,19 @@ if site.data.about
         });
       }
       
+      // 添加错误处理
+      function initAboutPageWithErrorHandling() {
+        try {
+          initAboutPage();
+        } catch (error) {
+          console.warn('initAboutPage 执行失败:', error);
+        }
+      }
+      
       if (typeof gsap === "object") {
-        initAboutPage()
+        initAboutPageWithErrorHandling()
       } else {
-        getScript("!{url_for(theme.asset.gsap_js)}").then(initAboutPage);
+        getScript("!{url_for(theme.asset.gsap_js)}").then(initAboutPageWithErrorHandling);
       }
 
 // 加载动画脚本（在条件块外面）
