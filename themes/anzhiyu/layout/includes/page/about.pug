@@ -112,12 +112,16 @@ if site.data.about
         .author-content-item-group.column.mapAndInfo
           - let mapBackground = item.map.background
           - let mapBackgroundDark = item.map.backgroundDark
+          - let hasMapImage = mapBackground && mapBackground.trim() !== ''
+          - let hasDarkMapImage = mapBackgroundDark && mapBackgroundDark.trim() !== ''
           style.
-            .author-content-item.map {
-              background-image: url(#{mapBackground}), linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            #about-page .author-content-item.map {
+              background: !{hasMapImage ? 'url("' + mapBackground + '") center / cover no-repeat, ' : ''}linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%) !important;
+              min-height: 200px !important;
             }
-            [data-theme='dark'] .author-content-item.map {
-              background-image: url(#{mapBackgroundDark}), linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            [data-theme='dark'] #about-page .author-content-item.map {
+              background: !{hasDarkMapImage ? 'url("' + mapBackgroundDark + '") center / cover no-repeat, ' : ''}linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%) !important;
+              min-height: 200px !important;
             }
           .author-content-item.map.single
             - let mapTitle = item.map.title

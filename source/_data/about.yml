@@ -43,8 +43,13 @@
   map:
     title: 我的位置
     StrengthenTitle: 中国 · 重庆
-    background: https://staticmap.openstreetmap.de/staticmap.php?center=29.5630,106.5516&zoom=11&size=800x400&markers=29.5630,106.5516,lightblue
-    backgroundDark: https://staticmap.openstreetmap.de/staticmap.php?center=29.5630,106.5516&zoom=11&size=800x400&markers=29.5630,106.5516,lightblue
+    # 高德地图静态地图API (免费申请key: https://console.amap.com/dev/key/app)
+    # 重要: Key类型必须选择"Web服务"(不是Web端JS API)
+    # 如果地图不显示，请检查: 1. Key类型是否正确 2. 浏览器控制台是否有错误 3. Key是否有域名/IP限制
+    # 重庆坐标: 106.5516,29.5630
+    # 备选方案: 如果高德地图不行，可以尝试百度地图API: https://api.map.baidu.com/staticimage/v2?center=106.5516,29.5630&width=800&height=400&zoom=12&markers=106.5516,29.5630&ak=YOUR_KEY
+    background: https://restapi.amap.com/v3/staticmap?location=106.5516,29.5630&zoom=12&size=800*400&markers=mid,,A:106.5516,29.5630&key=21ae92dd18fa8147d117785c681cce6a
+    backgroundDark: https://restapi.amap.com/v3/staticmap?location=106.5516,29.5630&zoom=12&size=800*400&markers=mid,,A:106.5516,29.5630&key=21ae92dd18fa8147d117785c681cce6a
   selfInfo:
     selfInfoTips1: 专注研究
     selfInfoContentYear: "3"
