@@ -60,16 +60,22 @@ a.categoryButton i {
   transform: scale(1) rotate(15deg);
 }
 
+
+
 a.categoryButton.blue {
-  background: linear-gradient(to right, #358bff, #15c6ff);
+  background: linear-gradient(to right, #358bff, #45caf7);
   background-size: 200%;
 }
 a.categoryButton.red {
-  background: linear-gradient(to right, #f65, #ffbf37);
+  background: linear-gradient(to right, #f65, #fcbe38);
   background-size: 200%;
 }
 a.categoryButton.green {
-  background: linear-gradient(to right, #18e7ae, #1eebeb);
+  background: linear-gradient(to right, #9eeed7, #1eebeb);
+  background-size: 200%;
+}
+a.categoryButton.purple {
+  background: linear-gradient(to right, #9d50bb, #6e48aa);
   background-size: 200%;
 }
 
@@ -87,6 +93,8 @@ a.categoryButton.green {
   filter: blur(0);
   top: 15%;
 }
+
+
 a.categoryButton:after {
   top: 47px;
   width: 1rem;
@@ -116,3 +124,9 @@ a.categoryButton:after {
   background: linear-gradient(to right, #099e74, #0ea4a4);
   background-size: 200%;
 }
+[data-theme="dark"] a.categoryButton.purple {
+  background: linear-gradient(to right, #6a4c93, #4a3c6b);
+  background-size: 200%;
+}
+
+

@@ -150,8 +150,9 @@ if site.data.about
             a(target='_blank', rel='noopener external nofollow', href= name_url)= author_name
           .image
             img.no-lightbox(src=url_for(personality_img), alt='人格')
-        .author-content-item.myphoto
-          img.author-content-img.no-lightbox(alt='自拍', src=url_for(photo_url))
+        //- 自拍区已隐藏
+        //- .author-content-item.myphoto
+        //-   img.author-content-img.no-lightbox(alt='自拍', src=url_for(photo_url))
       
       .author-content
         .author-content-item.maxim
@@ -203,17 +204,18 @@ if site.data.about
             span.author-content-item-title=like_title
             .content-bottom
               .tips=like_bottom
-        .author-content-item.like-music(style=`background: url(${music_bg}) top / cover no-repeat;`)
-          .card-content
-            .author-content-item-tips=music_tips
-            span.author-content-item-title=music_title
-            .content-bottom
-              .tips=`跟 ${aboutName} 一起欣赏更多音乐`
-            .banner-button-group
-              a.banner-button(onclick=`pjax.loadUrl("${music_link}")`)
-                i.anzhiyufont.anzhiyu-icon-arrow-circle-right
-                |  
-                span.banner-button-text 更多推荐
+        //- 我喜欢的音乐已隐藏
+        //- .author-content-item.like-music(style=`background: url(${music_bg}) top / cover no-repeat;`)
+        //-   .card-content
+        //-     .author-content-item-tips=music_tips
+        //-     span.author-content-item-title=music_title
+        //-     .content-bottom
+        //-       .tips=`跟 ${aboutName} 一起欣赏更多音乐`
+        //-     .banner-button-group
+        //-       a.banner-button(onclick=`pjax.loadUrl("${music_link}")`)
+        //-         i.anzhiyufont.anzhiyu-icon-arrow-circle-right
+        //-         |  
+        //-         span.banner-button-text 更多推荐
 
       if page.content
         .author-content
