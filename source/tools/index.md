@@ -75,6 +75,48 @@ layout: "page"
   <div id="history-list" style="max-height: 300px; overflow-y: auto;"></div>
 </div>
 
+<div class="tool-container">
+  <h3>🔀 异或计算器</h3>
+  <div class="input-group" style="margin-bottom: 15px;">
+    <label style="min-width: 120px;">数据类型:</label>
+    <select id="xor-type" style="padding: 8px; border: 1px solid #ddd; border-radius: 5px; flex: 1;">
+      <option value="int">整数 (32位)</option>
+      <option value="float" selected>Float (32位单精度浮点数)</option>
+      <option value="double">Double (64位双精度浮点数)</option>
+    </select>
+  </div>
+  <div class="input-group">
+    <label>操作数1:</label>
+    <input type="text" id="xor-input1" placeholder="十进制浮点数或二进制">
+    <select id="xor-base1" style="padding: 8px; border: 1px solid #ddd; border-radius: 5px;">
+      <option value="dec">十进制</option>
+      <option value="bin">二进制</option>
+      <option value="hex">十六进制</option>
+    </select>
+  </div>
+  <div class="input-group">
+    <label>操作数2:</label>
+    <input type="text" id="xor-input2" placeholder="十进制浮点数或二进制">
+    <select id="xor-base2" style="padding: 8px; border: 1px solid #ddd; border-radius: 5px;">
+      <option value="dec">十进制</option>
+      <option value="bin">二进制</option>
+      <option value="hex">十六进制</option>
+    </select>
+  </div>
+  <div class="input-group" style="margin-top: 10px; flex-wrap: wrap;">
+    <label style="min-width: auto; margin-right: 15px;">
+      <input type="checkbox" id="xor-show-binary" checked style="margin-right: 5px;">
+      显示二进制表示
+    </label>
+    <label style="min-width: auto; margin-right: 15px;">
+      <input type="checkbox" id="xor-show-hex" checked style="margin-right: 5px;">
+      显示十六进制表示
+    </label>
+  </div>
+  <button onclick="calculateXOR()">计算异或</button>
+  <div id="xor-result"></div>
+</div>
+
 ## 📍 坐标转换工具
 
 <div class="tool-container">
@@ -154,7 +196,41 @@ function updateHistoryDisplay() {
     // 格式化显示内容
     let displayContent = '';
     
-    if (item.type.includes('十进制→二进制') || item.type.includes('二进制→十进制')) {
+    // 处理异或运算历史记录
+    if (item.type === '异或运算' && item.from) {
+      // 格式：操作数1(十进制)：操作数1(二进制)：操作数2(十进制)：操作数2(二进制)：xor：结果
+      const parts = item.from.split('：');
+      if (parts.length >= 6) {
+        const num1Dec = parts[0];
+        const num1Bin = parts[1];
+        const num2Dec = parts[2];
+        const num2Bin = parts[3];
+        const result = parts[5];
+        
+        // 格式化二进制显示
+        const formatBin = (bin) => {
+          if (bin.length === 32) {
+            // 32位：每8位一组
+            return bin.replace(/(.{8})/g, '$1 ').trim();
+          } else if (bin.length === 64) {
+            // 64位：每8位一组
+            return bin.replace(/(.{8})/g, '$1 ').trim();
+          }
+          return bin;
+        };
+        
+        displayContent = `<div style="font-size: 0.85em; line-height: 1.4;">
+          <div style="margin: 3px 0;"><strong>操作数1:</strong> 十进制 <code style="background: #e3f2fd; padding: 2px 5px; border-radius: 3px; color: #1565c0;">${num1Dec}</code>，二进制 <code style="background: #fff3cd; padding: 2px 5px; border-radius: 3px; color: #856404; font-family: monospace; font-size: 0.9em; word-break: break-all;">${formatBin(num1Bin)}</code></div>
+          <div style="margin: 3px 0;"><strong>操作数2:</strong> 十进制 <code style="background: #e3f2fd; padding: 2px 5px; border-radius: 3px; color: #1565c0;">${num2Dec}</code>，二进制 <code style="background: #fff3cd; padding: 2px 5px; border-radius: 3px; color: #856404; font-family: monospace; font-size: 0.9em; word-break: break-all;">${formatBin(num2Bin)}</code></div>
+          <div style="margin: 3px 0; padding-top: 5px; border-top: 1px solid #ddd;"><strong>异或结果:</strong> <code style="background: #e8f5e9; padding: 2px 5px; border-radius: 3px; color: #2e7d32; font-weight: bold;">${result}</code></div>
+        </div>`;
+      } else {
+        // 如果格式不正确，显示原始内容
+        displayContent = `<div style="font-size: 0.85em; line-height: 1.3;">
+          <div style="margin: 2px 0;">${item.from}</div>
+        </div>`;
+      }
+    } else if (item.type.includes('十进制→二进制') || item.type.includes('二进制→十进制')) {
       // 整数转换：显示十进制和完整二进制
       const decimal = item.type.includes('十进制→二进制') ? item.from : item.to;
       const binary = item.type.includes('十进制→二进制') ? item.to : item.from;
@@ -414,6 +490,403 @@ function floatBinToDec() {
   `;
   
   addToHistory('Float (二进制→十进制)', input, num);
+}
+
+// 辅助函数：将Float转换为32位二进制
+function floatToBinary32(num) {
+  const buffer = new ArrayBuffer(4);
+  const floatView = new Float32Array(buffer);
+  const intView = new Uint32Array(buffer);
+  floatView[0] = num;
+  return intView[0].toString(2).padStart(32, '0');
+}
+
+// 辅助函数：将32位二进制转换为Float
+function binary32ToFloat(binary) {
+  const bits = parseInt(binary, 2);
+  const buffer = new ArrayBuffer(4);
+  const intView = new Uint32Array(buffer);
+  const floatView = new Float32Array(buffer);
+  intView[0] = bits;
+  return floatView[0];
+}
+
+// 辅助函数：将Double转换为64位二进制
+function doubleToBinary64(num) {
+  const buffer = new ArrayBuffer(8);
+  const floatView = new Float64Array(buffer);
+  const intView = new Uint32Array(buffer);
+  floatView[0] = num;
+  const low = intView[0];
+  const high = intView[1];
+  const highBinary = high.toString(2).padStart(32, '0');
+  const lowBinary = low.toString(2).padStart(32, '0');
+  return highBinary + lowBinary;
+}
+
+// 辅助函数：将64位二进制转换为Double
+function binary64ToDouble(binary) {
+  const highBinary = binary.slice(0, 32);
+  const lowBinary = binary.slice(32);
+  const high = parseInt(highBinary, 2);
+  const low = parseInt(lowBinary, 2);
+  const buffer = new ArrayBuffer(8);
+  const intView = new Uint32Array(buffer);
+  const floatView = new Float64Array(buffer);
+  intView[0] = low;
+  intView[1] = high;
+  return floatView[0];
+}
+
+// 异或计算器
+function calculateXOR() {
+  const input1 = document.getElementById('xor-input1').value.trim();
+  const input2 = document.getElementById('xor-input2').value.trim();
+  const base1 = document.getElementById('xor-base1').value;
+  const base2 = document.getElementById('xor-base2').value;
+  const dataType = document.getElementById('xor-type').value;
+  const showBinary = document.getElementById('xor-show-binary').checked;
+  const showHex = document.getElementById('xor-show-hex').checked;
+  
+  if (!input1 || !input2) {
+    document.getElementById('xor-result').innerHTML = '<p style="color: red;">请输入两个操作数</p>';
+    return;
+  }
+  
+  let num1, num2, binary1, binary2, binaryResult, result, resultFloat;
+  let hex1, hex2, hexResult;
+  let bits, binaryGroupSize, hexPadLength;
+  
+  // 根据数据类型确定位数
+  if (dataType === 'float') {
+    bits = 32;
+    binaryGroupSize = 8;
+    hexPadLength = 8;
+  } else if (dataType === 'double') {
+    bits = 64;
+    binaryGroupSize = 8;
+    hexPadLength = 16;
+  } else {
+    bits = 32;
+    binaryGroupSize = 8;
+    hexPadLength = 8;
+  }
+  
+  // 解析第一个操作数
+  try {
+    if (base1 === 'dec') {
+      if (dataType === 'float' || dataType === 'double') {
+        num1 = parseFloat(input1);
+        if (isNaN(num1)) {
+          throw new Error('无效的浮点数');
+        }
+      } else {
+        if (!/^-?\d+$/.test(input1)) {
+          throw new Error('无效的整数');
+        }
+        num1 = parseInt(input1, 10);
+        if (isNaN(num1)) {
+          throw new Error('无法解析为整数');
+        }
+      }
+    } else if (base1 === 'bin') {
+      if (!/^[01]+$/.test(input1)) {
+        throw new Error('无效的二进制数');
+      }
+      if (input1.length !== bits) {
+        throw new Error(`二进制数必须是${bits}位`);
+      }
+      // 根据类型转换
+      if (dataType === 'float') {
+        num1 = binary32ToFloat(input1);
+        binary1 = input1;
+      } else if (dataType === 'double') {
+        num1 = binary64ToDouble(input1);
+        binary1 = input1;
+      } else {
+        num1 = parseInt(input1, 2);
+        binary1 = input1;
+      }
+    } else if (base1 === 'hex') {
+      const hexStr = input1.replace(/^0x/i, '');
+      if (!/^[0-9A-Fa-f]+$/.test(hexStr)) {
+        throw new Error('无效的十六进制数');
+      }
+      if (hexStr.length !== hexPadLength / 2) {
+        throw new Error(`十六进制数必须是${hexPadLength/2}位`);
+      }
+      const hexNum = parseInt(hexStr, 16);
+      if (dataType === 'float') {
+        const buffer = new ArrayBuffer(4);
+        const intView = new Uint32Array(buffer);
+        const floatView = new Float32Array(buffer);
+        intView[0] = hexNum;
+        num1 = floatView[0];
+        binary1 = floatToBinary32(num1);
+      } else if (dataType === 'double') {
+        // 需要处理64位
+        const buffer = new ArrayBuffer(8);
+        const intView = new Uint32Array(buffer);
+        const floatView = new Float64Array(buffer);
+        // 对于64位，需要分割高低位
+        const highHex = hexStr.slice(0, 8);
+        const lowHex = hexStr.slice(8);
+        intView[0] = parseInt(lowHex, 16);
+        intView[1] = parseInt(highHex, 16);
+        num1 = floatView[0];
+        binary1 = doubleToBinary64(num1);
+      } else {
+        num1 = hexNum;
+        binary1 = (num1 >>> 0).toString(2).padStart(32, '0');
+      }
+    }
+    
+    // 如果还没有二进制表示，生成它
+    if (!binary1) {
+      if (dataType === 'float') {
+        binary1 = floatToBinary32(num1);
+      } else if (dataType === 'double') {
+        binary1 = doubleToBinary64(num1);
+      } else {
+        binary1 = (num1 >>> 0).toString(2).padStart(32, '0');
+      }
+    }
+  } catch (e) {
+    document.getElementById('xor-result').innerHTML = `<p style="color: red;">操作数1错误: ${e.message}</p>`;
+    return;
+  }
+  
+  // 解析第二个操作数
+  try {
+    if (base2 === 'dec') {
+      if (dataType === 'float' || dataType === 'double') {
+        num2 = parseFloat(input2);
+        if (isNaN(num2)) {
+          throw new Error('无效的浮点数');
+        }
+      } else {
+        if (!/^-?\d+$/.test(input2)) {
+          throw new Error('无效的整数');
+        }
+        num2 = parseInt(input2, 10);
+        if (isNaN(num2)) {
+          throw new Error('无法解析为整数');
+        }
+      }
+    } else if (base2 === 'bin') {
+      if (!/^[01]+$/.test(input2)) {
+        throw new Error('无效的二进制数');
+      }
+      if (input2.length !== bits) {
+        throw new Error(`二进制数必须是${bits}位`);
+      }
+      if (dataType === 'float') {
+        num2 = binary32ToFloat(input2);
+        binary2 = input2;
+      } else if (dataType === 'double') {
+        num2 = binary64ToDouble(input2);
+        binary2 = input2;
+      } else {
+        num2 = parseInt(input2, 2);
+        binary2 = input2;
+      }
+    } else if (base2 === 'hex') {
+      const hexStr = input2.replace(/^0x/i, '');
+      if (!/^[0-9A-Fa-f]+$/.test(hexStr)) {
+        throw new Error('无效的十六进制数');
+      }
+      if (hexStr.length !== hexPadLength / 2) {
+        throw new Error(`十六进制数必须是${hexPadLength/2}位`);
+      }
+      const hexNum = parseInt(hexStr, 16);
+      if (dataType === 'float') {
+        const buffer = new ArrayBuffer(4);
+        const intView = new Uint32Array(buffer);
+        const floatView = new Float32Array(buffer);
+        intView[0] = hexNum;
+        num2 = floatView[0];
+        binary2 = floatToBinary32(num2);
+      } else if (dataType === 'double') {
+        const buffer = new ArrayBuffer(8);
+        const intView = new Uint32Array(buffer);
+        const floatView = new Float64Array(buffer);
+        const highHex = hexStr.slice(0, 8);
+        const lowHex = hexStr.slice(8);
+        intView[0] = parseInt(lowHex, 16);
+        intView[1] = parseInt(highHex, 16);
+        num2 = floatView[0];
+        binary2 = doubleToBinary64(num2);
+      } else {
+        num2 = hexNum;
+        binary2 = (num2 >>> 0).toString(2).padStart(32, '0');
+      }
+    }
+    
+    if (!binary2) {
+      if (dataType === 'float') {
+        binary2 = floatToBinary32(num2);
+      } else if (dataType === 'double') {
+        binary2 = doubleToBinary64(num2);
+      } else {
+        binary2 = (num2 >>> 0).toString(2).padStart(32, '0');
+      }
+    }
+  } catch (e) {
+    document.getElementById('xor-result').innerHTML = `<p style="color: red;">操作数2错误: ${e.message}</p>`;
+    return;
+  }
+  
+  // 对二进制进行异或运算
+  let xorBits = '';
+  for (let i = 0; i < bits; i++) {
+    xorBits += (binary1[i] === binary2[i] ? '0' : '1');
+  }
+  binaryResult = xorBits;
+  
+  // 将异或结果转换回数值
+  if (dataType === 'float') {
+    resultFloat = binary32ToFloat(binaryResult);
+    const bitsInt = parseInt(binaryResult, 2);
+    hexResult = '0x' + bitsInt.toString(16).toUpperCase().padStart(8, '0');
+  } else if (dataType === 'double') {
+    resultFloat = binary64ToDouble(binaryResult);
+    const highBits = parseInt(binaryResult.slice(0, 32), 2);
+    const lowBits = parseInt(binaryResult.slice(32), 2);
+    const highHex = highBits.toString(16).toUpperCase().padStart(8, '0');
+    const lowHex = lowBits.toString(16).toUpperCase().padStart(8, '0');
+    hexResult = '0x' + highHex + lowHex;
+  } else {
+    result = parseInt(binaryResult, 2);
+    if (result > 0x7FFFFFFF) {
+      result = result - 0x100000000;
+    }
+    resultFloat = result;
+    hexResult = '0x' + parseInt(binaryResult, 2).toString(16).toUpperCase().padStart(8, '0');
+  }
+  
+  // 生成十六进制表示
+  if (dataType === 'float') {
+    const bits1 = parseInt(binary1, 2);
+    const bits2 = parseInt(binary2, 2);
+    hex1 = '0x' + bits1.toString(16).toUpperCase().padStart(8, '0');
+    hex2 = '0x' + bits2.toString(16).toUpperCase().padStart(8, '0');
+  } else if (dataType === 'double') {
+    const high1 = parseInt(binary1.slice(0, 32), 2);
+    const low1 = parseInt(binary1.slice(32), 2);
+    const high2 = parseInt(binary2.slice(0, 32), 2);
+    const low2 = parseInt(binary2.slice(32), 2);
+    hex1 = '0x' + high1.toString(16).toUpperCase().padStart(8, '0') + low1.toString(16).toUpperCase().padStart(8, '0');
+    hex2 = '0x' + high2.toString(16).toUpperCase().padStart(8, '0') + low2.toString(16).toUpperCase().padStart(8, '0');
+  } else {
+    hex1 = '0x' + parseInt(binary1, 2).toString(16).toUpperCase().padStart(8, '0');
+    hex2 = '0x' + parseInt(binary2, 2).toString(16).toUpperCase().padStart(8, '0');
+  }
+  
+  // 格式化二进制显示
+  const formatBinary = (binStr) => {
+    return binStr.replace(new RegExp(`(.{${binaryGroupSize}})`, 'g'), '$1 ').trim();
+  };
+  
+  // 格式化浮点数显示（IEEE 754结构）
+  const formatFloatBinary = (binStr, type) => {
+    if (type === 'float') {
+      const sign = binStr[0];
+      const exp = binStr.slice(1, 9);
+      const mantissa = binStr.slice(9);
+      return `<span style="color: #c62828;">${sign}</span> <span style="color: #1565c0;">${exp}</span> <span style="color: #2e7d32;">${mantissa}</span>`;
+    } else {
+      const sign = binStr[0];
+      const exp = binStr.slice(1, 12);
+      const mantissa = binStr.slice(12);
+      return `<span style="color: #c62828;">${sign}</span> <span style="color: #1565c0;">${exp}</span> <span style="color: #2e7d32;">${mantissa}</span>`;
+    }
+  };
+  
+  // 构建二进制表示部分
+  let binaryDisplay = '';
+  if (showBinary) {
+    const binaryFormat = (dataType === 'float' || dataType === 'double') 
+      ? formatFloatBinary(binary1, dataType) 
+      : formatBinary(binary1);
+    const binaryFormat2 = (dataType === 'float' || dataType === 'double') 
+      ? formatFloatBinary(binary2, dataType) 
+      : formatBinary(binary2);
+    const binaryFormatResult = (dataType === 'float' || dataType === 'double') 
+      ? formatFloatBinary(binaryResult, dataType) 
+      : formatBinary(binaryResult);
+    
+    binaryDisplay = `
+      <div style="margin: 15px 0; padding: 10px; background: white; border-radius: 5px;">
+        <h5 style="margin: 0 0 10px 0;">二进制表示 (${bits}位${dataType === 'float' ? ' - IEEE 754单精度' : dataType === 'double' ? ' - IEEE 754双精度' : ''}):</h5>
+        <div style="font-family: monospace; font-size: ${bits === 64 ? '0.85em' : '0.9em'}; line-height: 1.6;">
+          <div style="margin: 5px 0;"><strong>操作数1:</strong> ${binaryFormat}</div>
+          <div style="margin: 5px 0;"><strong>操作数2:</strong> ${binaryFormat2}</div>
+          <div style="margin: 5px 0; padding-top: 5px; border-top: 1px solid #ddd;"><strong>结果:</strong> ${binaryFormatResult}</div>
+        </div>
+        ${(dataType === 'float' || dataType === 'double') ? `
+          <div style="margin-top: 10px; font-size: 0.85em; color: #666;">
+            <span style="color: #c62828;">■</span> 符号位 
+            <span style="color: #1565c0;">■</span> 指数位 
+            <span style="color: #2e7d32;">■</span> 尾数位
+          </div>
+        ` : ''}
+      </div>
+    `;
+  }
+  
+  // 构建十六进制表示部分
+  let hexDisplay = '';
+  if (showHex) {
+    hexDisplay = `
+      <div style="margin: 15px 0; padding: 10px; background: white; border-radius: 5px;">
+        <h5 style="margin: 0 0 10px 0;">十六进制表示:</h5>
+        <div style="font-family: monospace; font-size: 0.9em;">
+          <div style="margin: 5px 0;"><strong>操作数1:</strong> ${hex1}</div>
+          <div style="margin: 5px 0;"><strong>操作数2:</strong> ${hex2}</div>
+          <div style="margin: 5px 0; padding-top: 5px; border-top: 1px solid #ddd;"><strong>结果:</strong> <span style="color: #2e7d32; font-weight: bold;">${hexResult}</span></div>
+        </div>
+      </div>
+    `;
+  }
+  
+  // 显示结果
+  const resultValue = (dataType === 'float' || dataType === 'double') ? resultFloat : result;
+  const typeName = dataType === 'float' ? 'Float' : dataType === 'double' ? 'Double' : '整数';
+  
+  document.getElementById('xor-result').innerHTML = `
+    <div class="coord-result">
+      <h4>异或计算结果 (${typeName}):</h4>
+      <div style="margin: 15px 0;">
+        <p><strong>操作数1:</strong> ${num1}${dataType === 'float' || dataType === 'double' ? ' (浮点数)' : ''}</p>
+        <p><strong>操作数2:</strong> ${num2}${dataType === 'float' || dataType === 'double' ? ' (浮点数)' : ''}</p>
+        <p style="font-size: 1.2em; margin: 10px 0;"><strong>异或结果 (${typeName}):</strong> ${resultValue}</p>
+        ${(dataType === 'float' || dataType === 'double') ? `<p style="color: #666; font-size: 0.9em;">注意：浮点数异或运算是对IEEE 754二进制表示进行逐位异或，结果可能不是有意义的浮点数</p>` : ''}
+      </div>
+      
+      ${binaryDisplay}
+      
+      ${hexDisplay}
+      
+      <div style="margin: 15px 0; padding: 10px; background: #f0f8ff; border-radius: 5px; font-size: 0.9em;">
+        <p style="margin: 5px 0;"><strong>公式:</strong> ${num1} ⊕ ${num2} = ${resultValue}</p>
+        <p style="margin: 5px 0; color: #666;">异或运算：相同为0，不同为1</p>
+      </div>
+    </div>
+  `;
+  
+  // 保存历史记录：格式为 操作数1(十进制)：操作数1(二进制)：操作数2(十进制)：操作数2(二进制)：xor：结果
+  const formatBinaryForHistory = (binStr) => {
+    if (dataType === 'float') {
+      return binStr; // 32位
+    } else if (dataType === 'double') {
+      return binStr; // 64位
+    } else {
+      return binStr; // 32位整数
+    }
+  };
+  
+  const historyStr = `${num1}：${formatBinaryForHistory(binary1)}：${num2}：${formatBinaryForHistory(binary2)}：xor：${resultValue}`;
+  addToHistory('异或运算', historyStr, '');
 }
 
 // Double转换
@@ -676,6 +1149,20 @@ document.addEventListener('DOMContentLoaded', function() {
   // 初始化轨迹地图
   trajectoryMap = L.map('trajectory-map').setView([30.66, 104.06], 10);
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(trajectoryMap);
+  
+  // 支持回车键触发异或计算
+  const xorInput1 = document.getElementById('xor-input1');
+  const xorInput2 = document.getElementById('xor-input2');
+  if (xorInput1) {
+    xorInput1.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') calculateXOR();
+    });
+  }
+  if (xorInput2) {
+    xorInput2.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') calculateXOR();
+    });
+  }
 });
 
 function loadTrajectory(event) {
