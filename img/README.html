@@ -1,0 +1,58 @@
+<h1 id="图片资源目录说明"><a href="#图片资源目录说明" class="headerlink" title="图片资源目录说明"></a>图片资源目录说明</h1><p>此目录用于存放博客的图片资源文件。</p>
+<h2 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">img/</span><br><span class="line">├── posts/       # 文章配图（按文章分类存放）</span><br><span class="line">├── covers/      # 文章封面图片</span><br><span class="line">├── gallery/     # 图库/相册图片</span><br><span class="line">└── README.md    # 本说明文件</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><h3 id="1-在文章中使用图片"><a href="#1-在文章中使用图片" class="headerlink" title="1. 在文章中使用图片"></a>1. 在文章中使用图片</h3><h4 id="方式一：使用-Markdown-语法"><a href="#方式一：使用-Markdown-语法" class="headerlink" title="方式一：使用 Markdown 语法"></a>方式一：使用 Markdown 语法</h4><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![<span class="string">图片描述</span>](<span class="link">/img/posts/my-image.jpg</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="方式二：使用-HTML-标签（可设置尺寸）"><a href="#方式二：使用-HTML-标签（可设置尺寸）" class="headerlink" title="方式二：使用 HTML 标签（可设置尺寸）"></a>方式二：使用 HTML 标签（可设置尺寸）</h4><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;/img/posts/my-image.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;图片描述&quot;</span> <span class="attr">width</span>=<span class="string">&quot;500&quot;</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<h4 id="方式三：在文章-Front-Matter-中设置封面"><a href="#方式三：在文章-Front-Matter-中设置封面" class="headerlink" title="方式三：在文章 Front Matter 中设置封面"></a>方式三：在文章 Front Matter 中设置封面</h4><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">cover:</span> <span class="string">/img/covers/my-cover.jpg</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-图片路径说明"><a href="#2-图片路径说明" class="headerlink" title="2. 图片路径说明"></a>2. 图片路径说明</h3><ul>
+<li>所有路径都以 <code>/img/</code> 开头（相对于网站根目录）</li>
+<li>图片文件会被 Hexo 直接复制到生成的网站中</li>
+<li>建议使用有意义的文件名，避免使用中文文件名（可能导致编码问题）</li>
+</ul>
+<h3 id="3-推荐的图片格式"><a href="#3-推荐的图片格式" class="headerlink" title="3. 推荐的图片格式"></a>3. 推荐的图片格式</h3><ul>
+<li><strong>JPEG (.jpg, .jpeg)</strong>: 适合照片、复杂图像</li>
+<li><strong>PNG (.png)</strong>: 适合透明背景、简单图形</li>
+<li><strong>WebP (.webp)</strong>: 现代格式，体积小，但浏览器兼容性需要考虑</li>
+<li><strong>SVG (.svg)</strong>: 适合图标、矢量图</li>
+</ul>
+<h3 id="4-图片优化建议"><a href="#4-图片优化建议" class="headerlink" title="4. 图片优化建议"></a>4. 图片优化建议</h3><ul>
+<li>压缩图片以减少文件大小，提升加载速度</li>
+<li>建议文章配图宽度控制在 1200px 以内</li>
+<li>封面图片建议尺寸：1200x600px 或类似比例</li>
+</ul>
+<h3 id="5-文件命名规范"><a href="#5-文件命名规范" class="headerlink" title="5. 文件命名规范"></a>5. 文件命名规范</h3><p>建议使用英文和数字，使用连字符或下划线分隔：</p>
+<p>✅ 推荐：</p>
+<ul>
+<li><code>spatial-data-analysis-01.jpg</code></li>
+<li><code>coding-tips-2024.png</code></li>
+<li><code>cover-tech-article.jpg</code></li>
+</ul>
+<p>❌ 不推荐：</p>
+<ul>
+<li><code>图片1.jpg</code>（中文文件名）</li>
+<li><code>my image.jpg</code>（包含空格）</li>
+<li><code>MyImage.JPG</code>（大小写混乱）</li>
+</ul>
+<h3 id="6-示例"><a href="#6-示例" class="headerlink" title="6. 示例"></a>6. 示例</h3><h4 id="在文章中插入图片："><a href="#在文章中插入图片：" class="headerlink" title="在文章中插入图片："></a>在文章中插入图片：</h4><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">## 数据可视化示例</span></span><br><span class="line"></span><br><span class="line">下面是一个数据可视化的示例：</span><br><span class="line"></span><br><span class="line">![<span class="string">数据可视化图表</span>](<span class="link">/img/posts/data-visualization-2024.png</span>)</span><br><span class="line"></span><br><span class="line"><span class="section">## 技术架构图</span></span><br><span class="line"></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;/img/posts/tech-architecture.svg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;技术架构图&quot;</span> <span class="attr">width</span>=<span class="string">&quot;800&quot;</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<h4 id="设置文章封面："><a href="#设置文章封面：" class="headerlink" title="设置文章封面："></a>设置文章封面：</h4><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">我的技术文章</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2024-12-20</span></span><br><span class="line"><span class="attr">cover:</span> <span class="string">/img/covers/tech-article-cover.jpg</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ol>
+<li><strong>不要将图片放在主题目录</strong> (<code>themes/anzhiyu/source/img/</code>)，主题更新时可能会丢失</li>
+<li><strong>大文件建议使用图床</strong>，可以使用 GitHub、Cloudflare、或其他图床服务</li>
+<li><strong>定期清理未使用的图片</strong>，保持仓库大小合理</li>
+<li><strong>使用 Git LFS</strong> 如果图片文件很大（超过 100MB）</li>
+</ol>
+<h2 id="图床服务（可选）"><a href="#图床服务（可选）" class="headerlink" title="图床服务（可选）"></a>图床服务（可选）</h2><p>如果图片文件较大或较多，建议使用图床服务：</p>
+<ul>
+<li><strong>GitHub</strong>: 使用 GitHub 仓库作为图床</li>
+<li><strong>Cloudflare R2</strong>: 免费的 CDN 加速</li>
+<li><strong>SM.MS</strong>: 免费图床服务</li>
+<li><strong>七牛云&#x2F;阿里云 OSS</strong>: 国内图床服务</li>
+</ul>
+<p>使用图床时，在文章中使用完整 URL：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![<span class="string">图片描述</span>](<span class="link">https://example.com/images/my-image.jpg</span>)</span><br></pre></td></tr></table></figure>
+
