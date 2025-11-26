@@ -14,6 +14,7 @@
       else
         !=partial('includes/widget/card_weixin', {}, {cache: true})
       !=partial('includes/widget/card_top_self', {}, {cache: true})
+      !=partial('includes/widget/card_conferences', {}, {cache: true})
       .sticky_layout
         if showToc
           include ./card_post_toc.pug
@@ -28,6 +29,7 @@
     else
       !=partial('includes/widget/card_weixin', {}, {cache: true})
     !=partial('includes/widget/card_top_self', {}, {cache: true})
+    !=partial('includes/widget/card_conferences', {}, {cache: true})
     !=partial('includes/widget/card_categories', {}, {cache: true})  
 
     .sticky_layout

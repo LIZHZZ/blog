@@ -1,0 +1,1313 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>CCF Conference Deadlines</title>
+	<link rel="icon" href="/images/favicon.jpg" type="image/jpg">
+
+	<!-- 引入css样式文件 -->
+	<!-- Bootstrap Core CSS -->
+<link href="https://ccfddl.top/css/bootstrap2.min.css" rel="stylesheet" />
+	<!-- MetisMenu CSS -->
+	<link href="https://ccfddl.top/css/metisMenu.min.css" rel="stylesheet" />
+	<!-- DataTables CSS -->
+	<link href="https://ccfddl.top/css/dataTables.bootstrap.css" rel="stylesheet" />
+	<!-- Custom CSS -->
+	<link href="https://ccfddl.top/css/sb-admin-3.css" rel="stylesheet" />
+	<!-- Custom Fonts -->
+	<link href="https://ccfddl.top/css/font-awesome1.min.css" rel="stylesheet" type="text/css" />
+	<link href="https://ccfddl.top/css/boot1.css" rel="stylesheet" type="text/css" />
+</head>
+<base target = "_blank">
+<body>
+<div id="wrapper" style="background-color: #ffffff;position:relative;min-height: 100%;padding-bottom: 50px" >
+	<!-- 导航栏部分 -->
+	<nav class="navbar navbar-default navbar-static-top" role="navigation"
+		 style="margin-bottom: 0">
+
+    <!-- 会议列表  start-->
+	<div  style="padding: 0 50px" >
+		<div class="row">
+			<div class="col-lg-12" style="height: 140px">
+				<h1 class="page-header" style="display: inline;position: absolute;bottom:0;">CCF Conference Deadlines</h1>
+<img src="../../images/ccfddl1.png" style="width: 120px;height: 120px;float: right;margin-right: 20px;position:absolute; bottom: 10px;right: 60px;">
+			</div>
+			<!-- /.col-lg-12 -->
+		</div>
+		<!-- /.row -->
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<div class="form-inline" >
+					<div class="form-group">
+<label for="meetingName">会议：</label>
+						<input type="text" class="form-control" id="meetingName"
+							   value="" name="name" />
+					</div>
+					<div class="form-group">
+						<label for="typeFrom">&nbsp;&nbsp;类型：</label>
+						<select	class="form-control" id="typeFrom" name="classes" >
+							<option value="">--请选择--</option>
+							<option value="DS">计算机体系结构</option>
+							<option value="NW">计算机网络</option>
+							<option value="SC">网络与信息安全</option>
+							<option value="SE">软件工程/系统软件</option>
+							<option value="DB">数据库/数据挖掘</option>
+							<option value="CT">计算机科学理论</option>
+							<option value="CG">计算机图形学与多媒体</option>
+							<option value="AI">人工智能</option>
+							<option value="HI">人机交互与普适计算</option>
+							<option value="MX">交叉/综合/新兴</option>
+							</select>
+                      </div>
+					<div class="form-group">
+						<label for="ccfRank">&nbsp;CCF：</label>
+						<select	class="form-control" id="ccfRank" name="classes" >
+							<option value="">--请选择--</option>
+							<option value="A">A</option>
+							<option value="B">B</option>
+							<option value="C">C</option>
+							<option value="N">N</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label >&nbsp;&nbsp;&nbsp;只看收藏：</label>
+					</div>
+					<div class="form-group">
+						<svg class="icon1" aria-hidden="true" onclick="kaiguan()">
+							<use xlink:href="#icon-kaiguan1" id="kaiguan"></use>
+</svg>
+					</div>
+
+
+					<div class="form-group">
+						<label >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;QQ群：673412506&nbsp;&nbsp;</label>
+                        <a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=9dY-HsFUoGmGE_Qp2P8RrRYIJMv-aNaw&jump_from=webapi&authKey=dF/KjyoyJwHcHZlSHaZdnfWJatNhcEajLDyHj1B4JlPhxB0SICITkr9Hhn9dX4DU"><img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="ccfddl群1" title="ccfddl群1"></a>
+</div>
+
+</div>
+			</div>
+
+		</div>
+
+
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="panel panel-default">
+<!-- /.panel-heading -->
+					<table  class="table-bordered table-striped table tablesorter table2excel">
+						<thead>
+							<tr>
+								<th>会议</th><th>类型</th><th>CCF</th><th class="sorter-grades">会议日期</th>
+								<th title="已转换为北京时间,详情见官网">全文截止&nbsp;<svg class="icon2" aria-hidden="true">
+									<use xlink:href="#icon-jieshi"></use>
+								</svg></th>
+								<th class="noExl">倒计时</th><th>地点</th><th>录用率</th><th>微信群</th><th class="noExl">收藏</th>
+							</tr>
+						</thead>
+						<tbody id="tbody">
+						</tbody>
+					</table>
+
+	<div id="data-src" style="float: right"> 数据来源：<a href="https://github.com/ccfddl/ccf-deadlines" >https://github.com/ccfddl/ccf-deadlines</a> ，人工整理，仅供参考</div>
+
+					<!-- /.panel-body -->
+				</div>
+
+				<div id="no-data" align="center" style="font-size: medium;margin: 20px">暂无数据</div>
+				<!-- /.panel -->
+			</div>
+			<!-- /.col-lg-12 -->
+		</div>
+	</div>
+	</nav>
+
+<footer  style="position:absolute;bottom:0;width:100%;height:50px;background-color: #f9f9f9">
+        <div align="center" style="margin:15px;">
+            <p style="height:20px;line-height:20px; color:#939393;">
+                <a target="_blank" href="https://beian.mps.gov.cn/#/query/webSearch?code=34160202004578" style="text-decoration:none;"><img src="http://ccfddl.top:80/images/beian.png" /><span style="margin: 0px 0px 0px 5px;color:#939393;">皖公网安备34160202004578号</span></a>&nbsp;&nbsp;
+                <a href="https://beian.miit.gov.cn/" target="_blank" style="color:#939393;text-decoration:none;">皖ICP备2023001974号</a>
+            </p>
+        </div>
+    </footer>
+
+</div>
+
+<script src="https://ccfddl.top/js/jquery-1.11.3.min.js"></script>
+<script src="https://ccfddl.top/js/bootstrap.min.js"></script>
+<script src="https://ccfddl.top/js/metisMenu.min.js"></script>
+<script src="https://ccfddl.top/js/sb-admin-2.js"></script>
+<script src="https://ccfddl.top/js/iconfont7.js"></script>
+<script src="https://ccfddl.top/js/jquery.table2excel2.js"></script>
+<script src="https://ccfddl.top/js/jquery.tablesorter.min.js"></script>
+
+<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+<script>LA.init({id:"JxLW4HXqjgXLRAVW",ck:"JxLW4HXqjgXLRAVW"})</script>
+
+<!-- 编写js代码 -->
+<script type="text/javascript">
+
+	$.tablesorter.addParser({
+		id: 'grades',
+		is: function(s, table, cell, $cell) {
+			return false;
+		},
+		format: function(s, table, cell, cellIndex) {
+			var dateParts = s.split(",");
+			if(dateParts.length===1){return 0;}
+			var dateStr1 = dateParts[0].split("-")[0].trim() +" "+ dateParts[1].trim();
+			var dateObj = new Date(dateStr1);
+			return dateObj.getTime()
+		},
+		type: 'numeric'
+	})
+
+	$('table').tablesorter({
+		widgets        : ['zebra', 'columns'],
+		sortList : [[5,0]],
+		usNumberFormat : false,
+		sortReset      : true,
+		sortRestart    : true,
+		headers: { 8: { sorter: false}}
+	});
+
+	var typeMap={
+		"DS": "计算机体系结构",
+		"NW": "计算机网络",
+		"SC": "网络与信息安全",
+		"SE": "软件工程/系统软件",
+		"DB": "数据库/数据挖掘",
+		"CT": "计算机科学理论",
+		"CG": "计算机图形学与多媒体",
+		"AI": "人工智能",
+		"HI": "人机交互与普适计算",
+		"MX": "交叉/综合/新兴"}
+
+	var timeMap = {"UTC":1000*3600*8,"AoE":1000*3600*20};
+	for (let i = -12; i <=12 ; i++) {
+		if(i>=0){
+			timeMap["UTC+"+i]=1000*3600*(8-i);
+		}else{
+			timeMap["UTC-"+(-i)]=1000*3600*(8-i);
+		}
+	}
+
+	$('#meetingName').bind('input propertychange', function() {query()});
+	$('#typeFrom').bind('input propertychange', function() {query()});
+	$('#ccfRank').bind('input propertychange', function() {query()});
+
+	if (!localStorage.getItem("like_meetings")) {
+		like_meetings = [];
+	}else{
+		like_meetings = JSON.parse(localStorage.getItem("like_meetings"));
+	}
+
+	if(localStorage.getItem('only_like')==='true'){
+		$('#kaiguan').attr('xlink:href','#icon-kaiguan');
+	}
+	var rows=[];
+	
+	rows.push({'type':"AI",'qr_code': "https://wework.qpic.cn/wwpic3az/346689_uobeii8cTkKkvii_1763777303/0", 'shortName':"AAAI",'ccfRank':"A",'deadline':"2025-08-01 23:59:59",'accept_rate':"23.7%(2342/9862 24')",
+		'timezone':'UTC-12','id':600,'date':"January 20 - 27, 2026",'link':'https://aaai.org/conference/aaai/aaai-26/','place':"Singapore EXPO",'year':'2026'})
+	
+	rows.push({'type':"AI",'qr_code': "https://wework.qpic.cn/wwpic3az/408507_V0t-zMH_SwC4s9r_1763777964/0", 'shortName':"AAMAS",'ccfRank':"B",'deadline':"2025-10-08 23:59:59",'accept_rate':"",
+		'timezone':'UTC-12','id':601,'date':"May 27-29, 2026",'link':'https://cyprusconferences.org/aamas2026','place':"Paphos, Cyprus",'year':'2026'})
+	
+	rows.push({'type':"AI",'qr_code': "https://wework.qpic.cn/wwpic3az/514668_iWzxx_w9S6aZmIO_1763777466/0", 'shortName':"ACL",'ccfRank':"A",'deadline':"2026-01-05 23:59:59",'accept_rate':"21.4%(943/4407 24')",
+		'timezone':'UTC-12','id':602,'date':"July 2 - 7, 2026",'link':'https://2026.aclweb.org/','place':"San Diego, California, United States",'year':'2026'})
+	
+	rows.push({'type':"AI",'qr_code': "https://wework.qpic.cn/wwpic3az/864240_DdlemtUsQQaeAEU_1763777968/0", 'shortName':"ACML",'ccfRank':"C",'deadline':"2025-06-26 23:59:59",'accept_rate':"26.1%(92/353 24')",
+		'timezone':'AoE','id':603,'date':"December 9-12, 2025",'link':'https://www.acml-conf.org/2025/','place':"Taipei, Taiwan",'year':'2025'})
+	
+	rows.push({'type':"AI",'qr_code': "https://wework.qpic.cn/wwpic3az/902498_05zol7ADRfmK53i_1763777934/0", 'shortName':"AISTATS",'ccfRank':"C",'deadline':"2025-10-02 23:59:59",'accept_rate':"27.6%(546/1980 24')",
+		'timezone':'UTC-12','id':604,'date':"May 2-5, 2026",'link':'https://virtual.aistats.org/Conferences/2026','place':"Morocco",'year':'2026'})
+	
+	rows.push({'type':"AI",'qr_code': "https://wework.qpic.cn/wwpic3az/382351_5G7tTCWSTnm_eFG_1763777949/0", 'shortName':"BMVC",'ccfRank':"C",'deadline':"2025-05-16 23:59:59",'accept_rate':"",
+		'timezone':'UTC+0','id':605,'date':"November 24-27, 2025",'link':'https://bmvc2025.bmva.org/','place':"Sheffield, UK",'year':'2025'})
+	
+	rows.push({'type':"AI",'qr_code': "https://wework.qpic.cn/wwpic3az/225957_icymExwLRxGGXfb_1763777941/0", 'shortName':"COLING",'ccfRank':"B",'deadline':"2024-09-16 23:59:59",'accept_rate':"33.4%(522/1563 22')",
+		'timezone':'UTC-12','id':606,'date':"Jan 19 - Jan 24, 2025",'link':'https://coling2025.org/','place':"Abu Dhabi, UAE",'year':'2025'})
+	
+	rows.push({'type':"AI",'qr_code': "https://wework.qpic.cn/wwpic3az/147431_xF5aXgITS0CBTTb_1763777495/0", 'shortName':"COLT",'ccfRank':"B",'deadline':"2025-02-06 16:59:59",'accept_rate':"35.7%(160/448 24')",
+		'timezone':'UTC-5','id':607,'date':"June 30 - July 4, 2025",'link':'https://learningtheory.org/colt2025/','place':"Lyon, France",'year':'2025'})
+	
+	rows.push({'type':"AI",'qr_code': "https://wework.qpic.cn/wwpic3az/310980_SBDDJKc7TayiJES_1763777382/0", 'shortName':"CVPR",'ccfRank':"A",'deadline':"2025-11-13 23:59:00",'accept_rate':"22.1%(2878/13008 25')",
+		'timezone':'UTC-12','id':608,'date':"June 3-7, 2026",'link':'https://cvpr.thecvf.com/Conferences/2026','place':"Denver, Colorado, United States",'year':'2026'})
+	
+	rows.push({'type':"AI",'qr_code': "https://wework.qpic.cn/wwpic3az/55234_9TUhEZyCQLqzDIM_1763777958/0", 'shortName':"ECCV",'ccfRank':"B",'deadline':"2026-03-06 13:00:00",'accept_rate':"27.9%(2395/8585 24')",
+		'timezone':'UTC-8','id':609,'date':"September 8 - 13, 2026",'link':'https://eccv.ecva.net/','place':"Malm?, Sweden",'year':'2026'})
+	
+	rows.push({'type':"AI",'qr_code': "https://wework.qpic.cn/wwpic3az/255911_MuY-pohCSlamfSY_1763777364/0", 'shortName':"EMNLP",'ccfRank':"B",'deadline':"2025-05-19 23:59:59",'accept_rate':"21.3%(1047/4909 23')",
+		'timezone':'UTC-12','id':610,'date':"November 5 - 9, 2025",'link':'https://2025.emnlp.org/','place':"Suzhou, China",'year':'2025'})
+	
+	rows.push({'type':"AI",'qr_code': "https://wework.qpic.cn/wwpic3az/950555_s1C8btIzS4eL-ZT_1763777350/0", 'shortName':"ICCV",'ccfRank':"A",'deadline':"2025-03-08 09:59:59",'accept_rate':"26.2%(2160/8260 23')",
+		'timezone':'UTC+0','id':611,'date':"October 19-25, 2025",'link':'https://iccv.thecvf.com/Conferences/2025','place':"Honolulu, Hawaii",'year':'2025'})
+	
+	rows.push({'type':"AI",'qr_code': "https://wework.qpic.cn/wwpic3az/291773_DQ0Rtpu3RxuQb3x_1763777294/0", 'shortName':"ICLR",'ccfRank':"N",'deadline':"2025-09-24 23:59:59",'accept_rate':"30.8%(2250/7304 24')",
+		'timezone':'AoE','id':612,'date':"May 01-05, 2026",'link':'https://iclr.cc/Conferences/2026','place':"Brazil",'year':'2026'})
+	
+	rows.push({'type':"AI",'qr_code': "https://wework.qpic.cn/wwpic3az/681098_5s_9wMmiQO2WaA1_1763777409/0", 'shortName':"ICML",'ccfRank':"A",'deadline':"2026-01-29 11:59:59",'accept_rate':"27.5%(2609/9473 24')",
+		'timezone':'UTC+0','id':613,'date':"July 6-12, 2026",'link':'https://icml.cc/Conferences/2026','place':"Seoul, Korea",'year':'2026'})
+	
+	rows.push({'type':"AI",'qr_code': "https://wework.qpic.cn/wwpic3az/584498_4dWLrkYIRL2y0zD_1763777966/0", 'shortName':"ICRA",'ccfRank':"B",'deadline':"2025-09-15 23:59:00",'accept_rate':"43.1%(1428/3313 22')",
+		'timezone':'UTC-8','id':614,'date':"Jun 1-5, 2026",'link':'https://2026.ieee-icra.org/','place':"Vienna, Austria",'year':'2026'})
+	
+	rows.push({'type':"AI",'qr_code': "https://wework.qpic.cn/wwpic3az/622244_2dukPrdJSuGvkJr_1763777273/0", 'shortName':"ICTAI",'ccfRank':"C",'deadline':"2021-06-20 23:59:00",'accept_rate':"",
+		'timezone':'UTC-7','id':615,'date':"November 01-03, 2021",'link':'https://ictai.computer.org/','place':"Washington DC, USA",'year':'2021'})
+	
+	rows.push({'type':"AI",'qr_code': "https://wework.qpic.cn/wwpic3az/684296_ePm8RAYBR9m3Uu1_1763777377/0", 'shortName':"IJCAI",'ccfRank':"A",'deadline':"2026-01-19 23:59:59",'accept_rate':"14.0%(791/5651 24')",
+		'timezone':'UTC-12','id':616,'date':"August 15-21, 2026",'link':'https://2026.ijcai.org/','place':"Bremen, Germany",'year':'2026'})
+	
+	rows.push({'type':"AI",'qr_code': "https://wework.qpic.cn/wwpic3az/767349_MHFQlKDGT8e1izT_1763777648/0", 'shortName':"KR",'ccfRank':"B",'deadline':"2025-05-12 23:59:59",'accept_rate':"",
+		'timezone':'UTC-12','id':617,'date':"November 11-17, 2025",'link':'https://kr.org/KR2025/','place':"Melbourne, Australia",'year':'2025'})
+	
+	rows.push({'type':"AI",'qr_code': "https://wework.qpic.cn/wwpic3az/469016_xgNnS5HfQy2OUDu_1763777642/0", 'shortName':"NAACL",'ccfRank':"B",'deadline':"2024-10-15 23:59:59",'accept_rate':"23.2%(565/2434 24')",
+		'timezone':'UTC-12','id':618,'date':"April 29-May 4, 2025",'link':'https://2025.naacl.org/','place':"Albuquerque, New Mexico, USA",'year':'2025'})
+	
+	rows.push({'type':"AI",'qr_code': "https://wework.qpic.cn/wwpic3az/44215_o_dpqPkuQCyQ91f_1763777618/0", 'shortName':"NeurIPS",'ccfRank':"A",'deadline':"2025-05-15 23:59:59",'accept_rate':"25.8%(4037/15671 24')",
+		'timezone':'AoE','id':619,'date':"December 2-7, 2025",'link':'https://neurips.cc/Conferences/2025','place':"San Diego Convention Center, USA",'year':'2025'})
+	
+	rows.push({'type':"AI",'qr_code': "https://wework.qpic.cn/wwpic3az/873050_UrOdNlbETg260Nb_1763777361/0", 'shortName':"UAI",'ccfRank':"B",'deadline':"2025-02-10 23:59:59",'accept_rate':"28.0%(200/715 24')",
+		'timezone':'AoE','id':620,'date':"July 21-25, 2025",'link':'https://www.auai.org/uai2025/','place':"Rio de Janeiro, Brazil",'year':'2025'})
+	
+	rows.push({'type':"CG",'qr_code': "https://wework.qpic.cn/wwpic3az/729176_Opl95_s4TG2urGz_1763777397/0", 'shortName':"ICASSP",'ccfRank':"B",'deadline':"2025-09-17 23:59:59",'accept_rate':"48.5%(2812/5796 24')",
+		'timezone':'UTC-12','id':621,'date':"May 4-8, 2026",'link':'https://2026.ieeeicassp.org/','place':"Barcelona, Spain",'year':'2026'})
+	
+	rows.push({'type':"CG",'qr_code': "https://wework.qpic.cn/wwpic3az/591164_Bja-hs_9RJyZ-4N_1763777673/0", 'shortName':"ICIP",'ccfRank':"C",'deadline':"2026-01-21 23:59:59",'accept_rate':"44.4%(732/1647 23')",
+		'timezone':'UTC+0','id':622,'date':"Sep 13-17, 2026",'link':'https://2026.ieeeicip.org/','place':"Tampere, Finland",'year':'2026'})
+	
+	rows.push({'type':"CG",'qr_code': "https://wework.qpic.cn/wwpic3az/90579_6VETI9InT9WiVAx_1763777937/0", 'shortName':"ICME",'ccfRank':"B",'deadline':"2025-12-12 23:59:59",'accept_rate':"32.5%(666/2049 24')",
+		'timezone':'UTC+0','id':623,'date':"July 6 - July 10, 2026",'link':'https://2026.ieeeicme.org/','place':"Bangkok, Thailand",'year':'2026'})
+	
+	rows.push({'type':"CG",'qr_code': "https://wework.qpic.cn/wwpic3az/776218_SW5DO7u1T5WK-uu_1763777704/0", 'shortName':"InterSpeech",'ccfRank':"C",'deadline':"2026-02-25 23:59:59",'accept_rate':"48.1%(1029/2138 24')",
+		'timezone':'UTC+0','id':624,'date':"September 27 - October 1, 2026",'link':'https://interspeech2026.org/','place':"Sydney, Australia",'year':'2026'})
+	
+	rows.push({'type':"MX",'qr_code': "https://wework.qpic.cn/wwpic3az/245548_ZCY0BSAwT0uDxMe_1763777563/0", 'shortName':"MICCAI",'ccfRank':"B",'deadline':"2025-02-27 23:59:00",'accept_rate':"",
+		'timezone':'UTC-8','id':625,'date':"Sep 23-27, 2025",'link':'https://conferences.miccai.org/2025/en/default.asp','place':"Daejeon, Republic of Korea",'year':'2025'})
+	
+	rows.push({'type':"CG",'qr_code': "https://wework.qpic.cn/wwpic3az/106441_V8IDzGUKQA2pDxn_1763777407/0", 'shortName':"ACM MM",'ccfRank':"A",'deadline':"2025-04-11 23:59:59",'accept_rate':"24.6%(902/3669 23')",
+		'timezone':'UTC-12','id':626,'date':"October 27-31, 2025",'link':'https://acmmm2025.org/','place':"Dublin, Ireland",'year':'2025'})
+	
+	rows.push({'type':"CG",'qr_code': "https://wework.qpic.cn/wwpic3az/595462_qQq1RMSASzmEWU3_1763777644/0", 'shortName':"ACM SIGGRAPH",'ccfRank':"A",'deadline':"2026-01-22 22:00:00",'accept_rate':"29.9%(252/844 24')",
+		'timezone':'UTC+0','id':627,'date':"July 19 - 23, 2026",'link':'https://s2026.siggraph.org/','place':"Los Angeles, California",'year':'2026'})
+	
+	rows.push({'type':"CG",'qr_code': "https://wework.qpic.cn/wwpic3az/520729__DrKHY8JR2-iy-S_1763777501/0", 'shortName':"ACM SIGGRAPH ASIA",'ccfRank':"A",'deadline':"2025-05-23 23:59:00",'accept_rate':"29.5%(265/899 24')",
+		'timezone':'UTC-12','id':628,'date':"December 15-18, 2025",'link':'https://asia.siggraph.org/2025/','place':"Hong Kong, China",'year':'2025'})
+	
+	rows.push({'type':"CT",'qr_code': "https://wework.qpic.cn/wwpic3az/530849_ivM_FJxWSAia0ft_1763777817/0", 'shortName':"CAV",'ccfRank':"A",'deadline':"2026-01-28 23:59:59",'accept_rate':"19.1%(40/209 22')",
+		'timezone':'AoE','id':629,'date':"July 26-29, 2026",'link':'https://conferences.i-cav.org/2026/','place':"Lisbon, Portugal",'year':'2026'})
+	
+	rows.push({'type':"CT",'qr_code': "https://wework.qpic.cn/wwpic3az/175092_2Bwn6KzJQa-4nAn_1763777629/0", 'shortName':"STOC",'ccfRank':"A",'deadline':"2025-11-04 16:59:59",'accept_rate':"32.3%(155/480 23')",
+		'timezone':'UTC-5','id':630,'date':"June 22-26, 2026",'link':'https://acm-stoc.org/stoc2026/','place':"Salt Lake City, Utah, USA",'year':'2026'})
+	
+	rows.push({'type':"DB",'qr_code': "https://wework.qpic.cn/wwpic3az/284090_rT4OF8VuQrq-gJt_1763777319/0", 'shortName':"CIKM",'ccfRank':"B",'deadline':"2025-05-23 23:59:59",'accept_rate':"24.0%(354/1472 23')",
+		'timezone':'AoE','id':631,'date':"November 10-14, 2025",'link':'https://cikm2025.org','place':"Coex, Seoul, Korea",'year':'2025'})
+	
+	rows.push({'type':"DB",'qr_code': "https://wework.qpic.cn/wwpic3az/344320_hnhDlZR5T5ejAiZ_1763777366/0", 'shortName':"DASFAA",'ccfRank':"B",'deadline':"2025-10-27 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':632,'date':"April 21-24, 2026",'link':'https://dasfaa2026.github.io/','place':"Jeju Island, South Korea",'year':'2026'})
+	
+	rows.push({'type':"DB",'qr_code': "https://wework.qpic.cn/wwpic3az/695861_zQD_VHMXReyIz-p_1763777821/0", 'shortName':"EDBT",'ccfRank':"B",'deadline':"2025-10-08 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':633,'date':"March 24-27, 2026",'link':'https://edbticdt2026.github.io/','place':"Tampere, Finland",'year':'2026'})
+	
+	rows.push({'type':"DB",'qr_code': "https://wework.qpic.cn/wwpic3az/349198_hGM4I_AeRj-G7ou_1763777416/0", 'shortName':"ICDE",'ccfRank':"A",'deadline':"2025-10-27 17:00:00",'accept_rate':"25.4%(376/1481 24')",
+		'timezone':'UTC-7','id':634,'date':"May 4-8, 2026",'link':'https://icde2026.github.io/','place':"Montréal, Canada",'year':'2026'})
+	
+	rows.push({'type':"DB",'qr_code': "https://wework.qpic.cn/wwpic3az/482229_eUGdpe-0RvKMF6k_1763777676/0", 'shortName':"ICDM",'ccfRank':"B",'deadline':"2025-06-06 23:59:59",'accept_rate':"21.6%(200/926 23')",
+		'timezone':'AoE','id':635,'date':"November 12-15, 2025",'link':'https://www3.cs.stonybrook.edu/~icdm2025/cfp.html','place':"Washington DC, USA",'year':'2025'})
+	
+	rows.push({'type':"DB",'qr_code': "https://wework.qpic.cn/wwpic3az/623835_kCA4pYGtR7O4dJe_1763777819/0", 'shortName':"ICDT",'ccfRank':"B",'deadline':"2025-09-10 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':636,'date':"March 24-27, 2026",'link':'https://edbticdt2026.github.io/','place':"Tampere, Finland",'year':'2026'})
+	
+	rows.push({'type':"DB",'qr_code': "https://wework.qpic.cn/wwpic3az/615249_JXZf4o8ySbWnVHc_1763777624/0", 'shortName':"ISWC",'ccfRank':"B",'deadline':"2025-05-13 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':637,'date':"November 2-6, 2025",'link':'https://iswc2025.semanticweb.org','place':"Nara, Japan",'year':'2025'})
+	
+	rows.push({'type':"DB",'qr_code': "https://wework.qpic.cn/wwpic3az/469805_IPd7TklvTz2uJ1g_1763777248/0", 'shortName':"ECML-PKDD",'ccfRank':"B",'deadline':"2025-03-14 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':638,'date':"September 15-19, 2025",'link':'https://ecmlpkdd.org/2025/','place':"Porto, Portugal",'year':'2025'})
+	
+	rows.push({'type':"DB",'qr_code': "https://wework.qpic.cn/wwpic3az/108051_mE7AR6uzSdCffKI_1763777317/0", 'shortName':"SIGIR",'ccfRank':"A",'deadline':"2025-01-23 23:59:59",'accept_rate':"20.2%(160/791 24')",
+		'timezone':'AoE','id':639,'date':"July 13-18, 2025",'link':'https://sigir2025.dei.unipd.it/','place':"Padova, Italy",'year':'2025'})
+	
+	rows.push({'type':"DB",'qr_code': "https://wework.qpic.cn/wwpic3az/234460_MOo7czTCSIidDzU_1763777373/0", 'shortName':"SIGKDD",'ccfRank':"A",'deadline':"2026-02-08 23:59:59",'accept_rate':"20.1%(411/2046 24')",
+		'timezone':'AoE','id':640,'date':"August 9-13, 2026",'link':'https://kdd2026.kdd.org/','place':"Jeju, Korea",'year':'2026'})
+	
+	rows.push({'type':"DB",'qr_code': "https://wework.qpic.cn/wwpic3az/859841_WD7HWpkvRSytqir_1763777266/0", 'shortName':"SIGMOD",'ccfRank':"A",'deadline':"2026-01-17 23:59:00",'accept_rate':"27.7%(213/768 24')",
+		'timezone':'AoE','id':641,'date':"June 13-19, 2027",'link':'https://2027.sigmod.org/','place':"Huntington Beach, CA, USA",'year':'2027'})
+	
+	rows.push({'type':"DB",'qr_code': "https://wework.qpic.cn/wwpic3az/266696_RmZNJ1nkQHeMTo-_1763777310/0", 'shortName':"VLDB",'ccfRank':"A",'deadline':"2025-12-01 17:00:00",'accept_rate':"19.4%(280/1437 24')",
+		'timezone':'UTC-7','id':642,'date':"August 31 - September 4, 2026",'link':'https://www.vldb.org/2026/','place':"Boston, MA, USA",'year':'2026'})
+	
+	rows.push({'type':"DB",'qr_code': "https://wework.qpic.cn/wwpic3az/333425_96mXYgfbTGWvKqr_1763777278/0", 'shortName':"WSDM",'ccfRank':"B",'deadline':"2025-08-14 23:59:59",'accept_rate':"17.7%(109/615 24')",
+		'timezone':'UTC-12','id':643,'date':"February 22 - 26, 2026",'link':'https://wsdm-conference.org/2026/','place':"Boise, Idaho, USA",'year':'2026'})
+	
+	rows.push({'type':"DS",'qr_code': "https://wework.qpic.cn/wwpic3az/232249_2KIlOUfrREi-q6T_1763777804/0", 'shortName':"ASPLOS",'ccfRank':"A",'deadline':"2025-08-20 23:59:59",'accept_rate':"25.3%(151/598 23')",
+		'timezone':'UTC-4','id':644,'date':"March 22-26, 2026",'link':'https://www.asplos-conference.org/asplos2026/cfp/','place':"Pittsburgh, PA, USA",'year':'2026'})
+	
+	rows.push({'type':"DS",'qr_code': "https://wework.qpic.cn/wwpic3az/90690_H7jYhyvLRtCzKQw_1763777402/0", 'shortName':"USENIX ATC",'ccfRank':"A",'deadline':"2025-01-14 23:59:59",'accept_rate':"18.8%(64/341 21')",
+		'timezone':'UTC+0','id':645,'date':"July 7-9, 2025",'link':'https://www.usenix.org/conference/atc25','place':"Boston, MA, USA",'year':'2025'})
+	
+	rows.push({'type':"DS",'qr_code': "https://wework.qpic.cn/wwpic3az/136535_vt6HqHc9QYGHfWF_1763777269/0", 'shortName':"CLUSTER",'ccfRank':"B",'deadline':"2025-05-02 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':646,'date':"September 2-5, 2025",'link':'https://clustercomp.org/2025','place':"Edinburgh, United Kingdom",'year':'2025'})
+	
+	rows.push({'type':"DS",'qr_code': "https://wework.qpic.cn/wwpic3az/417185_8bbzXRyoSEOK0he_1763777702/0", 'shortName':"DAC",'ccfRank':"A",'deadline':"2025-11-18 17:00:00",'accept_rate':"",
+		'timezone':'UTC-8','id':647,'date':"July 26-29, 2026",'link':'https://dac.com/2026/call-for-contributions','place':"Long Beach, CA",'year':'2026'})
+	
+	rows.push({'type':"DS",'qr_code': "https://wework.qpic.cn/wwpic3az/708471_FczBZJDuRN-agV2_1763777758/0", 'shortName':"DATE",'ccfRank':"B",'deadline':"2025-09-14 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':648,'date':"April 20- April 22, 2026",'link':'https://www.date-conference.com/call-for-papers','place':"Verona, Italy",'year':'2026'})
+	
+	rows.push({'type':"DS",'qr_code': "https://wework.qpic.cn/wwpic3az/62185_fHjrivAjQyOwkHU_1763777435/0", 'shortName':"Euro-Par",'ccfRank':"B",'deadline':"2025-03-17 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':649,'date':"August 25-29, 2025",'link':'https://2025.euro-par.org/','place':"Dresden, Germany",'year':'2025'})
+	
+	rows.push({'type':"DS",'qr_code': "https://wework.qpic.cn/wwpic3az/773082_sCFU_v5LTpyH2vk_1763777861/0", 'shortName':"EuroSys",'ccfRank':"A",'deadline':"2025-09-25 23:59:59",'accept_rate':"28.0%(45/161 22')",
+		'timezone':'AoE','id':650,'date':"April 13-16, 2026",'link':'https://2026.eurosys.org/','place':"Edinburgh, UK",'year':'2026'})
+	
+	rows.push({'type':"DS",'qr_code': "https://wework.qpic.cn/wwpic3az/424444_rf0mpYDfQMONSC0_1763777742/0", 'shortName':"FAST",'ccfRank':"A",'deadline':"2025-09-16 23:59:00",'accept_rate':"21.5%(28/130 22')",
+		'timezone':'AoE','id':651,'date':"FEBRUARY 24-26, 2026",'link':'https://www.usenix.net/conference/fast26','place':"SANTA CLARA, CA, USA",'year':'2026'})
+	
+	rows.push({'type':"DS",'qr_code': "https://wework.qpic.cn/wwpic3az/96636_hFGefGhxTg-v0nb_1763777480/0", 'shortName':"FCCM",'ccfRank':"C",'deadline':"2025-01-17 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':652,'date':"May 4-7, 2025",'link':'https://www.fccm.org/','place':"Fayetteville, Arkansas, USA",'year':'2025'})
+	
+	rows.push({'type':"DS",'qr_code': "https://wework.qpic.cn/wwpic3az/620062_6D__40pHQ9OjDa8_1763777883/0", 'shortName':"FPGA",'ccfRank':"B",'deadline':"2025-10-01 23:59:59",'accept_rate':"",
+		'timezone':'UTC-12','id':653,'date':"February 22 - February 24, 2026",'link':'https://www.isfpga.org/','place':"Monterey, California, USA",'year':'2026'})
+	
+	rows.push({'type':"DS",'qr_code': "https://wework.qpic.cn/wwpic3az/157042_-EmGsE9zQDSQCfm_1763777802/0", 'shortName':"HPCA",'ccfRank':"A",'deadline':"2025-08-01 23:59:59",'accept_rate':"25.3%(91/360 23')",
+		'timezone':'UTC','id':654,'date':"Feb 25-Mar 1, 2026",'link':'https://hpca-conf.org/2026/','place':"Sydney, NSW, Australia",'year':'2026'})
+	
+	rows.push({'type':"DS",'qr_code': "https://wework.qpic.cn/wwpic3az/753405_TGJMJPwzTAWVCVe_1763777633/0", 'shortName':"ICCAD",'ccfRank':"B",'deadline':"2025-04-21 23:59:59",'accept_rate':"",
+		'timezone':'UTC-12','id':655,'date':"October 26 - 30, 2025",'link':'https://2025.iccad.com','place':"MUNICH, GERMANY",'year':'2025'})
+	
+	rows.push({'type':"DS",'qr_code': "https://wework.qpic.cn/wwpic3az/594783_rblXWiz0SJuKOHA_1763777631/0", 'shortName':"ICCD",'ccfRank':"B",'deadline':"2025-05-25 23:59:00",'accept_rate':"",
+		'timezone':'AoE','id':656,'date':"November 10-12, 2025",'link':'https://www.iccd-conf.com/home.html','place':"Dallas, USA",'year':'2025'})
+	
+	rows.push({'type':"DS",'qr_code': "https://wework.qpic.cn/wwpic3az/876733_hW0MR1qvQb6N4Nk_1763777792/0", 'shortName':"ICDCS",'ccfRank':"B",'deadline':"2025-12-12 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':657,'date':"June 22-25, 2026",'link':'http://icdcs2026.icdcs.org/','place':"Seoul, South Korea",'year':'2026'})
+	
+	rows.push({'type':"DS",'qr_code': "https://wework.qpic.cn/wwpic3az/443395_jxHfapLQQQqOa8T_1763777622/0", 'shortName':"ICPP",'ccfRank':"B",'deadline':"2025-05-01 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':658,'date':"September 8-11, 2025",'link':'https://icpp2025.sdsc.edu','place':"San Diego, CA, USA",'year':'2025'})
+	
+	rows.push({'type':"DS",'qr_code': "https://wework.qpic.cn/wwpic3az/419510__knzgXsRTTSzC1i_1763777729/0", 'shortName':"IPDPS",'ccfRank':"B",'deadline':"2025-10-09 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':659,'date':"May 25-29, 2026",'link':'https://www.ipdps.org/','place':"New Orleans, USA",'year':'2026'})
+	
+	rows.push({'type':"DS",'qr_code': "https://wework.qpic.cn/wwpic3az/557061_Q6rmkYHcS92ilUO_1763777919/0", 'shortName':"ISCA",'ccfRank':"A",'deadline':"2025-11-17 23:59:59",'accept_rate':"21.2%(79/372 23')",
+		'timezone':'AoE','id':660,'date':"June 27-July 1, 2026",'link':'https://iscaconf.org/isca2026/','place':"Raleigh, USA",'year':'2026'})
+	
+	rows.push({'type':"DS",'qr_code': "https://wework.qpic.cn/wwpic3az/187366_BDkxRiQvSGG7IjG_1763777344/0", 'shortName':"ISPA",'ccfRank':"C",'deadline':"2021-07-09 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':661,'date':"September 30-October 3, 2021",'link':'http://www.cloud-conf.net/ispa2021/','place':"New York, USA",'year':'2021'})
+	
+	rows.push({'type':"DS",'qr_code': "https://wework.qpic.cn/wwpic3az/700019_wLh2p7XHR3CXsHL_1763777678/0", 'shortName':"MICRO",'ccfRank':"A",'deadline':"2025-04-11 23:59:59",'accept_rate':"23.9%(83/348 22')",
+		'timezone':'UTC-4','id':662,'date':"October 18-22, 2025",'link':'https://microarch.org/micro58/','place':"Seoul, Korea",'year':'2025'})
+	
+	rows.push({'type':"DS",'qr_code': "https://wework.qpic.cn/wwpic3az/22873_vWWFNBdWQaKgIKP_1763777711/0", 'shortName':"PPoPP",'ccfRank':"A",'deadline':"2025-09-01 23:59:59",'accept_rate':"23.7%(31/131 23')",
+		'timezone':'AoE','id':663,'date':"Jan 31-Feb 4, 2026",'link':'https://ppopp26.sigplan.org/','place':"Sydney, Australia",'year':'2026'})
+	
+	rows.push({'type':"DS",'qr_code': "https://wework.qpic.cn/wwpic3az/948351_0t5dyJNfTQ2Y2v8_1763777626/0", 'shortName':"SC",'ccfRank':"A",'deadline':"2025-04-14 23:59:00",'accept_rate':"",
+		'timezone':'AoE','id':664,'date':"November 16-21, 2025",'link':'https://sc25.supercomputing.org/','place':"St. louis, Missouri, USA",'year':'2025'})
+	
+	rows.push({'type':"DS",'qr_code': "https://wework.qpic.cn/wwpic3az/547609_-FZLE79VReO9V77_1763777323/0", 'shortName':"VEE",'ccfRank':"B",'deadline':"2021-12-03 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':665,'date':"Feb 28-March 4, 2022",'link':'https://conf.researchr.org/home/vee-2022','place':"Virtual",'year':'2022'})
+	
+	rows.push({'type':"HI",'qr_code': "https://wework.qpic.cn/wwpic3az/771698__hrL5Zp1TummVWB_1763777837/0", 'shortName':"CSCW",'ccfRank':"A",'deadline':"2025-05-13 23:59:59",'accept_rate':"26.1%(289/1107 18')",
+		'timezone':'AoE','id':666,'date':"October 10-14, 2026",'link':'https://cscw.acm.org/2026/','place':"Salt Lake City, Utah, USA",'year':'2026'})
+	
+	rows.push({'type':"HI",'qr_code': "https://wework.qpic.cn/wwpic3az/345089_QHU-z5J_RuCi4A3_1763777321/0", 'shortName':"CSCWD",'ccfRank':"C",'deadline':"2024-11-15 23:59:59",'accept_rate':"84.5%(321/380 23')",
+		'timezone':'AoE','id':667,'date':"May 5-7, 2025",'link':'http://2025.cscwd.org','place':"Compiègne, France",'year':'2025'})
+	
+	rows.push({'type':"MX",'qr_code': "https://wework.qpic.cn/wwpic3az/237559_VzlIgxjgQX-gyWC_1763777339/0", 'shortName':"BIBM",'ccfRank':"B",'deadline':"2025-08-03 17:00:00",'accept_rate':"",
+		'timezone':'UTC-5','id':668,'date':"Dec 15-18, 2025",'link':'https://ieeebibm.org/BIBM2025/','place':"Wuhan, China",'year':'2025'})
+	
+	rows.push({'type':"MX",'qr_code': "https://wework.qpic.cn/wwpic3az/719422_0aFJi8NbSPqwsck_1763777368/0", 'shortName':"RTSS",'ccfRank':"A",'deadline':"2025-05-22 23:59:59",'accept_rate':"28.9%(37/128 22')",
+		'timezone':'AoE','id':669,'date':"December 2-5, 2025",'link':'http://2025.rtss.org/','place':"Boston, MA, USA",'year':'2025'})
+	
+	rows.push({'type':"MX",'qr_code': "https://wework.qpic.cn/wwpic3az/403946_vdOTd-2EQgCOwOP_1763777375/0", 'shortName':"WWW",'ccfRank':"A",'deadline':"2025-10-07 23:59:59",'accept_rate':"20.2%(405/2008 24')",
+		'timezone':'AoE','id':670,'date':"April 13 - 17, 2026",'link':'https://www2026.thewebconf.org/','place':"Duba?, UAE",'year':'2026'})
+	
+	rows.push({'type':"NW",'qr_code': "https://wework.qpic.cn/wwpic3az/824385_6_UtFoGLSny4Qeb_1763777574/0", 'shortName':"ICNP",'ccfRank':"B",'deadline':"2025-05-16 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':671,'date':"September 22-25, 2025",'link':'https://ieeeicnp2025.pages.dev/','place':"Seoul, South Korea",'year':'2025'})
+	
+	rows.push({'type':"NW",'qr_code': "https://wework.qpic.cn/wwpic3az/431473_a_t9HKR_SKykLTZ_1763777857/0", 'shortName':"INFOCOM",'ccfRank':"A",'deadline':"2025-07-31 23:59:59",'accept_rate':"19.6%(256/1307 24')",
+		'timezone':'AoE','id':672,'date':"May 18 - 21, 2026",'link':'https://infocom2026.ieee-infocom.org/','place':"Tokyo, Japan",'year':'2026'})
+	
+	rows.push({'type':"NW",'qr_code': "https://wework.qpic.cn/wwpic3az/49401_1Egpwym6SLCIAeq_1763777253/0", 'shortName':"IPSN",'ccfRank':"B",'deadline':"2021-10-29 23:59:59",'accept_rate':"",
+		'timezone':'UTC-12','id':673,'date':"May 4-6, 2022",'link':'https://ipsn.acm.org/2022/','place':"Milan, Italy",'year':'2022'})
+	
+	rows.push({'type':"NW",'qr_code': "https://wework.qpic.cn/wwpic3az/361563_1MpH8Xj7SuyQ3QP_1763777640/0", 'shortName':"IWQoS",'ccfRank':"B",'deadline':"2025-02-23 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':674,'date':"July 02-04, 2025",'link':'https://iwqos2025.ieee-iwqos.org/','place':"Gold Coast, Australia",'year':'2025'})
+	
+	rows.push({'type':"NW",'qr_code': "https://wework.qpic.cn/wwpic3az/99319_dZn2huqVS0-nUfk_1763777824/0", 'shortName':"MobiCom",'ccfRank':"A",'deadline':"2025-09-03 23:59:59",'accept_rate':"19.1%(55/288 24')",
+		'timezone':'AoE','id':675,'date':"November, 2026",'link':'https://sigmobile.org/mobicom/2026/','place':"Austin, Texas, USA",'year':'2026'})
+	
+	rows.push({'type':"NW",'qr_code': "https://wework.qpic.cn/wwpic3az/487463_LEQKkAazRTipOc8_1763777425/0", 'shortName':"MobiHoc",'ccfRank':"B",'deadline':"2022-03-04 23:59:59",'accept_rate':"",
+		'timezone':'UTC-12','id':676,'date':"October 17-22, 2022",'link':'https://www.sigmobile.org/mobihoc/2022/','place':"Seoul, South Korea",'year':'2022'})
+	
+	rows.push({'type':"NW",'qr_code': "https://wework.qpic.cn/wwpic3az/129351_IBKgF4MrS-uUStZ_1763777905/0", 'shortName':"MobiSys",'ccfRank':"B",'deadline':"2025-12-05 23:59:59",'accept_rate':"18.0%(42/233 25')",
+		'timezone':'AoE','id':677,'date':"June 21-25, 2026",'link':'https://www.sigmobile.org/mobisys/2026/','place':"Cambridge, UK",'year':'2026'})
+	
+	rows.push({'type':"NW",'qr_code': "https://wework.qpic.cn/wwpic3az/348092_mYvA6dBGSnSD_iM_1763777768/0", 'shortName':"NSDI",'ccfRank':"A",'deadline':"2025-09-18 23:59:59",'accept_rate':"18.6%(112/601 24')",
+		'timezone':'UTC-7','id':678,'date':"May 4-6, 2026",'link':'https://www.usenix.org/conference/nsdi26','place':"Renton, WA, USA",'year':'2026'})
+	
+	rows.push({'type':"NW",'qr_code': "https://wework.qpic.cn/wwpic3az/736737_JQeYi4ZUSTii0aY_1763777388/0", 'shortName':"SIGCOMM",'ccfRank':"A",'deadline':"2025-01-31 23:59:59",'accept_rate':"16.9%(62/366 24')",
+		'timezone':'UTC','id':679,'date':"September 8-11, 2025",'link':'https://conferences.sigcomm.org/sigcomm/2025/','place':"Coimbra, Portugal",'year':'2025'})
+	
+	rows.push({'type':"SC",'qr_code': "https://wework.qpic.cn/wwpic3az/35630_lnV0jJXpTGWHcGp_1763777877/0", 'shortName':"ACISP",'ccfRank':"C",'deadline':"2025-11-27 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':680,'date':"July 6-9, 2026",'link':'https://acisp-conference.github.io/acisp2026/index.html','place':"Perth, Australia",'year':'2026'})
+	
+	rows.push({'type':"SC",'qr_code': "https://wework.qpic.cn/wwpic3az/272582_OK6l6wjdSkmDjuv_1763777870/0", 'shortName':"ACNS",'ccfRank':"C",'deadline':"2026-01-23 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':681,'date':"June 22-25, 2026",'link':'https://acns2026.github.io/index.html','place':"New York, United States",'year':'2026'})
+	
+	rows.push({'type':"SC",'qr_code': "https://wework.qpic.cn/wwpic3az/668662_HuEaadtuQyKH5Og_1763777659/0", 'shortName':"ACSAC",'ccfRank':"B",'deadline':"2025-05-30 23:59:59",'accept_rate':"",
+		'timezone':'UTC-12','id':682,'date':"December 9-13, 2025",'link':'https://www.acsac.org/','place':"Honolulu, Hawaii, USA",'year':'2025'})
+	
+	rows.push({'type':"SC",'qr_code': "https://wework.qpic.cn/wwpic3az/548626_vw5OqRAqRJWfnDw_1763777806/0", 'shortName':"AsiaCCS",'ccfRank':"C",'deadline':"2025-12-12 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':683,'date':"June 1-6, 2026",'link':'https://asiaccs2026.cse.iitkgp.ac.in/','place':"Bangalore, India",'year':'2026'})
+	
+	rows.push({'type':"SC",'qr_code': "https://wework.qpic.cn/wwpic3az/774603_dgbrnBi_SBCCFv5_1763777379/0", 'shortName':"ASIACRYPT",'ccfRank':"B",'deadline':"2025-05-16 11:59:59",'accept_rate':"",
+		'timezone':'UTC','id':684,'date':"December 8-12, 2025",'link':'https://asiacrypt.iacr.org/2025/','place':"Melbourne, Australia",'year':'2025'})
+	
+	rows.push({'type':"SC",'qr_code': "https://wework.qpic.cn/wwpic3az/599478_BQP7r43tQLq5aYj_1763777828/0", 'shortName':"CCS",'ccfRank':"A",'deadline':"2026-01-14 23:59:59",'accept_rate':"22.3%(196/880 21')",
+		'timezone':'UTC-12','id':685,'date':"November 15-19, 2026",'link':'https://www.sigsac.org/ccs/CCS2026/','place':"World Forum, Hague, Netherlands",'year':'2026'})
+	
+	rows.push({'type':"SC",'qr_code': "https://wework.qpic.cn/wwpic3az/110220_RyrWcmcXRBe7fVw_1763777718/0", 'shortName':"CHES",'ccfRank':"B",'deadline':"2026-01-15 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':686,'date':"October 11-15, 2026",'link':'https://ches.iacr.org/2026/','place':"Türkiye",'year':'2026'})
+	
+	rows.push({'type':"SC",'qr_code': "https://wework.qpic.cn/wwpic3az/206019_sDqT2mgZQD2LxR0_1763777620/0", 'shortName':"CRYPTO",'ccfRank':"A",'deadline':"2025-02-13 23:59:59",'accept_rate':"21.8%(99/455 22')",
+		'timezone':'UTC-12','id':687,'date':"August 17-21, 2025",'link':'https://crypto.iacr.org/2025/','place':"Santa Barbara, USA",'year':'2025'})
+	
+	rows.push({'type':"SC",'qr_code': "https://wework.qpic.cn/wwpic3az/266882_Ii3AxGfzTsupReH_1763777899/0", 'shortName':"CSFW",'ccfRank':"B",'deadline':"2026-01-29 23:59:59",'accept_rate':"",
+		'timezone':'UTC-12','id':688,'date':"July 26-29, 2026",'link':'https://csf2026.ieee-security.org/','place':"Lisbon, Portugal",'year':'2026'})
+	
+	rows.push({'type':"SC",'qr_code': "https://wework.qpic.cn/wwpic3az/389033_CD5MM2pUR-qf-Mk_1763777916/0", 'shortName':"CT-RSA",'ccfRank':"C",'deadline':"2025-10-24 23:59:59",'accept_rate':"",
+		'timezone':'UTC-12','id':689,'date':"March 23-26, 2026",'link':'https://conference.wsu.edu/ct-rsa-2026/','place':"San Francisco, California, USA",'year':'2026'})
+	
+	rows.push({'type':"SC",'qr_code': "https://wework.qpic.cn/wwpic3az/70408_b-bhdyVLS46z8mO_1763777700/0", 'shortName':"DFRWS",'ccfRank':"C",'deadline':"2025-09-26 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':690,'date':"March 24-27, 2026",'link':'https://dfrws.org/conferences/dfrws-eu-2026/','place':"Link?ping, Sweden",'year':'2026'})
+	
+	rows.push({'type':"SC",'qr_code': "https://wework.qpic.cn/wwpic3az/204500_aUp02QdSSgGMI5j_1763777738/0", 'shortName':"DIMVA",'ccfRank':"C",'deadline':"2025-12-03 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':691,'date':"July 1-3, 2026",'link':'https://www.dimva.org/dimva2026/','place':"Chania, Greece",'year':'2026'})
+	
+	rows.push({'type':"SC",'qr_code': "https://wework.qpic.cn/wwpic3az/348015_a1XJh98-QO-ZiJ-_1763777850/0", 'shortName':"DSN",'ccfRank':"B",'deadline':"2025-12-04 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':692,'date':"June 22-25, 2026",'link':'https://dsn2026.github.io','place':"Charlotte, USA",'year':'2026'})
+	
+	rows.push({'type':"SC",'qr_code': "https://wework.qpic.cn/wwpic3az/858607_BPqnzKaZRh2Q-Jw_1763777690/0", 'shortName':"ESORICS",'ccfRank':"B",'deadline':"2025-04-29 23:59:59",'accept_rate':"16.1%(86/535 24')",
+		'timezone':'AoE','id':693,'date':"September 22-26, 2025",'link':'https://esorics2025.sciencesconf.org/','place':"Toulouse, France",'year':'2025'})
+	
+	rows.push({'type':"SC",'qr_code': "https://wework.qpic.cn/wwpic3az/932577_2YRaHlA9Q4WfMw9_1763777733/0", 'shortName':"EUROCRYPT",'ccfRank':"A",'deadline':"2025-10-02 23:59:59",'accept_rate':"22.8%(85/372 22')",
+		'timezone':'AoE','id':694,'date':"May 10-14, 2026",'link':'https://eurocrypt.iacr.org/2026/','place':"Rome, Italy",'year':'2026'})
+	
+	rows.push({'type':"SC",'qr_code': "https://wework.qpic.cn/wwpic3az/79618_bQu0gRrzR_2zdkb_1763777813/0", 'shortName':"FC",'ccfRank':"C",'deadline':"2025-09-16 23:59:59",'accept_rate':"",
+		'timezone':'UTC-12','id':695,'date':"March 2-6, 2026",'link':'https://fc26.ifca.ai/','place':"St. Kitts",'year':'2026'})
+	
+	rows.push({'type':"SE",'qr_code': "https://wework.qpic.cn/wwpic3az/47475_yNEAAJ3gTxKTuoW_1763777754/0", 'shortName':"FSE",'ccfRank':"A",'deadline':"2025-09-11 23:59:59",'accept_rate':"23.8%(97/407 21')",
+		'timezone':'AoE','id':696,'date':"July 6-10, 2026",'link':'https://conf.researchr.org/home/fse-2026','place':"Montréal, Canada",'year':'2026'})
+	
+	rows.push({'type':"SC",'qr_code': "https://wework.qpic.cn/wwpic3az/545541_ln6DW8aTQV6AbLu_1763777395/0", 'shortName':"HotSec",'ccfRank':"C",'deadline':"2021-10-12 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':697,'date':"Extended",'link':'https://www.usenix.org/conferences/byname/158','place':"Vancouver, British Columbia, Canada",'year':'2021'})
+	
+	rows.push({'type':"SC",'qr_code': "https://wework.qpic.cn/wwpic3az/210817_o7DAFSVXRA2s83B_1763777590/0", 'shortName':"ICDF2C",'ccfRank':"C",'deadline':"2025-05-31 23:59:59",'accept_rate':"",
+		'timezone':'UTC-12','id':698,'date':"November 17-19, 2025",'link':'https://icdf2c.eai-conferences.org/2025/','place':"Miami, Florida, USA",'year':'2025'})
+	
+	rows.push({'type':"SC",'qr_code': "https://wework.qpic.cn/wwpic3az/326665_lt1c5ugiTMKdw7k_1763777497/0", 'shortName':"ICICS",'ccfRank':"C",'deadline':"2025-05-23 23:59:59",'accept_rate':"",
+		'timezone':'UTC+8','id':699,'date':"October 29-31, 2025",'link':'https://www.icics2025.org/','place':"Nanjing, China",'year':'2025'})
+	
+	rows.push({'type':"SC",'qr_code': "https://wework.qpic.cn/wwpic3az/543972_8OUtLE-JSfexLCn_1763777881/0", 'shortName':"IFIP WG 11.9",'ccfRank':"C",'deadline':"2025-09-30 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':700,'date':"January 5 - 6, 2026",'link':'http://www.ifip119.org/Conferences/','place':"New Delhi, India",'year':'2026'})
+	
+	rows.push({'type':"SC",'qr_code': "https://wework.qpic.cn/wwpic3az/209239_HNYMyV6-TPeXX0t_1763777285/0", 'shortName':"IH&MMSec",'ccfRank':"C",'deadline':"2025-02-28 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':701,'date':"June 18-20, 2025",'link':'https://www.ihmmsec.org/cms/home/index.html','place':"San Jose, CA, USA",'year':'2025'})
+	
+	rows.push({'type':"SC",'qr_code': "https://wework.qpic.cn/wwpic3az/754253_yXigQ92MQcirSXr_1763777554/0", 'shortName':"ISC",'ccfRank':"C",'deadline':"2025-06-04 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':702,'date':"October 20-22, 2025",'link':'https://isc25.skku.edu/','place':"Seoul, South Korea",'year':'2025'})
+	
+	rows.push({'type':"SC",'qr_code': "https://wework.qpic.cn/wwpic3az/363094_9G7tkVw7R4SxPIP_1763777835/0", 'shortName':"NDSS",'ccfRank':"A",'deadline':"2025-08-06 23:59:59",'accept_rate':"16.2%(83/513 22')",
+		'timezone':'UTC-12','id':703,'date':"February 23 - February 27, 2026",'link':'https://www.ndss-symposium.org/ndss2026/','place':"San Diego, California",'year':'2026'})
+	
+	rows.push({'type':"SC",'qr_code': "https://wework.qpic.cn/wwpic3az/903170_tejmf3GUQxi926e_1763777635/0", 'shortName':"NSPW",'ccfRank':"C",'deadline':"2025-04-11 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':704,'date':"August 24-27, 2025",'link':'https://www.nspw.org/2025','place':"Aerzen, Germany",'year':'2025'})
+	
+	rows.push({'type':"SC",'qr_code': "https://wework.qpic.cn/wwpic3az/145710_G0UI-yInQjKq0jO_1763777740/0", 'shortName':"PAM",'ccfRank':"C",'deadline':"2025-10-15 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':705,'date':"March 23-25, 2026",'link':'https://pam2026.at/','place':"Virtual",'year':'2026'})
+	
+	rows.push({'type':"SC",'qr_code': "https://wework.qpic.cn/wwpic3az/778296_xeXOx6oEQuuOLpu_1763777744/0", 'shortName':"PETS",'ccfRank':"C",'deadline':"2025-11-30 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':706,'date':"July 20-25, 2026",'link':'https://petsymposium.org/cfp26.php','place':"Calgary, Canada",'year':'2026'})
+	
+	rows.push({'type':"SC",'qr_code': "https://wework.qpic.cn/wwpic3az/617209_GCFnA1_ZTs-dTra_1763777885/0", 'shortName':"PKC",'ccfRank':"B",'deadline':"2025-10-24 23:59:59",'accept_rate':"",
+		'timezone':'UTC-12','id':707,'date':"May 25-28, 2026",'link':'https://pkc.iacr.org/2026/','place':"West Palm Beach, USA",'year':'2026'})
+	
+	rows.push({'type':"SC",'qr_code': "https://wework.qpic.cn/wwpic3az/337963_7YZ5zBJLTSeG9yb_1763777655/0", 'shortName':"RAID",'ccfRank':"B",'deadline':"2025-04-24 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':708,'date':"October 19-22, 2025",'link':'https://raid2025.github.io/','place':"Gold Coast, Australia",'year':'2025'})
+	
+	rows.push({'type':"SC",'qr_code': "https://wework.qpic.cn/wwpic3az/104142_ySt0aEO9QESoa7H_1763777570/0", 'shortName':"SAC",'ccfRank':"C",'deadline':"2025-05-07 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':709,'date':"August 13-15, 2025",'link':'https://sacworkshop.org/SAC25/','place':"Toronto, Ontario, Canada",'year':'2025'})
+	
+	rows.push({'type':"SC",'qr_code': "https://wework.qpic.cn/wwpic3az/727280_YlVNcPIZSwO-WNw_1763777810/0", 'shortName':"SACMAT",'ccfRank':"C",'deadline':"2026-03-02 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':710,'date':"July 8-10, 2026",'link':'https://www.sacmat.org/2026/index.php','place':"Waterloo, Canada",'year':'2026'})
+	
+	rows.push({'type':"SC",'qr_code': "https://wework.qpic.cn/wwpic3az/434302_sN4KeoY1SHWSvkQ_1763777499/0", 'shortName':"SEC",'ccfRank':"C",'deadline':"2025-12-19 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':711,'date':"June 09 - 11, 2026",'link':'https://ifipsec.org/index.html','place':"Perth, Australia",'year':'2026'})
+	
+	rows.push({'type':"SC",'qr_code': "https://wework.qpic.cn/wwpic3az/894370_YA7da0o4S46DrXN_1763777567/0", 'shortName':"SecureComm",'ccfRank':"C",'deadline':"2026-03-15 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':712,'date':"July 4-6, 2026",'link':'https://securecomm.eai-conferences.org/2026/','place':"Lancaster, UK and hybrid",'year':'2026'})
+	
+	rows.push({'type':"SC",'qr_code': "https://wework.qpic.cn/wwpic3az/370376_Uwy-fgEEQ5qO2JM_1763777393/0", 'shortName':"SOUPS",'ccfRank':"C",'deadline':"2025-02-13 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':713,'date':"August 10-12, 2025",'link':'https://www.usenix.org/conference/soups2025','place':"Seattle, WA, USA",'year':'2025'})
+	
+	rows.push({'type':"SC",'qr_code': "https://wework.qpic.cn/wwpic3az/915818_5aeiLnPgTkGJSTi_1763777832/0", 'shortName':"S&P",'ccfRank':"A",'deadline':"2025-11-13 23:59:59",'accept_rate':"",
+		'timezone':'UTC-12','id':714,'date':"MAY 18-21, 2026",'link':'https://www.ieee-security.org/TC/SP2026/','place':"SAN FRANCISCO, CA",'year':'2026'})
+	
+	rows.push({'type':"SC",'qr_code': "https://wework.qpic.cn/wwpic3az/933083_06xZBSKNTV-JHoa_1763777325/0", 'shortName':"SRDS",'ccfRank':"B",'deadline':"2025-05-02 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':715,'date':"September 29-October 2, 2025",'link':'https://srds-conference.org/','place':"Porto, Portugal",'year':'2025'})
+	
+	rows.push({'type':"SC",'qr_code': "https://wework.qpic.cn/wwpic3az/627845_2P6_2ZF_TZ2EU-s_1763777312/0", 'shortName':"TCC",'ccfRank':"B",'deadline':"2025-05-27 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':716,'date':"December 2-5, 2025",'link':'https://tcc.iacr.org/2025/','place':"Aarhus, Denmark",'year':'2025'})
+	
+	rows.push({'type':"SC",'qr_code': "https://wework.qpic.cn/wwpic3az/103103_iiLOARUXRYyBdGC_1763777455/0", 'shortName':"TrustCom",'ccfRank':"C",'deadline':"2025-08-01 23:59:59",'accept_rate':"",
+		'timezone':'UTC+8','id':717,'date':"November 14 - 17, 2025",'link':'https://ieee-aiplus-2025.org/','place':"Guiyang, China",'year':'2025'})
+	
+	rows.push({'type':"SC",'qr_code': "https://wework.qpic.cn/wwpic3az/371223_hk6ll2BzSg-C08-_1763777537/0", 'shortName':"USENIX Security",'ccfRank':"A",'deadline':"2026-02-05 23:59:59",'accept_rate':"18.1%(256/1414 22')",
+		'timezone':'UTC-12','id':718,'date':"August 12-14, 2026",'link':'https://www.usenix.org/conference/usenixsecurity26','place':"Baltimore, MD, USA",'year':'2026'})
+	
+	rows.push({'type':"SC",'qr_code': "https://wework.qpic.cn/wwpic3az/941626_kjni2mZgQty3Rsr_1763777661/0", 'shortName':"WiSec",'ccfRank':"C",'deadline':"2026-03-03 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':719,'date':"June 30 - July 3, 2026",'link':'https://wisec26.events.cispa.de/','place':"Saarbrücken, Germany",'year':'2026'})
+	
+	rows.push({'type':"SE",'qr_code': "https://wework.qpic.cn/wwpic3az/105608_0q1mGas1StihkGg_1763777423/0", 'shortName':"ASE",'ccfRank':"A",'deadline':"2025-05-30 23:59:59",'accept_rate':"21.8%(116/531 22')",
+		'timezone':'AoE','id':720,'date':"November 16 - November 20, 2025",'link':'https://conf.researchr.org/home/ase-2025','place':"Seoul, South Korea",'year':'2025'})
+	
+	rows.push({'type':"SE",'qr_code': "https://wework.qpic.cn/wwpic3az/464240_czQjOeAISUe7Sgj_1763777859/0", 'shortName':"CAiSE",'ccfRank':"B",'deadline':"2025-11-28 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':721,'date':"June 8-12, 2026",'link':'https://caise26.polimi.it/','place':"Verona, Italy",'year':'2026'})
+	
+	rows.push({'type':"SE",'qr_code': "https://wework.qpic.cn/wwpic3az/726926_0CGXUAtlREGHv3x_1763777257/0", 'shortName':"CP",'ccfRank':"B",'deadline':"2025-03-27 22:59:59",'accept_rate':"",
+		'timezone':'AoE','id':722,'date':"August 10-15, 2025",'link':'https://cp2025.a4cp.org/','place':"Glasgow, Scotland",'year':'2025'})
+	
+	rows.push({'type':"SE",'qr_code': "https://wework.qpic.cn/wwpic3az/423927_iy7TlDcPQnKmxUu_1763777592/0", 'shortName':"ECOOP",'ccfRank':"B",'deadline':"2025-03-05 23:59:59",'accept_rate':"45.4%(44/97 23')",
+		'timezone':'AoE','id':723,'date':"June 30 - July 4, 2025",'link':'https://2025.ecoop.org/','place':"Bergen, Norway",'year':'2025'})
+	
+	rows.push({'type':"SE",'qr_code': "https://wework.qpic.cn/wwpic3az/558734_KZI1b-eaT5eQp2b_1763777386/0", 'shortName':"ESEM",'ccfRank':"B",'deadline':"2025-04-25 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':724,'date':"September 29 - October 3, 2025",'link':'https://conf.researchr.org/home/esem-2025','place':"Honolulu, Hawai, USA",'year':'2025'})
+	
+	rows.push({'type':"SE",'qr_code': "https://wework.qpic.cn/wwpic3az/758213_gLJFoAy8Q7mgHE2_1763777830/0", 'shortName':"ETAPS",'ccfRank':"B",'deadline':"2025-10-16 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':725,'date':"April 11-16, 2026",'link':'https://etaps.org/2026','place':"Torino, Italy",'year':'2026'})
+	
+	rows.push({'type':"SE",'qr_code': "https://wework.qpic.cn/wwpic3az/255159_y5svFXG_RvaBRoV_1763777846/0", 'shortName':"FM",'ccfRank':"A",'deadline':"2025-12-02 23:59:00",'accept_rate':"",
+		'timezone':'AoE','id':726,'date':"May 18-22, 2026",'link':'https://conf.researchr.org/home/fm-2026','place':"Tokyo, Japan",'year':'2026'})
+	
+	rows.push({'type':"SE",'qr_code': "https://wework.qpic.cn/wwpic3az/239435_mp-6428YSjCHcBz_1763777868/0", 'shortName':"ESEC/FSE",'ccfRank':"A",'deadline':"2025-09-11 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':727,'date':"July 6-10, 2026",'link':'https://conf.researchr.org/home/fse-2026','place':"Montréal, Canada",'year':'2026'})
+	
+	rows.push({'type':"SE",'qr_code': "https://wework.qpic.cn/wwpic3az/348950_ftev-bMISLaFVsI_1763777681/0", 'shortName':"HotOS",'ccfRank':"B",'deadline':"2025-01-15 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':728,'date':"May 14-16, 2025",'link':'https://sigops.org/s/conferences/hotos/2025/','place':"Banff, Alberta, Canada",'year':'2025'})
+	
+	rows.push({'type':"SE",'qr_code': "https://wework.qpic.cn/wwpic3az/494985_rFIZGz4wQCeHz8t_1763777686/0", 'shortName':"ICFP",'ccfRank':"B",'deadline':"2025-06-12 23:59:59",'accept_rate':"36.7%(33/90 23')",
+		'timezone':'AoE','id':729,'date':"October 12-18, 2025",'link':'https://icfp25.sigplan.org/','place':"Singapore",'year':'2025'})
+	
+	rows.push({'type':"SE",'qr_code': "https://wework.qpic.cn/wwpic3az/481172_cx1DlehyTgeso1Q_1763777799/0", 'shortName':"ICPC",'ccfRank':"B",'deadline':"2025-10-23 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':730,'date':"April 12-13, 2026",'link':'https://conf.researchr.org/home/icpc-2026','place':"Rio de Janeiro, Brazil",'year':'2026'})
+	
+	rows.push({'type':"SE",'qr_code': "https://wework.qpic.cn/wwpic3az/252733_pBAG5GAHSRqiFNn_1763777761/0", 'shortName':"ICSE",'ccfRank':"A",'deadline':"2025-07-18 23:59:59",'accept_rate':"22.3%(234/1051 24')",
+		'timezone':'AoE','id':731,'date':"April 12-18, 2026",'link':'https://conf.researchr.org/home/icse-2026','place':"Rio De Janeiro, Brazil",'year':'2026'})
+	
+	rows.push({'type':"SE",'qr_code': "https://wework.qpic.cn/wwpic3az/618899_l0-czAkRSuSpl3o_1763777613/0", 'shortName':"ICSME",'ccfRank':"B",'deadline':"2025-03-13 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':732,'date':"September 07-12, 2025",'link':'https://conf.researchr.org/home/icsme-2025','place':"Auckland, New Zealand",'year':'2025'})
+	
+	rows.push({'type':"SE",'qr_code': "https://wework.qpic.cn/wwpic3az/776418_sO9X4bFlRsmsXSf_1763777556/0", 'shortName':"ICSOC",'ccfRank':"B",'deadline':"2025-07-14 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':733,'date':"December 1-4, 2025",'link':'https://icsoc2025.hit.edu.cn/main.htm','place':"Shenzhen, China",'year':'2025'})
+	
+	rows.push({'type':"SE",'qr_code': "https://wework.qpic.cn/wwpic3az/796410_i4UPUAn4RkmJhq5_1763777530/0", 'shortName':"ICWS",'ccfRank':"B",'deadline':"2025-03-03 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':734,'date':"July 7-12, 2025",'link':'https://services.conferences.computer.org/2025/icws-2025/','place':"Helsinki, Finland",'year':'2025'})
+	
+	rows.push({'type':"SE",'qr_code': "https://wework.qpic.cn/wwpic3az/387543_0Z9-WxgvRdKyVrg_1763777572/0", 'shortName':"ISSRE",'ccfRank':"B",'deadline':"2025-05-05 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':735,'date':"October 21st-24th, 2025",'link':'https://issre.github.io/2025/index.html','place':"S?o Paulo, Brazil",'year':'2025'})
+	
+	rows.push({'type':"SE",'qr_code': "https://wework.qpic.cn/wwpic3az/402296_o6XVVq8aQY6Q6ZB_1763777775/0", 'shortName':"ISSTA",'ccfRank':"A",'deadline':"2026-01-29 23:59:59",'accept_rate':"24.4%(61/250 22')",
+		'timezone':'AoE','id':736,'date':"October 3-9, 2026",'link':'https://conf.researchr.org/home/issta-2026','place':"Oakland, California, United States",'year':'2026'})
+	
+	rows.push({'type':"SE",'qr_code': "https://wework.qpic.cn/wwpic3az/862811_sGiq0nHLQiOMY-E_1763777468/0", 'shortName':"LCTES",'ccfRank':"B",'deadline':"2024-02-23 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':737,'date':"June 24, 2024",'link':'https://pldi24.sigplan.org/home/LCTES-2024','place':"Copenhagen, Denmark",'year':'2024'})
+	
+	rows.push({'type':"SE",'qr_code': "https://wework.qpic.cn/wwpic3az/444810_GEr2vDwITSaa6UO_1763777439/0", 'shortName':"Middleware",'ccfRank':"B",'deadline':"2022-03-15 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':738,'date':"November 7-11, 2022",'link':'https://middleware-conf.github.io/2022/','place':"Fairmont Le Chateau Frontenac, Québec City, Québec, Canada",'year':'2022'})
+	
+	rows.push({'type':"SE",'qr_code': "https://wework.qpic.cn/wwpic3az/383085_MhVeftbaRdmf9pJ_1763777464/0", 'shortName':"MoDELS",'ccfRank':"B",'deadline':"2022-05-18 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':739,'date':"October 23-28, 2022",'link':'https://conf.researchr.org/home/models-2022','place':"Montréal, Canada",'year':'2022'})
+	
+	rows.push({'type':"SE",'qr_code': "https://wework.qpic.cn/wwpic3az/180747_g85OPlQqSNiCSUM_1763777727/0", 'shortName':"OOPSLA",'ccfRank':"A",'deadline':"2026-03-17 23:59:59",'accept_rate':"36.2%(110/304 23')",
+		'timezone':'UTC-12','id':740,'date':"October 3-9, 2026",'link':'https://conf.researchr.org/track/splash-2026/oopsla-2026','place':"Oakland, California, United States",'year':'2026'})
+	
+	rows.push({'type':"SE",'qr_code': "https://wework.qpic.cn/wwpic3az/224585_WACWavZoRI6OR_R_1763777879/0", 'shortName':"OSDI",'ccfRank':"A",'deadline':"2025-12-11 22:59:59",'accept_rate':"19.6%(50/255 23')",
+		'timezone':'UTC','id':741,'date':"July 13-15, 2026",'link':'https://www.usenix.org/conference/osdi26','place':"Seattle, WA, USA",'year':'2026'})
+	
+	rows.push({'type':"SE",'qr_code': "https://wework.qpic.cn/wwpic3az/434530_UnQ24MzyTVG1OXY_1763777790/0", 'shortName':"PLDI",'ccfRank':"A",'deadline':"2025-11-13 23:59:59",'accept_rate':"29.5%(83/281 23')",
+		'timezone':'AoE','id':742,'date':"June 15-19, 2026",'link':'https://pldi26.sigplan.org/','place':"Boulder, Colorado, United States",'year':'2026'})
+	
+	rows.push({'type':"SE",'qr_code': "https://wework.qpic.cn/wwpic3az/289156_XNe7R8eJTwGbfcX_1763777888/0", 'shortName':"POPL",'ccfRank':"A",'deadline':"2025-07-10 23:59:59",'accept_rate':"26.9%(74/275 23')",
+		'timezone':'AoE','id':743,'date':"January 11-17, 2026",'link':'https://popl26.sigplan.org/','place':"Rennes, France",'year':'2026'})
+	
+	rows.push({'type':"SE",'qr_code': "https://wework.qpic.cn/wwpic3az/207653__71QcO__TO247Lj_1763777437/0", 'shortName':"QRS",'ccfRank':"C",'deadline':"2025-04-15 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':744,'date':"July 16-20, 2025",'link':'https://qrs25.techconf.org/','place':"Hangzhou, China",'year':'2025'})
+	
+	rows.push({'type':"SE",'qr_code': "https://wework.qpic.cn/wwpic3az/738960_sYo_TCJITSCGyX2_1763777370/0", 'shortName':"RE",'ccfRank':"B",'deadline':"2023-03-17 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':745,'date':"September 4-8, 2023",'link':'https://conf.researchr.org/dates/RE-2023','place':"Hannover, Germany",'year':'2023'})
+	
+	rows.push({'type':"SE",'qr_code': "https://wework.qpic.cn/wwpic3az/430271_5IaWDrJeTSWgr8v_1763777565/0", 'shortName':"SANER",'ccfRank':"B",'deadline':"2025-10-16 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':746,'date':"March 17-20, 2026",'link':'https://conf.researchr.org/home/saner-2026','place':"Limassol, Cyprus",'year':'2026'})
+	
+	rows.push({'type':"SE",'qr_code': "https://wework.qpic.cn/wwpic3az/790132_DZP_IdlrRoSCv9c_1763777404/0", 'shortName':"SAS",'ccfRank':"B",'deadline':"2025-05-04 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':747,'date':"October 12-18, 2025",'link':'https://2025.splashcon.org/home/sas-2025','place':"Singapore",'year':'2025'})
+	
+	rows.push({'type':"SE",'qr_code': "https://wework.qpic.cn/wwpic3az/50730_iILJJvyzR_mmXMK_1763777283/0", 'shortName':"SOSP",'ccfRank':"A",'deadline':"2025-04-17 23:59:59",'accept_rate':"17.7%(65/368 25')",
+		'timezone':'UTC-7','id':748,'date':"October 13 - 16, 2025",'link':'https://sigops.org/s/conferences/sosp/2025/index.html','place':"Lotte Hotel World, Seoul, Republic of Korea",'year':'2025'})
+	
+	rows.push({'type':"SE",'qr_code': "https://wework.qpic.cn/wwpic3az/92920_QjnLo1ajRGqdwaO_1763777561/0", 'shortName':"VMCAI",'ccfRank':"B",'deadline':"2025-09-15 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':749,'date':"January 12-13, 2026",'link':'https://conf.researchr.org/home/VMCAI-2026','place':"Rennes, France",'year':'2026'})
+	
+	rows.push({'type':"NW",'qr_code': "https://wework.qpic.cn/wwpic3az/182172_4mHRh922SKykwQD_1763777535/0", 'shortName':"GLOBECOM",'ccfRank':"C",'deadline':"2025-04-15 23:59:59",'accept_rate':"",
+		'timezone':'UTC-4','id':900,'date':"December 8-12, 2025",'link':'https://globecom2025.ieee-globecom.org/','place':"Taipei, Taiwan",'year':'2025'})
+	
+	rows.push({'type':"SE",'qr_code': "https://wework.qpic.cn/wwpic3az/797184_IKwjIIqYT8mgWPX_1763777448/0", 'shortName':"SEKE",'ccfRank':"C",'deadline':"2025-05-01 23:59:00",'accept_rate':"",
+		'timezone':'UTC-5','id':901,'date':"Sept 29 - Oct 6, 2025",'link':'https://ksiresearch.org/seke/seke25.html','place':"Pompeii, Italy & Virtual",'year':'2025'})
+	
+	rows.push({'type':"SE",'qr_code': "https://wework.qpic.cn/wwpic3az/536947_lj4Y_e4bTvStyrS_1763777646/0", 'shortName':"Internetware",'ccfRank':"C",'deadline':"2025-02-14 23:59:59",'accept_rate':"",
+		'timezone':'UTC-12','id':902,'date':"June 20-22, 2025",'link':'https://conf.researchr.org/home/internetware-2025','place':"Trondheim, Norway",'year':'2025'})
+	
+	rows.push({'type':"DS",'qr_code': "https://wework.qpic.cn/wwpic3az/181195_dYkFGAXGS9WA8VT_1763777607/0", 'shortName':"ICA3PP",'ccfRank':"C",'deadline':"2025-06-30 23:59:00",'accept_rate':"",
+		'timezone':'UTC-8','id':903,'date':"October 30- November 2, 2025",'link':'https://ieee-cybermatics.org/2025/ica3pp/','place':"Zhengzhou, Henan, China",'year':'2025'})
+	
+	rows.push({'type':"AI",'qr_code': "https://wework.qpic.cn/wwpic3az/959642_QtvNSfI9Q8-hgoi_1763777411/0", 'shortName':"IROS",'ccfRank':"C",'deadline':"2025-03-01 23:59:59",'accept_rate':"47.9%(1716/3579 22')",
+		'timezone':'UTC-8','id':904,'date':"October 19-25, 2025",'link':'http://www.iros25.org/','place':"Hangzhou, China",'year':'2025'})
+	
+	rows.push({'type':"AI",'qr_code': "https://wework.qpic.cn/wwpic3az/576624_OR8XD8yaQKGNSjV_1763777296/0", 'shortName':"RSS",'ccfRank':"N",'deadline':"2025-01-24 23:59:00",'accept_rate':"",
+		'timezone':'AoE','id':905,'date':"June 21-25, 2025",'link':'https://roboticsconference.org','place':"Los Angeles, California, USA",'year':'2025'})
+	
+	rows.push({'type':"DS",'qr_code': "https://wework.qpic.cn/wwpic3az/29089_H07HVt5bSoKqKhT_1763777684/0", 'shortName':"PACT",'ccfRank':"B",'deadline':"2025-04-18 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':906,'date':"November 3-6, 2025",'link':'https://pact2025.github.io/','place':"Irvine, California, USA",'year':'2025'})
+	
+	rows.push({'type':"MX",'qr_code': "https://wework.qpic.cn/wwpic3az/92386_tRNRBpCJREmcN5d_1763777471/0", 'shortName':"SMC",'ccfRank':"C",'deadline':"2025-05-04 23:59:59",'accept_rate':"",
+		'timezone':'UTC+8','id':907,'date':"October 5-8, 2025",'link':'https://www.ieeesmc2025.org/','place':"Vienna, Austria",'year':'2025'})
+	
+	rows.push({'type':"AI",'qr_code': "https://wework.qpic.cn/wwpic3az/70396_JPADvDB0SV-kHYi_1763777353/0", 'shortName':"ECAI",'ccfRank':"B",'deadline':"2025-05-06 23:59:59",'accept_rate':"23.3%(547/2344 24')",
+		'timezone':'UTC-12','id':908,'date':"October 25-30, 2025",'link':'https://ecai2025.org/deadlines/','place':"Bologna, ITALY",'year':'2025'})
+	
+	rows.push({'type':"CG",'qr_code': "https://wework.qpic.cn/wwpic3az/655167_j2glH5nKQ32nfjf_1763777488/0", 'shortName':"ISMAR",'ccfRank':"B",'deadline':"2025-04-11 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':909,'date':"Oct 8-12, 2025",'link':'https://www.ieeeismar.net/2025/','place':"Daejeon, South Korea",'year':'2025'})
+	
+	rows.push({'type':"DB",'qr_code': "https://wework.qpic.cn/wwpic3az/77387_Fon6uNwDSOyr_kv_1763777414/0", 'shortName':"RecSys",'ccfRank':"B",'deadline':"2025-04-08 23:59:59",'accept_rate':"17.9%(39/218 20')",
+		'timezone':'AoE','id':910,'date':"September 22-26, 2025",'link':'https://recsys.acm.org/recsys25','place':"Prague, Czech Republic",'year':'2025'})
+	
+	rows.push({'type':"DB",'qr_code': "https://wework.qpic.cn/wwpic3az/442952_l6Lbz-D5SnO-HtP_1763777512/0", 'shortName':"ADMA",'ccfRank':"C",'deadline':"2025-05-08 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':911,'date':"October 22 - 24, 2025",'link':'https://adma2025.github.io','place':"Kyoto, Japan",'year':'2025'})
+	
+	rows.push({'type':"CG",'qr_code': "https://wework.qpic.cn/wwpic3az/127804_PZAqf4xgQ7Ckojg_1763777664/0", 'shortName':"PG",'ccfRank':"B",'deadline':"2025-06-06 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':912,'date':"October 14-17, 2025",'link':'https://pg2025.nccu.edu.tw/','place':"National Chengchi University, Taipei, Taiwan",'year':'2025'})
+	
+	rows.push({'type':"CG",'qr_code': "https://wework.qpic.cn/wwpic3az/813752_2_92WLOzTyqNfWW_1763777514/0", 'shortName':"PRCV",'ccfRank':"C",'deadline':"2025-06-30 23:59:59",'accept_rate':"",
+		'timezone':'UTC+8','id':913,'date':"Oct 16-19, 2025",'link':'http://2025.prcv.cn/','place':"Shanghai, China",'year':'2025'})
+	
+	rows.push({'type':"AI",'qr_code': "https://wework.qpic.cn/wwpic3az/312617_LrRZQez6QrWwPwh_1763777328/0", 'shortName':"ICANN",'ccfRank':"C",'deadline':"2026-03-16 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':914,'date':"Sept 14-17, 2026",'link':'https://e-nns.org/icann2026/','place':"Conference center of the School of Psychology, University of Padua, Italy",'year':'2026'})
+	
+	rows.push({'type':"HI",'qr_code': "https://wework.qpic.cn/wwpic3az/776351_jFQFyF3DR46h5ly_1763777459/0", 'shortName':"UbiComp/ISWC",'ccfRank':"A",'deadline':"2025-11-01 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':915,'date':"October 12-16, 2025",'link':'https://www.ubicomp.org/ubicomp-iswc-2025','place':"Espoo, Finland",'year':'2025'})
+	
+	rows.push({'type':"MX",'qr_code': "https://wework.qpic.cn/wwpic3az/283207_1sl1fADwRBu6R-6_1763777346/0", 'shortName':"SIGSPATIAL",'ccfRank':"C",'deadline':"2025-05-30 23:59:59",'accept_rate':"",
+		'timezone':'UTC-7','id':916,'date':"November 3-6, 2025",'link':'https://sigspatial2025.sigspatial.org/','place':"Minneapolis, MN, USA",'year':'2025'})
+	
+	rows.push({'type':"CG",'qr_code': "https://wework.qpic.cn/wwpic3az/214821_FuC6T1BHRDWExLn_1763777524/0", 'shortName':"MMAsia",'ccfRank':"C",'deadline':"2025-07-25 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':918,'date':"December 9-12, 2025",'link':'https://mmasia2025.org/','place':"Grand Millenium Hotel, Kuala Lumpur, Malaysia",'year':'2025'})
+	
+	rows.push({'type':"CG",'qr_code': "https://wework.qpic.cn/wwpic3az/702179__BnpWzwqT3q1yZ5_1763777432/0", 'shortName':"IEEE VIS",'ccfRank':"A",'deadline':"2025-03-31 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':919,'date':"November 2-7, 2025",'link':'https://ieeevis.org/year/2025/welcome','place':"Vienna, Austria",'year':'2025'})
+	
+	rows.push({'type':"HI",'qr_code': "https://wework.qpic.cn/wwpic3az/888021_ti2xA9CDSwe0rZ7_1763777854/0", 'shortName':"CHI",'ccfRank':"A",'deadline':"2025-09-11 23:59:59",'accept_rate':"27.6%(879/3180 23')",
+		'timezone':'AoE','id':920,'date':"April 13 - 17, 2026",'link':'https://chi2026.acm.org/','place':"Centre de Convencions Internacional de Barcelona, Barcelona, Spain",'year':'2026'})
+	
+	rows.push({'type':"DB",'qr_code': "https://wework.qpic.cn/wwpic3az/284229_AxIrexWkQ1iwk1j_1763777747/0", 'shortName':"CIDR",'ccfRank':"B",'deadline':"2025-08-05 23:59:59",'accept_rate':"",
+		'timezone':'UTC-7','id':921,'date':"Jan 18-21, 2026",'link':'https://www.cidrdb.org/cidr2026/','place':"Chaminade Resort & Spa, Santa Cruz, California, USA",'year':'2026'})
+	
+	rows.push({'type':"AI",'qr_code': "https://wework.qpic.cn/wwpic3az/880878_lb_BsTM3T2e-1m4_1763777307/0", 'shortName':"KSEM",'ccfRank':"C",'deadline':"2026-01-15 23:59:59",'accept_rate':"",
+		'timezone':'UTC+0','id':922,'date':"July 17-19, 2026",'link':'https://ksem2026.rosc.org.cn/','place':"Beijing, China",'year':'2026'})
+	
+	rows.push({'type':"AI",'qr_code': "https://wework.qpic.cn/wwpic3az/464763_wzDOrd1DTmGLJ5q_1763777666/0", 'shortName':"ICONIP",'ccfRank':"C",'deadline':"2025-05-22 23:59:59",'accept_rate':"60.72%(790/1301 24')",
+		'timezone':'UTC-12','id':923,'date':"November 20-24, 2025",'link':'https://iconip2025.apnns.org/','place':"Okinawa, Japan",'year':'2025'})
+	
+	rows.push({'type':"DS",'qr_code': "https://wework.qpic.cn/wwpic3az/545868_nBRefYSgQMOhneM_1763777787/0", 'shortName':"ASP-DAC",'ccfRank':"C",'deadline':"2025-07-11 17:00:00",'accept_rate':"",
+		'timezone':'AoE','id':924,'date':"Jan 19-22, 2026",'link':'https://www.aspdac.com/aspdac2026/','place':"Hong Kong Disneyland",'year':'2026'})
+	
+	rows.push({'type':"CT",'qr_code': "https://wework.qpic.cn/wwpic3az/471617_n44nU_xiTDe258L_1763777826/0", 'shortName':"LICS",'ccfRank':"A",'deadline':"2026-01-22 23:59:59",'accept_rate':"34.8%(63/181 22')",
+		'timezone':'AoE','id':925,'date':"July 20-23, 2026",'link':'https://lics.siglog.org/lics26/','place':"Lisbon, Portugal",'year':'2026'})
+	
+	rows.push({'type':"DS",'qr_code': "https://wework.qpic.cn/wwpic3az/485632_1GSGeMWuQ46mEnT_1763777384/0", 'shortName':"SoCC",'ccfRank':"B",'deadline':"2024-07-15 17:00:00",'accept_rate':"",
+		'timezone':'UTC-4','id':926,'date':"November 20-22, 2024",'link':'https://acmsocc.org/2024/','place':"Redmond, USA",'year':'2024'})
+	
+	rows.push({'type':"AI",'qr_code': "https://wework.qpic.cn/wwpic3az/11942_HTYPEXyrRyaG9aP_1763777299/0", 'shortName':"CICAI",'ccfRank':"N",'deadline':"2023-06-30 23:59:59",'accept_rate':"",
+		'timezone':'UTC+8','id':927,'date':"July 22-23, 2023",'link':'https://cicai.caai.cn/','place':"Fuzhou, China",'year':'2023'})
+	
+	rows.push({'type':"MX",'qr_code': "https://wework.qpic.cn/wwpic3az/920472_n4iY_grqTnavmRd_1763777259/0", 'shortName':"WINE",'ccfRank':"A",'deadline':"2023-07-07 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':928,'date':"Dec 04-08, 2023",'link':'https://wine2023.shanghaitech.edu.cn/','place':"Shanghai, China",'year':'2023'})
+	
+	rows.push({'type':"MX",'qr_code': "https://wework.qpic.cn/wwpic3az/172544_9iVm7vwTQ4SUEdn_1763777713/0", 'shortName':"CogSci",'ccfRank':"B",'deadline':"2026-02-02 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':929,'date':"July 22-25, 2026",'link':'https://cognitivesciencesociety.org/cogsci-2026/','place':"Rio de Janeiro, Brazil",'year':'2026'})
+	
+	rows.push({'type':"CG",'qr_code': "https://wework.qpic.cn/wwpic3az/648698_C-LjrhFiR4iBpAe_1763777891/0", 'shortName':"3DV",'ccfRank':"C",'deadline':"2025-08-18 23:59:59",'accept_rate':"",
+		'timezone':'UTC-7','id':930,'date':"March 24-27, 2026",'link':'https://3dvconf.github.io/2026/','place':"Metro Vancouver, BC, Canada",'year':'2026'})
+	
+	rows.push({'type':"SC",'qr_code': "https://wework.qpic.cn/wwpic3az/764773_ZclsgfX5QRaRiRI_1763777585/0", 'shortName':"INDOCRYPT",'ccfRank':"N",'deadline':"2025-09-01 23:59:59",'accept_rate':"",
+		'timezone':'UTC-12','id':932,'date':"December 14-17, 2025",'link':'https://www.indocrypt2025.in/','place':"IIIT Bhubaneswar, Odisha, India",'year':'2025'})
+	
+	rows.push({'type':"CG",'qr_code': "https://wework.qpic.cn/wwpic3az/217229_dOT0ZavDSlmwG00_1763777927/0", 'shortName':"IEEE VR",'ccfRank':"A",'deadline':"2025-09-12 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':933,'date':"March 21 - 25, 2026",'link':'https://ieeevr.org/2026/','place':"Daegu, Korea",'year':'2026'})
+	
+	rows.push({'type':"DB",'qr_code': "https://wework.qpic.cn/wwpic3az/531812_2Jp87muMQh6fxSE_1763777550/0", 'shortName':"SDM",'ccfRank':"B",'deadline':"2024-10-04 23:59:59",'accept_rate':"29.3%(98/335 24')",
+		'timezone':'UTC-8','id':934,'date':"May 1-3, 2025",'link':'https://www.siam.org/conferences-events/siam-conferences/sdm25','place':"Alexandria, Virginia, USA",'year':'2025'})
+	
+	rows.push({'type':"SC",'qr_code': "https://wework.qpic.cn/wwpic3az/730305_QrRirAsoQrmwr6C_1763777808/0", 'shortName':"EuroS&P",'ccfRank':"C",'deadline':"2025-11-20 23:59:59",'accept_rate':"",
+		'timezone':'UTC-12','id':935,'date':"July 6 - 10, 2026",'link':'https://eurosp2026.ieee-security.org/','place':"Lisbon, Portugal",'year':'2026'})
+	
+	rows.push({'type':"HI",'qr_code': "https://wework.qpic.cn/wwpic3az/435346_PsyYu7AeRASS_cZ_1763777756/0", 'shortName':"IUI",'ccfRank':"B",'deadline':"2025-10-10 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':936,'date':"March 23 - 26, 2026",'link':'https://iui.hosting.acm.org/2026/','place':"Paphos, Cyprus",'year':'2026'})
+	
+	rows.push({'type':"CG",'qr_code': "https://wework.qpic.cn/wwpic3az/136683_RKaWk90pSH-vp_g_1763777842/0", 'shortName':"Eurographics",'ccfRank':"B",'deadline':"2025-09-26 23:59:59",'accept_rate':"",
+		'timezone':'UTC','id':937,'date':"May 4-8, 2026",'link':'https://eg2026.github.io/','place':"Aachen, Germany",'year':'2026'})
+	
+	rows.push({'type':"AI",'qr_code': "https://wework.qpic.cn/wwpic3az/390238_EiOwDHUKSZyiH_A_1763777894/0", 'shortName':"ALT",'ccfRank':"C",'deadline':"2025-10-02 09:59:59",'accept_rate':"",
+		'timezone':'UTC+0','id':938,'date':"February 23-26, 2026",'link':'https://algorithmiclearningtheory.org/alt2026/','place':"Fields Institute, Toronto, Canada",'year':'2026'})
+	
+	rows.push({'type':"NW",'qr_code': "https://wework.qpic.cn/wwpic3az/536691_T1wCc3qESui-eVi_1763777763/0", 'shortName':"CoNEXT",'ccfRank':"B",'deadline':"2025-12-12 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':939,'date':"December 7-10, 2026",'link':'https://conferences.sigcomm.org/co-next/2026/#!/home','place':"Utrecht, The Netherlands",'year':'2026'})
+	
+	rows.push({'type':"SE",'qr_code': "https://wework.qpic.cn/wwpic3az/217432_xv9ATwaOQaGyAkb_1763777848/0", 'shortName':"MSR",'ccfRank':"C",'deadline':"2025-10-23 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':940,'date':"April 13-14, 2026",'link':'https://2026.msrconf.org/','place':"Rio de Janeiro, Brazil",'year':'2026'})
+	
+	rows.push({'type':"AI",'qr_code': "https://wework.qpic.cn/wwpic3az/463690_KuJoT2tFQmOJUGm_1763777872/0", 'shortName':"PPSN",'ccfRank':"B",'deadline':"2026-03-28 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':941,'date':"August 29-September 2, 2026",'link':'https://ppsn2026.disi.unitn.it/','place':"University of Trento, Trento, Italy",'year':'2026'})
+	
+	rows.push({'type':"DS",'qr_code': "https://wework.qpic.cn/wwpic3az/289859_ugh4Lf7vSgea2uj_1763777780/0", 'shortName':"RTAS",'ccfRank':"B",'deadline':"2025-11-13 11:59:59",'accept_rate':"24.2%(22/91 22')",
+		'timezone':'AoE','id':942,'date':"May 12-14, 2026",'link':'https://2026.rtas.org/','place':"Saint Malo, France",'year':'2026'})
+	
+	rows.push({'type':"DS",'qr_code': "https://wework.qpic.cn/wwpic3az/378749_LsqmK4ueSt6QPZf_1763777357/0", 'shortName':"ETS",'ccfRank':"C",'deadline':"2023-12-16 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':943,'date':"May 20-24, 2024",'link':'https://ets24.ewi.tudelft.nl/','place':"The Hague, Netherlands",'year':'2024'})
+	
+	rows.push({'type':"AI",'qr_code': "https://wework.qpic.cn/wwpic3az/620615_au-hIxhTSWmS_As_1763777720/0", 'shortName':"ICPR",'ccfRank':"C",'deadline':"2025-12-20 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':944,'date':"August 17-21, 2026",'link':'https://icpr2026.org/','place':"Lyon, France",'year':'2026'})
+	
+	rows.push({'type':"AI",'qr_code': "https://wework.qpic.cn/wwpic3az/628376_C5czOZFERCe8w_O_1763777902/0", 'shortName':"ICCBR",'ccfRank':"B",'deadline':"2026-03-20 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':945,'date':"August 13-16, 2026",'link':'https://2026.iccbr.org/','place':"Bremen, Germany",'year':'2026'})
+	
+	rows.push({'type':"SE",'qr_code': "https://wework.qpic.cn/wwpic3az/854194_07AihS94Taay2Lz_1763777441/0", 'shortName':"ICECCS",'ccfRank':"C",'deadline':"2024-01-05 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':946,'date':"June 19-21, 2024",'link':'https://cyprusconferences.org/iceccs2024/','place':"Limassol, Cyprus",'year':'2024'})
+	
+	rows.push({'type':"SE",'qr_code': "https://wework.qpic.cn/wwpic3az/283840_AVo26Oz5S9S61f-_1763777922/0", 'shortName':"ISPASS",'ccfRank':"C",'deadline':"2025-12-12 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':947,'date':"April 26-28, 2026",'link':'https://ispass.org/ispass2026/','place':"Seoul, South Korea",'year':'2026'})
+	
+	rows.push({'type':"CG",'qr_code': "https://wework.qpic.cn/wwpic3az/993587_-IJNEsh0RYybgbm_1763777907/0", 'shortName':"GMP",'ccfRank':"C",'deadline':"2025-12-18 23:59:59",'accept_rate':"",
+		'timezone':'UTC','id':948,'date':"May 27-29, 2026",'link':'https://gmp2026.kma.zcu.cz/','place':"Pilsen, Czech Republic",'year':'2026'})
+	
+	rows.push({'type':"DS",'qr_code': "https://wework.qpic.cn/wwpic3az/894775_dmc_FUuDScG5YWK_1763777722/0", 'shortName':"CF",'ccfRank':"C",'deadline':"2026-01-19 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':949,'date':"May 19-21, 2026",'link':'https://www.computingfrontiers.org/2026/','place':"Catania, Sicily, Italy",'year':'2026'})
+	
+	rows.push({'type':"DS",'qr_code': "https://wework.qpic.cn/wwpic3az/395148_zeIKt7_eTY6q5Y1_1763777444/0", 'shortName':"MSST",'ccfRank':"B",'deadline':"2024-01-07 04:59:59",'accept_rate':"",
+		'timezone':'UTC','id':950,'date':"June 3-7, 2024",'link':'https://storageconference.us/index.html','place':"Santa Clara, CA",'year':'2024'})
+	
+	rows.push({'type':"SE",'qr_code': "https://wework.qpic.cn/wwpic3az/676023__xsTzOBPThKC4di_1763777446/0", 'shortName':"TASE",'ccfRank':"C",'deadline':"2025-02-21 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':951,'date':"July 14-16, 2025",'link':'https://cyprusconferences.org/tase2025/','place':"Limassol, Cyprus",'year':'2025'})
+	
+	rows.push({'type':"DS",'qr_code': "https://wework.qpic.cn/wwpic3az/980930_XhP138o0R7WgZJQ_1763777291/0", 'shortName':"NETYS",'ccfRank':"N",'deadline':"2024-03-07 23:59:00",'accept_rate':"",
+		'timezone':'AoE','id':952,'date':"May 29-31, 2024",'link':'https://netys.net/','place':"Rabat, Morocco",'year':'2024'})
+	
+	rows.push({'type':"NW",'qr_code': "https://wework.qpic.cn/wwpic3az/607309_5H-NhJjFSYqTACM_1763777330/0", 'shortName':"FORTE",'ccfRank':"C",'deadline':"2024-02-09 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':953,'date':"June 17-21, 2024",'link':'https://www.discotec.org/2024/forte','place':"Groningen, The Netherlands",'year':'2024'})
+	
+	rows.push({'type':"AI",'qr_code': "https://wework.qpic.cn/wwpic3az/165192__zdHFUcLQhKFLf1_1763777301/0", 'shortName':"IJCNN",'ccfRank':"C",'deadline':"2026-01-31 23:59:59",'accept_rate':"52.0%(1701/3272 24')",
+		'timezone':'UTC-12','id':954,'date':"June 21 - 26, 2026",'link':'https://attend.ieee.org/wcci-2026/','place':"Maastricht Exhibition & Congress Center, Maastricht, The Netherlands",'year':'2026'})
+	
+	rows.push({'type':"MX",'qr_code': "https://wework.qpic.cn/wwpic3az/861630_KPrtUb7YReKNc1t_1763777706/0", 'shortName':"ICIC",'ccfRank':"C",'deadline':"2026-03-20 11:59:59",'accept_rate':"",
+		'timezone':'UTC+8','id':955,'date':"July 22-26, 2026",'link':'http://www.ic-icc.cn/2026/','place':"Toronto, Canada",'year':'2026'})
+	
+	rows.push({'type':"DS",'qr_code': "https://wework.qpic.cn/wwpic3az/839504_zAMX01I1SWKsm2R_1763777839/0", 'shortName':"ICS",'ccfRank':"B",'deadline':"2025-12-16 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':956,'date':"July 6-9, 2026",'link':'https://dipsa-qub.github.io/ICS2026-webpage/','place':"Belfast, Northern Ireland, United Kingdom",'year':'2026'})
+	
+	rows.push({'type':"DS",'qr_code': "https://wework.qpic.cn/wwpic3az/911734_x9ox0JhhQlmkeax_1763777314/0", 'shortName':"PODC",'ccfRank':"B",'deadline':"2024-02-15 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':957,'date':"June 17-21, 2024",'link':'https://www.podc.org/podc2024','place':"Nantes, France",'year':'2024'})
+	
+	rows.push({'type':"CG",'qr_code': "https://wework.qpic.cn/wwpic3az/846609_hzyAbmanSvSbs5Y_1763777450/0", 'shortName':"ICMR",'ccfRank':"B",'deadline':"2025-02-23 23:59:59",'accept_rate':"41.6%(117/281 24')",
+		'timezone':'UTC-12','id':958,'date':"June 30 - July 3, 2025",'link':'https://www.icmr-2025.org/','place':"Chicago, USA",'year':'2025'})
+	
+	rows.push({'type':"AI",'qr_code': "https://wework.qpic.cn/wwpic3az/527098_0mQVJxO1R1agTGm_1763777289/0", 'shortName':"COLM",'ccfRank':"N",'deadline':"2025-03-28 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':959,'date':"October 7-9, 2025",'link':'https://colmweb.org/cfp.html','place':"Palais des Congrès Montreal, Canada",'year':'2025'})
+	
+	rows.push({'type':"AI",'qr_code': "https://wework.qpic.cn/wwpic3az/313176_nYZnoaz3RgaHG2L_1763777355/0", 'shortName':"ACCV",'ccfRank':"C",'deadline':"2026-07-05 23:59:59",'accept_rate':"",
+		'timezone':'UTC-12','id':960,'date':"December 14-18, 2026",'link':'https://accv2026.org/','place':"Osaka, japan",'year':'2026'})
+	
+	rows.push({'type':"CG",'qr_code': "https://wework.qpic.cn/wwpic3az/380710_YXqv3jgmTjSz9wz_1763777548/0", 'shortName':"CGI",'ccfRank':"C",'deadline':"2025-02-18 23:59:00",'accept_rate':"",
+		'timezone':'UTC','id':961,'date':"July 14-18, 2025",'link':'https://www.cgs-network.org/cgi25/','place':"Hong Kong, China",'year':'2025'})
+	
+	rows.push({'type':"DS",'qr_code': "https://wework.qpic.cn/wwpic3az/368043_G9j6F5hDQQ2DRiH_1763777457/0", 'shortName':"SYSTOR",'ccfRank':"C",'deadline':"2025-07-03 22:59:59",'accept_rate':"",
+		'timezone':'AoE','id':962,'date':"September 8-9, 2025",'link':'https://www.systor.org/2025/','place':"IBM Haifa, Israel",'year':'2025'})
+	
+	rows.push({'type':"NW",'qr_code': "https://wework.qpic.cn/wwpic3az/859287_FKA18YjvTAy3DHe_1763777558/0", 'shortName':"APNet",'ccfRank':"C",'deadline':"2025-03-13 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':963,'date':"August 7-8, 2025",'link':'https://conferences.sigcomm.org/events/apnet2025/','place':"Shanghai, China",'year':'2025'})
+	
+	rows.push({'type':"HI",'qr_code': "https://wework.qpic.cn/wwpic3az/374156__iCIHhzFQ2qsO33_1763777271/0", 'shortName':"UIST",'ccfRank':"A",'deadline':"2025-04-09 17:00:00",'accept_rate':"24.01%(146/608 24')",
+		'timezone':'UTC-8','id':964,'date':"Sep 28 - Oct 1, 2025",'link':'https://uist.acm.org/2025/','place':"Busan, Korea",'year':'2025'})
+	
+	rows.push({'type':"CG",'qr_code': "https://wework.qpic.cn/wwpic3az/833653_oHCCCjTLQOuoYxW_1763777587/0", 'shortName':"CASA",'ccfRank':"C",'deadline':"2025-03-08 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':965,'date':"June 2-5, 2025",'link':'https://casa2025.sciencesconf.org/','place':"Strasbourg, France",'year':'2025'})
+	
+	rows.push({'type':"NW",'qr_code': "https://wework.qpic.cn/wwpic3az/955389_GoK6fhIGRqiFh1s_1763777777/0", 'shortName':"IMC",'ccfRank':"B",'deadline':"2026-04-29 23:59:59",'accept_rate':"21.7%(55/253 24')",
+		'timezone':'AoE','id':966,'date':"November 03-06, 2026",'link':'https://conferences.sigcomm.org/imc/2026/','place':"Karlsruhe, Germany",'year':'2026'})
+	
+	rows.push({'type':"DB",'qr_code': "https://wework.qpic.cn/wwpic3az/942561_PIntgznAT1Gpwlo_1763777521/0https://wework.qpic.cn/wwpic3az/545868_nBRefYSgQMOhneM_1763777787/0", 'shortName':"APWeb-WAIM",'ccfRank':"C",'deadline':"2025-05-04 23:59:59",'accept_rate':"",
+		'timezone':'UTC-8','id':967,'date':"August 28-30, 2025",'link':'https://apweb2025.sau.edu.cn/','place':"Shenyang, China",'year':'2025'})
+	
+	rows.push({'type':"CT",'qr_code': "https://wework.qpic.cn/wwpic3az/118790_admFfgb9TMCU6Yh_1763777693/0", 'shortName':"FOCS",'ccfRank':"A",'deadline':"2025-04-03 20:00:00",'accept_rate':"",
+		'timezone':'UTC-5','id':968,'date':"December 14-17, 2025",'link':'https://focs.computer.org/2025/','place':"Sydney, Australia",'year':'2025'})
+	
+	rows.push({'type':"DS",'qr_code': "https://wework.qpic.cn/wwpic3az/635943_oaSPj21_SPC_cZg_1763777913/0", 'shortName':"IEEE/ACM CGO",'ccfRank':"B",'deadline':"2025-09-11 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':969,'date':"January 31 - 4 February, 2026",'link':'https://conf.researchr.org/home/cgo-2026','place':"Sydney, Australia",'year':'2026'})
+	
+	rows.push({'type':"DS",'qr_code': "https://wework.qpic.cn/wwpic3az/926392_XKBrfUn-Qp6P8n8_1763777596/0", 'shortName':"APSys",'ccfRank':"N",'deadline':"2025-06-05 23:59:00",'accept_rate':"",
+		'timezone':'AoE','id':970,'date':"October 12-13, 2025",'link':'https://apsys2025.github.io/','place':"Seoul, South Korea",'year':'2025'})
+	
+	rows.push({'type':"CG",'qr_code': "https://wework.qpic.cn/wwpic3az/961594_xiW3gazvQMyErlz_1763777399/0", 'shortName':"SCA",'ccfRank':"B",'deadline':"2025-06-15 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':971,'date':"August 8-10, 2025",'link':'https://computeranimation.org/','place':"Vancouver, Canada",'year':'2025'})
+	
+	rows.push({'type':"NW",'qr_code': "https://wework.qpic.cn/wwpic3az/108562_RG2Ikv97RY6R7Bi_1763777577/0", 'shortName':"MSN",'ccfRank':"C",'deadline':"2025-09-15 23:59:59",'accept_rate':"",
+		'timezone':'UTC-12','id':972,'date':"December 3-6, 2025",'link':'https://ieee-msn.org/2025','place':"Bandung, Indonesia",'year':'2025'})
+	
+	rows.push({'type':"DS",'qr_code': "https://wework.qpic.cn/wwpic3az/120101_tDaNEfLeRkWenm8_1763777337/0", 'shortName':"IISWC",'ccfRank':"N",'deadline':"2025-06-21 00:00:00",'accept_rate':"",
+		'timezone':'UTC','id':973,'date':"October 12-14, 2025",'link':'https://iiswc.org/iiswc2025/','place':"Irvine, USA",'year':'2025'})
+	
+	rows.push({'type':"DS",'qr_code': "https://wework.qpic.cn/wwpic3az/674152_DcMENzcPQfKfujA_1763777305/0", 'shortName':"SPAA",'ccfRank':"B",'deadline':"2025-02-28 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':974,'date':"July 28 - August 1, 2025",'link':'https://spaa.acm.org/call-for-papers/','place':"Portland, Oregon",'year':'2025'})
+	
+	rows.push({'type':"DS",'qr_code': "https://wework.qpic.cn/wwpic3az/252014_YjQb91MSRXa71sE_1763777510/0", 'shortName':"FPT",'ccfRank':"C",'deadline':"2025-08-01 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':975,'date':"December 02 - December 05, 2025",'link':'https://fpt2025.shanghaitech.edu.cn','place':"Shanghai, China",'year':'2025'})
+	
+	rows.push({'type':"AI",'qr_code': "https://wework.qpic.cn/wwpic3az/920762_S9afxdN5TjGzVhm_1763777539/0", 'shortName':"PRICAI",'ccfRank':"C",'deadline':"2025-06-27 23:59:59",'accept_rate':"",
+		'timezone':'UTC-12','id':976,'date':"Nov 17-21, 2025",'link':'https://www.pricai.org/2025/','place':"Wellington, New Zealand",'year':'2025'})
+	
+	rows.push({'type':"SE",'qr_code': "https://wework.qpic.cn/wwpic3az/915595_ZiyiPuVYQlSna6P_1763777751/0", 'shortName':"EUSIPCO",'ccfRank':"B",'deadline':"2026-02-06 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':977,'date':"August 31 - September 4, 2026",'link':'https://eusipco2026.org/','place':"Bruges, Belgium",'year':'2026'})
+	
+	rows.push({'type':"SE",'qr_code': "https://wework.qpic.cn/wwpic3az/212862_LoLyQRkgQNSzyhr_1763777609/0", 'shortName':"ICFEM",'ccfRank':"C",'deadline':"2025-06-01 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':978,'date':"November 10 - 13, 2025",'link':'https://icfem2025.github.io/','place':"Hangzhou, China",'year':'2025'})
+	
+	rows.push({'type':"CT",'qr_code': "https://wework.qpic.cn/wwpic3az/724321_ksxzOx87SXOZFoy_1763777953/0", 'shortName':"SODA",'ccfRank':"A",'deadline':"2025-07-14 23:59:59",'accept_rate':"",
+		'timezone':'UTC-12','id':979,'date':"January 11-14, 2026",'link':'https://www.siam.org/conferences-events/siam-conferences/soda26/','place':"Hyatt Regency Vancouver, Vancouver, Canada",'year':'2026'})
+	
+	rows.push({'type':"DS",'qr_code': "https://wework.qpic.cn/wwpic3az/655353_9RI5ossRTKiSWwQ_1763777874/0", 'shortName':"SIGMETRICS",'ccfRank':"B",'deadline':"2026-01-13 23:59:00",'accept_rate':"17.3%(66/382 25')",
+		'timezone':'AoE','id':980,'date':"June 8-12, 2026",'link':'https://www.sigmetrics.org/sigmetrics2026/','place':"Ann Arbor, Michigan, USA",'year':'2026'})
+	
+	rows.push({'type':"MX",'qr_code': "https://wework.qpic.cn/wwpic3az/787082_0zOmVD4wT-SJVO8_1763777924/0", 'shortName':"mlsys",'ccfRank':"N",'deadline':"2025-10-30 20:00:00",'accept_rate':"",
+		'timezone':'AoE','id':981,'date':"May 17-22, 2026",'link':'https://mlsys.org/','place':"Bellevue, Washington, USA",'year':'2026'})
+	
+	rows.push({'type':"AI",'qr_code': "https://wework.qpic.cn/wwpic3az/428684_YC5kAkWRSfu1ylM_1763777688/0", 'shortName':"WACV",'ccfRank':"N",'deadline':"2025-09-19 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':982,'date':"Mar 6 - 10, 2026",'link':'https://wacv.thecvf.com/','place':"Tucson, Arizona, USA",'year':'2026'})
+	
+	rows.push({'type':"MX",'qr_code': "https://wework.qpic.cn/wwpic3az/500240_HQhnBa1gQgitY0m_1763777697/0", 'shortName':"RECOMB",'ccfRank':"B",'deadline':"2025-11-14 23:59:59",'accept_rate':"21.3%(40/188 22')",
+		'timezone':'AoE','id':983,'date':"May 26 - 29, 2026",'link':'https://recomb.org/recomb2026/','place':"Thessaloniki, Greece",'year':'2026'})
+	
+	rows.push({'type':"AI",'qr_code': "https://wework.qpic.cn/wwpic3az/951009_SqMM6c9ySyGgHhy_1763777708/0", 'shortName':"CPAL",'ccfRank':"N",'deadline':"2025-12-05 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':984,'date':"March 23-27, 2026",'link':'https://cpal.cc/','place':"Tübingen, Germany",'year':'2026'})
+	
+	rows.push({'type':"AI",'qr_code': "https://wework.qpic.cn/wwpic3az/96156_0l8ItchZSDS9wiU_1763777736/0", 'shortName':"ICDAR",'ccfRank':"C",'deadline':"2026-02-27 23:59:59",'accept_rate':"",
+		'timezone':'UTC+0','id':985,'date':"August 30 - September 4, 2026",'link':'https://icdar2026.org/','place':"Vienna, Austria",'year':'2026'})
+	
+	rows.push({'type':"NW",'qr_code': "https://wework.qpic.cn/wwpic3az/164792_j_FOdMeOTPmt5Ge_1763777866/0", 'shortName':"ICC",'ccfRank':"C",'deadline':"2025-10-31 00:59:59",'accept_rate':"",
+		'timezone':'UTC-4','id':986,'date':"May 24-28, 2026",'link':'https://icc2026.ieee-icc.org','place':"Glasgow, Scotland, UK",'year':'2026'})
+	
+	rows.push({'type':"DB",'qr_code': "https://wework.qpic.cn/wwpic3az/155755_PAz9CLU9RUqJx8__1763777773/0", 'shortName':"ECIR",'ccfRank':"C",'deadline':"2025-10-02 23:59:59",'accept_rate':"24.8%(57/230 24')",
+		'timezone':'AoE','id':987,'date':"March 30 - April 01, 2026",'link':'https://ecir2026.eu/','place':"Delft, The Netherlands",'year':'2026'})
+	
+	rows.push({'type':"CG",'qr_code': "https://wework.qpic.cn/wwpic3az/116229_xeTJOF3rTvCZUGG_1763777725/0", 'shortName':"CVM",'ccfRank':"C",'deadline':"2025-10-13 23:59:59",'accept_rate':"",
+		'timezone':'UTC+0','id':988,'date':"April 10-12, 2026",'link':'http://iccvm.org/2026/','place':"Seoul, Korea",'year':'2026'})
+	
+	rows.push({'type':"CG",'qr_code': "https://wework.qpic.cn/wwpic3az/587994__OmliqT6SJ-XYA5_1763777255/0", 'shortName':"MMM",'ccfRank':"C",'deadline':"2025-08-19 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':989,'date':"January 29-31, 2026",'link':'https://mmm2026.cz/','place':"Prague, Czech Republic",'year':'2026'})
+	
+	rows.push({'type':"HI",'qr_code': "https://wework.qpic.cn/wwpic3az/587863_E2HAaTwMTxSPtkh_1763777770/0", 'shortName':"ICMI",'ccfRank':"C",'deadline':"2026-04-20 23:59:59",'accept_rate':"",
+		'timezone':'UTC+7','id':990,'date':"Oct 5 - 9, 2026",'link':'https://icmi.acm.org/2026/','place':"Napoli, Italy",'year':'2026'})
+	
+	rows.push({'type':"NW",'qr_code': "https://wework.qpic.cn/wwpic3az/227260_JlQY3ilDRT6L7v7_1763777486/0", 'shortName':"WCNC",'ccfRank':"C",'deadline':"2025-09-14 23:59:59",'accept_rate':"",
+		'timezone':'UTC-12','id':991,'date':"April 13-16, 2026",'link':'https://wcnc2026.ieee-wcnc.org/group/21','place':"Kuala Lumpur, Malaysia",'year':'2026'})
+	
+	rows.push({'type':"DS",'qr_code': "https://wework.qpic.cn/wwpic3az/33135_c68Dl3zsT5WGdSf_1763777795/0", 'shortName':"ISCAS",'ccfRank':"C",'deadline':"2025-10-12 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':992,'date':"May 24-27, 2026",'link':'https://2026.ieee-iscas.org/','place':"SHANGHAI, CHINA",'year':'2026'})
+	
+	rows.push({'type':"SC",'qr_code': "https://wework.qpic.cn/wwpic3az/626101__GfUE2QoSLKNKVd_1763777784/0", 'shortName':"NOMS",'ccfRank':"N",'deadline':"2025-10-13 19:59:59",'accept_rate':"",
+		'timezone':'UTC+10','id':993,'date':"May 18-22, 2026",'link':'https://noms2026.ieee-noms.org/','place':"Rome, Italy",'year':'2026'})
+	
+	rows.push({'type':"NW",'qr_code': "https://wework.qpic.cn/wwpic3az/385431_98u_CrFgSi6h2iT_1763777943/0", 'shortName':"WoWMoM",'ccfRank':"C",'deadline':"2025-12-05 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':994,'date':"June 16-19, 2026",'link':'https://www.cs.unibo.it/wowmom2026/','place':"Bologna, Italy",'year':'2026'})
+	
+	rows.push({'type':"DS",'qr_code': "https://wework.qpic.cn/wwpic3az/290574_RlC3Sc_bRj-Rwpv_1763777484/0", 'shortName':"DCC",'ccfRank':"B",'deadline':"2024-10-11 23:59:59",'accept_rate':"",
+		'timezone':'UTC-8','id':995,'date':"March 18-21, 2025",'link':'https://datacompressionconference.org/','place':"Snowbird, Utah, U.S.",'year':'2025'})
+	
+	rows.push({'type':"CT",'qr_code': "https://wework.qpic.cn/wwpic3az/572383_HvKb9BwNQECem8v_1763777749/0", 'shortName':"SOCG",'ccfRank':"B",'deadline':"2025-12-02 23:59:00",'accept_rate':"",
+		'timezone':'AoE','id':996,'date':"June 2-5, 2026",'link':'https://cgweek26.computational-geometry.org/contribute/','place':"New Brunswick, New Jersey, USA",'year':'2026'})
+	
+	rows.push({'type':"CT",'qr_code': "https://wework.qpic.cn/wwpic3az/508148_EI4RGoziREKLoqX_1763777611/0", 'shortName':"ICALP",'ccfRank':"B",'deadline':"2025-02-08 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':997,'date':"July 8-11, 2025",'link':'https://conferences.au.dk/icalp2025','place':"Aarhus, Denmark",'year':'2025'})
+	
+	rows.push({'type':"CT",'qr_code': "https://wework.qpic.cn/wwpic3az/329782__NHYd0wnRneP1aa_1763777246/0", 'shortName':"SETTA",'ccfRank':"C",'deadline':"2025-08-20 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':998,'date':"Dec, 2025",'link':'https://www.setta2025.uk','place':"Oxford, UK",'year':'2025'})
+	
+	rows.push({'type':"DB",'qr_code': "https://wework.qpic.cn/wwpic3az/660862_-abgkE2YTq-mWpz_1763777264/0", 'shortName':"PAKDD",'ccfRank':"C",'deadline':"2025-11-15 23:59:59",'accept_rate':"",
+		'timezone':'UTC-8','id':999,'date':"June 9-12, 2026",'link':'https://www.pakdd2026.org/','place':"Hong Kong, China",'year':'2026'})
+	
+	rows.push({'type':"AI",'qr_code': "https://wework.qpic.cn/wwpic3az/766202_wdScV1HvREm4OTv_1763777341/0", 'shortName':"CEC",'ccfRank':"N",'deadline':"2025-01-15 23:59:59",'accept_rate':"",
+		'timezone':'UTC-12','id':1000,'date':"June 8-12, 2025",'link':'https://www.cec2025.org/','place':"Hangzhou, China",'year':'2025'})
+	
+	rows.push({'type':"AI",'qr_code': "https://wework.qpic.cn/wwpic3az/418290_aHjO86J_QIGU-LH_1763777947/0", 'shortName':"ESANN",'ccfRank':"N",'deadline':"2025-11-19 23:59:59",'accept_rate':"",
+		'timezone':'UTC-8','id':1001,'date':"April 22 - 24, 2026",'link':'https://www.esann.org/','place':"Bruges, Belgium and Online",'year':'2026'})
+	
+	rows.push({'type':"CT",'qr_code': "https://wework.qpic.cn/wwpic3az/194154_1MXY1lPQRUe1luD_1763777391/0", 'shortName':"CADE",'ccfRank':"B",'deadline':"2025-02-24 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':1002,'date':"July 28-31, 2025",'link':'https://www.dhbw-stuttgart.de/cade-30/','place':"DHBW Stuttgart, Stuttgart, Germany",'year':'2025'})
+	
+	rows.push({'type':"NW",'qr_code': "https://wework.qpic.cn/wwpic3az/961523_BriYMVOvREm3q6Z_1763777420/0", 'shortName':"WASA",'ccfRank':"C",'deadline':"2025-01-15 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':1003,'date':"June 24-26, 2025",'link':'http://wasa-conference.org/WASA2025/index.html','place':"Tokyo, Japan",'year':'2025'})
+	
+	rows.push({'type':"SE",'qr_code': "https://wework.qpic.cn/wwpic3az/574215_53Z7k1ZaS5-8-G-_1763777430/0", 'shortName':"RV",'ccfRank':"C",'deadline':"2025-05-30 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':1004,'date':"September 15-19, 2025",'link':'https://rv25.isec.tugraz.at/','place':"Graz, Austria",'year':'2025'})
+	
+	rows.push({'type':"CT",'qr_code': "https://wework.qpic.cn/wwpic3az/934428_cPaN4jO5RKOVfBS_1763777507/0", 'shortName':"COCOON",'ccfRank':"B",'deadline':"2025-03-05 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':1005,'date':"August 15-17, 2025",'link':'https://tcsuestc.com/cocoon2025','place':"Chengdu, China",'year':'2025'})
+	
+	rows.push({'type':"HI",'qr_code': "https://wework.qpic.cn/wwpic3az/691743_fJtrOJO1Q3-Wo_J_1763777951/0", 'shortName':"ICWSM",'ccfRank':"B",'deadline':"2026-01-15 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':1006,'date':"May 27-29, 2026",'link':'https://www.icwsm.org/2026/index.html','place':"Los Angeles, CA, USA",'year':'2026'})
+	
+	rows.push({'type':"DS",'qr_code': "https://wework.qpic.cn/wwpic3az/2188_ZvNRRKy0TgqXckC_1763777533/0", 'shortName':"GLSVLSI",'ccfRank':"C",'deadline':"2025-03-17 23:59:00",'accept_rate':"",
+		'timezone':'UTC-5','id':1007,'date':"June 30-July 2, 2025",'link':'https://www.glsvlsi.org/','place':"New Orleans, LA, USA",'year':'2025'})
+	
+	rows.push({'type':"CG",'qr_code': "https://wework.qpic.cn/wwpic3az/807311_gOkTLaeyQjiD4E-_1763777594/0", 'shortName':"EGSR",'ccfRank':"B",'deadline':"2025-04-07 23:59:59",'accept_rate':"",
+		'timezone':'UTC','id':1008,'date':"June 25-27, 2025",'link':'https://conferences.eg.org/egsr2025/','place':"Copenhagen, Denmark",'year':'2025'})
+	
+	rows.push({'type':"AI",'qr_code': "https://wework.qpic.cn/wwpic3az/936647_vHh15jmQQn-JYz2_1763777602/0", 'shortName':"CoRL",'ccfRank':"N",'deadline':"2025-04-30 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':1009,'date':"September 27-30, 2025",'link':'https://www.corl.org/','place':"Seoul, Korea",'year':'2025'})
+	
+	rows.push({'type':"SC",'qr_code': "https://wework.qpic.cn/wwpic3az/213366_9az1SyLlRK23eoP_1763777517/0", 'shortName':"INSCRYPT",'ccfRank':"C",'deadline':"2025-06-30 23:59:59",'accept_rate':"",
+		'timezone':'UTC-8','id':1011,'date':"October 19-21, 2025",'link':'https://inscrypt2025.xidian.edu.cn/','place':"Xi'an, China",'year':'2025'})
+	
+	rows.push({'type':"AI",'qr_code': "https://wework.qpic.cn/wwpic3az/255681_9VBYRKHKSU2ezS8_1763777526/0", 'shortName':"CoNLL",'ccfRank':"C",'deadline':"2025-03-14 23:59:59",'accept_rate':"",
+		'timezone':'UTC-12','id':1012,'date':"July 31 - August 1, 2025",'link':'https://www.conll.org/','place':"Vienna, Austria",'year':'2025'})
+	
+	rows.push({'type':"AI",'qr_code': "https://wework.qpic.cn/wwpic3az/629942_mdjdKPWLTuqW0rQ_1763777657/0", 'shortName':"GECCO",'ccfRank':"C",'deadline':"2025-01-29 23:59:00",'accept_rate':"",
+		'timezone':'AoE','id':1013,'date':"July 14-18, 2025",'link':'https://gecco-2025.sigevo.org/HomePage','place':"Málaga, Spain (hybrid)",'year':'2025'})
+	
+	rows.push({'type':"AI",'qr_code': "https://wework.qpic.cn/wwpic3az/639202_SCeCXuS2RqOM62b_1763777503/0", 'shortName':"NLPCC",'ccfRank':"C",'deadline':"2025-04-20 23:59:59",'accept_rate':"",
+		'timezone':'UTC+8','id':1014,'date':"August 8-10, 2025",'link':'http://tcci.ccf.org.cn/conference/2025/index.php','place':"Urumqi, China",'year':'2025'})
+	
+	rows.push({'type':"AI",'qr_code': "https://wework.qpic.cn/wwpic3az/487478_BdVGSRzIRoWgrsj_1763777852/0", 'shortName':"IJCB",'ccfRank':"C",'deadline':"2026-04-10 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':1015,'date':"September 1-4, 2026",'link':'https://ijcb2026.ieee-biometrics.org/','place':"Rome, Italy",'year':'2026'})
+	
+	rows.push({'type':"CT",'qr_code': "https://wework.qpic.cn/wwpic3az/788731_ClmDvsAMQc2rE2h_1763777583/0", 'shortName':"CONCUR",'ccfRank':"B",'deadline':"2025-04-09 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':1016,'date':"Aug 26-29, 2025",'link':'https://conferences.au.dk/confest2025/concur','place':"Aarhus, Denmark",'year':'2025'})
+	
+	rows.push({'type':"CT",'qr_code': "https://wework.qpic.cn/wwpic3az/21197_4LdpkTFDQK66SsK_1763777542/0", 'shortName':"FMCAD",'ccfRank':"C",'deadline':"2025-04-27 23:59:00",'accept_rate':"",
+		'timezone':'AoE','id':1017,'date':"Oct. 6-10, 2025",'link':'https://fmcad.forsyte.at/FMCAD25/','place':"Menlo Park, USA",'year':'2025'})
+	
+	rows.push({'type':"CG",'qr_code': "https://wework.qpic.cn/wwpic3az/79221_zlcFjXDwR_a1yQG_1763777276/0", 'shortName':"SGP",'ccfRank':"B",'deadline':"2025-04-11 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':1018,'date':"June 30 - July 4, 2025",'link':'https://sgp2025.my.canva.site/','place':"BILBAO, SPAIN",'year':'2025'})
+	
+	rows.push({'type':"DS",'qr_code': "https://wework.qpic.cn/wwpic3az/227345_BlhMZQKAQb-0c6P_1763777605/0", 'shortName':"PDCAT",'ccfRank':"N",'deadline':"2025-08-15 23:59:00",'accept_rate':"",
+		'timezone':'UTC+10','id':1019,'date':"November 22-November 24, 2025",'link':'https://www.pd-cat.org/','place':"Gold Coast, Australia",'year':'2025'})
+	
+	rows.push({'type':"MX",'qr_code': "https://wework.qpic.cn/wwpic3az/900240_fAPtaoOYQeGgaNZ_1763777650/0", 'shortName':"ISBRA",'ccfRank':"C",'deadline':"2025-04-01 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':1020,'date':"August 3-5, 2025",'link':'https://www.helsinki.fi/en/conferences/isbra2025','place':"Helsinki, Finland",'year':'2025'})
+	
+	rows.push({'type':"MX",'qr_code': "https://wework.qpic.cn/wwpic3az/133226_GdUornstSBi0omb_1763777669/0", 'shortName':"APBC",'ccfRank':"C",'deadline':"2025-06-15 23:59:59",'accept_rate':"",
+		'timezone':'UTC+0','id':1021,'date':"September 19-22, 2025",'link':'https://bioinfo.nuaa.edu.cn/apbc2025/main.psp','place':"Nanjing， China",'year':'2025'})
+	
+	rows.push({'type':"MX",'qr_code': "https://wework.qpic.cn/wwpic3az/753335_K62Vmz9PRKmxkSo_1763777528/0", 'shortName':"EMSOFT",'ccfRank':"B",'deadline':"2025-03-30 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':1022,'date':"September 28 - October 3, 2025",'link':'https://esweek.org/emsoft/','place':"TAIPEI, TAIWAN",'year':'2025'})
+	
+	rows.push({'type':"NW",'qr_code': "https://wework.qpic.cn/wwpic3az/778205_5WL0f_86Qx-zgoQ_1763777505/0", 'shortName':"NOSSDAV",'ccfRank':"B",'deadline':"2025-01-17 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':1023,'date':"March 31- April 3, 2025",'link':'https://nossdav.org/2025/','place':"Stellenbosch, South Africa",'year':'2025'})
+	
+	rows.push({'type':"DS",'qr_code': "https://wework.qpic.cn/wwpic3az/458844_FTemrdq0Rh2ELga_1763777473/0", 'shortName':"HPCC",'ccfRank':"C",'deadline':"2025-05-18 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':1024,'date':"August 13-15, 2025",'link':'https://hpcn.exeter.ac.uk/hpcc2025/','place':"Exeter, UK",'year':'2025'})
+	
+	rows.push({'type':"DS",'qr_code': "https://wework.qpic.cn/wwpic3az/395687_Q5Q4rdXFRh2MQtG_1763777519/0", 'shortName':"Hot Chips",'ccfRank':"B",'deadline':"2025-04-16 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':1025,'date':"August 24-26, 2025",'link':'https://www.hotchips.org/','place':"Memorial Auditorium, Stanford, Palo Alto, CA",'year':'2025'})
+	
+	rows.push({'type':"MX",'qr_code': "https://wework.qpic.cn/wwpic3az/40236_PZ0TdwLLTmafeCv_1763777599/0", 'shortName':"Cloud",'ccfRank':"C",'deadline':"2025-03-10 23:00:00",'accept_rate':"",
+		'timezone':'AoE','id':1026,'date':"July 7-12, 2025",'link':'https://services.conferences.computer.org/2025/cloud/','place':"Helsinki, Finland",'year':'2025'})
+	
+	rows.push({'type':"HI",'qr_code': "https://wework.qpic.cn/wwpic3az/691572_KckCscSPT5ub-Do_1763777348/0", 'shortName':"CollaborateCom",'ccfRank':"C",'deadline':"2025-05-01 23:59:59",'accept_rate':"",
+		'timezone':'UTC-8','id':1027,'date':"November 15-16, 2025",'link':'https://collaboratecom.eai-conferences.org/2025/','place':"Shanghai, China",'year':'2025'})
+	
+	rows.push({'type':"AI",'qr_code': "https://wework.qpic.cn/wwpic3az/695402_llbcmgkTSfGH7N3_1763777929/0", 'shortName':"ICAPS",'ccfRank':"B",'deadline':"2025-12-08 23:59:59",'accept_rate':"",
+		'timezone':'UTC-12','id':1028,'date':"June 27 - July 2, 2026",'link':'https://icaps26.icaps-conference.org/','place':"Dublin, Ireland",'year':'2026'})
+	
+	rows.push({'type':"NW",'qr_code': "https://wework.qpic.cn/wwpic3az/246479_MFpisam7SpuKKcO_1763777962/0", 'shortName':"SenSys",'ccfRank':"B",'deadline':"2025-11-13 23:59:00",'accept_rate':"19.1%(45/235 25')",
+		'timezone':'AoE','id':1029,'date':"May 11-14, 2026",'link':'https://sensys.acm.org/2026/','place':"Saint-Malo, France",'year':'2026'})
+	
+	rows.push({'type':"CG",'qr_code': "https://wework.qpic.cn/wwpic3az/226728_hKDJeltxQ2m5FhP_1763777844/0", 'shortName':"EuroVis",'ccfRank':"B",'deadline':"2024-12-03 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':1030,'date':"June 8-12, 2026",'link':'https://www.eurovis.org.uk/','place':"Nottingham, United Kingdom",'year':'2026'})
+	
+	rows.push({'type':"CG",'qr_code': "https://wework.qpic.cn/wwpic3az/164142_nZV22LtGSgSUK8H_1763777482/0", 'shortName':"ICVRV",'ccfRank':"C",'deadline':"2025-08-22 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':1031,'date':"December 19-21, 2025",'link':'https://icvrv2025.aconf.org/','place':"Bogota, Colombia",'year':'2025'})
+	
+	rows.push({'type':"CG",'qr_code': "https://wework.qpic.cn/wwpic3az/368513_BiAMVKJbRvCJbMT_1763777797/0", 'shortName':"PacificVis",'ccfRank':"C",'deadline':"2025-11-08 23:59:00",'accept_rate':"",
+		'timezone':'AoE','id':1032,'date':"April 20 - 23, 2026",'link':'https://pacificvis2026.github.io/','place':"Sydney, Australia",'year':'2026'})
+	
+	rows.push({'type':"CG",'qr_code': "https://wework.qpic.cn/wwpic3az/398907_775JM7nYQVisJql_1763777359/0", 'shortName':"SMI",'ccfRank':"C",'deadline':"2025-04-22 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':1033,'date':"October 29 - November 2, 2025",'link':'https://smiconf.github.io/2025/','place':"Hangzhou, Zhejiang, P.R. China",'year':'2025'})
+	
+	rows.push({'type':"CG",'qr_code': "https://wework.qpic.cn/wwpic3az/787249_pPNRJM6zRamQq8Q_1763777334/0", 'shortName':"SPM",'ccfRank':"B",'deadline':"2025-03-15 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':1034,'date':"October 29 - November 2, 2025",'link':'https://spmconf2025.github.io/SPM2025/','place':"Hangzhou, Zhejiang, P.R. China",'year':'2025'})
+	
+	rows.push({'type':"DB",'qr_code': "https://wework.qpic.cn/wwpic3az/690803_DCiA2Q2XTYqMgXj_1763777552/0", 'shortName':"PODS",'ccfRank':"B",'deadline':"2024-12-09 17:00:00",'accept_rate':"",
+		'timezone':'UTC-7','id':1035,'date':"June 22-27, 2025",'link':'https://2025.sigmod.org/','place':"Berlin, Germany",'year':'2025'})
+	
+	rows.push({'type':"HI",'qr_code': "https://wework.qpic.cn/wwpic3az/367755_dqerNWx4Qeq6EO__1763777262/0", 'shortName':"ASSETS",'ccfRank':"C",'deadline':"2025-04-16 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':1036,'date':"Oct 26 - 29, 2025",'link':'https://assets25.sigaccess.org/','place':"Denver, Colorado",'year':'2025'})
+	
+	rows.push({'type':"HI",'qr_code': "https://wework.qpic.cn/wwpic3az/68584_x09BEGQxQ9602fN_1763777493/0", 'shortName':"DIS",'ccfRank':"C",'deadline':"2025-01-20 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':1037,'date':"July 5 - 9, 2025",'link':'https://dis.acm.org/2025/','place':"Funchal, Madeira, Portugal",'year':'2025'})
+	
+	rows.push({'type':"HI",'qr_code': "https://wework.qpic.cn/wwpic3az/403011_1DY-FxkdRGW8foW_1763777782/0", 'shortName':"ECSCW",'ccfRank':"B",'deadline':"2026-03-06 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':1038,'date':"29 June - 3 July, 2026",'link':'https://ecscw.eusset.eu/2026','place':"Munich, Germany",'year':'2026'})
+	
+	rows.push({'type':"HI",'qr_code': "https://wework.qpic.cn/wwpic3az/334548_FsJWl9BvTJ--1IO_1763777546/0", 'shortName':"ITS",'ccfRank':"B",'deadline':"2025-07-25 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':1039,'date':"TBD",'link':'https://iss.acm.org/2025/','place':"TBD",'year':'2025'})
+	
+	rows.push({'type':"HI",'qr_code': "https://wework.qpic.cn/wwpic3az/927940_WTKx6wdBTpqjHNW_1763777863/0", 'shortName':"PerCom",'ccfRank':"B",'deadline':"2025-10-03 23:59:00",'accept_rate':"",
+		'timezone':'AoE','id':1040,'date':"March 16 - 20, 2026",'link':'https://percom.org/','place':"Pisa, Italy",'year':'2026'})
+	
+	rows.push({'type':"SE",'qr_code': "https://wework.qpic.cn/wwpic3az/58902_cFqdQlPNQOWBl9a_1763777638/0", 'shortName':"APLAS",'ccfRank':"C",'deadline':"2025-05-31 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':1041,'date':"October 27-30, 2025",'link':'https://conf.researchr.org/home/aplas-2025','place':"Bengaluru, India",'year':'2025'})
+	
+	rows.push({'type':"SE",'qr_code': "https://wework.qpic.cn/wwpic3az/596682_M_ENb9-3QG6q14B_1763777581/0", 'shortName':"APSEC",'ccfRank':"C",'deadline':"2025-07-13 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':1042,'date':"December 2-5, 2025",'link':'https://conf.researchr.org/home/apsec-2025','place':"Macao SAR, China",'year':'2025'})
+	
+	rows.push({'type':"SE",'qr_code': "https://wework.qpic.cn/wwpic3az/292958_5XkOnehNSd6TAhN_1763777815/0", 'shortName':"EASE",'ccfRank':"C",'deadline':"2026-01-23 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':1043,'date':"June 9 - 12, 2026",'link':'https://conf.researchr.org/home/ease-2026','place':"Glasgow, United Kingdom",'year':'2026'})
+	
+	rows.push({'type':"MX",'qr_code': "https://wework.qpic.cn/wwpic3az/131916_A3IfnESOTjK4nB-_1763777653/0", 'shortName':"BigData",'ccfRank':"C",'deadline':"2025-08-29 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':1044,'date':"December 8-11, 2025",'link':'https://conferences.cis.um.edu.mo/ieeebigdata2025/','place':"Macau SAR, China",'year':'2025'})
+	
+	rows.push({'type':"AI",'qr_code': "https://wework.qpic.cn/wwpic3az/363751_Y0Yx8z65SC2rOAN_1763777695/0", 'shortName':"FG",'ccfRank':"C",'deadline':"2026-01-15 23:59:59",'accept_rate':"",
+		'timezone':'UTC-8','id':1045,'date':"May 25-29, 2026",'link':'https://fg2026.ieee-biometrics.org/','place':"Kyoto, Japan",'year':'2026'})
+	
+	rows.push({'type':"SE",'qr_code': "https://wework.qpic.cn/wwpic3az/819775_JPsc8BTIQAyM5Gh_1763777461/0", 'shortName':"SSE",'ccfRank':"C",'deadline':"2025-03-10 23:00:00",'accept_rate':"",
+		'timezone':'AoE','id':1046,'date':"July 7-12, 2025",'link':'https://services.conferences.computer.org/2025/sse/','place':"Helsinki, Finland",'year':'2025'})
+	
+	rows.push({'type':"HI",'qr_code': "https://wework.qpic.cn/wwpic3az/736827_62IaJZ4DQwG4uTP_1763777490/0", 'shortName':"ISS",'ccfRank':"B",'deadline':"2025-07-25 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':1047,'date':"TBD",'link':'https://iss.acm.org/2025/','place':"TBD",'year':'2025'})
+	
+	rows.push({'type':"AI",'qr_code': "https://wework.qpic.cn/wwpic3az/989195_83B0mVqLR8CB1Dv_1763777600/0", 'shortName':"IJCNLP",'ccfRank':"N",'deadline':"2025-07-28 23:59:59",'accept_rate':"",
+		'timezone':'UTC-12','id':1048,'date':"Dec 20-24, 2025",'link':'https://www.afnlp.org/conferences/ijcnlp2025/','place':"Mumbai, India",'year':'2025'})
+	
+	rows.push({'type':"SE",'qr_code': "https://wework.qpic.cn/wwpic3az/652712_vu8eo48BR1m-E4k_1763777418/0", 'shortName':"REFSQ",'ccfRank':"C",'deadline':"2024-11-08 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':1049,'date':"April 7-10, 2025",'link':'https://2025.refsq.org/','place':"Barcelona, Spain",'year':'2025'})
+	
+	rows.push({'type':"SE",'qr_code': "https://wework.qpic.cn/wwpic3az/741926_b3pL8B4nSsqPRyJ_1763777475/0", 'shortName':"ATVA",'ccfRank':"C",'deadline':"2025-04-25 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':1050,'date':"October 27-31, 2025",'link':'https://conf.researchr.org/home/atva-2025','place':"Bengaluru, India",'year':'2025'})
+	
+	rows.push({'type':"SE",'qr_code': "https://wework.qpic.cn/wwpic3az/854756_TR5xS2wpRgqt5ZJ_1763777477/0", 'shortName':"SCAM",'ccfRank':"C",'deadline':"2025-06-09 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':1051,'date':"September 7-12, 2025",'link':'https://conf.researchr.org/home/scam-2025','place':"Auckland, New Zealand",'year':'2025'})
+	
+	rows.push({'type':"SE",'qr_code': "https://wework.qpic.cn/wwpic3az/574406_DAJL91XfS-mj1Au_1763777715/0", 'shortName':"COMPSAC",'ccfRank':"C",'deadline':"2026-01-31 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':1052,'date':"July 7-10, 2026",'link':'https://ieeecompsac.computer.org/2026/','place':"Madrid, Spain",'year':'2026'})
+	
+	rows.push({'type':"HI",'qr_code': "https://wework.qpic.cn/wwpic3az/398207_2yJoSIOmTLu38fj_1763777287/0", 'shortName':"GROUP",'ccfRank':"B",'deadline':"2025-07-15 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':1053,'date':"TBD",'link':'https://group.acm.org/conferences/group27/','place':"TBD",'year':'2027'})
+	
+	rows.push({'type':"CG",'qr_code': "https://wework.qpic.cn/wwpic3az/547354_4ktnOpSoTcykps3_1763777250/0", 'shortName':"VINCI",'ccfRank':"N",'deadline':"2025-06-27 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':1054,'date':"December 1-3, 2025",'link':'https://vinci2025.games.cg.jku.at','place':"Linz, Austria",'year':'2025'})
+	
+	rows.push({'type':"HI",'qr_code': "https://wework.qpic.cn/wwpic3az/648025_pQR_Zz8bR2CGBzY_1763777332/0", 'shortName':"UIC",'ccfRank':"C",'deadline':"2025-05-01 23:59:59",'accept_rate':"",
+		'timezone':'UTC-4','id':1055,'date':"Aug 18 - 22, 2025",'link':'https://www.ieee-smart-world.org/2025/','place':"Calgary, Alberta, Canada",'year':'2025'})
+	
+	rows.push({'type':"SC",'qr_code': "https://wework.qpic.cn/wwpic3az/872722_IFs8q5EXSSmAMrI_1763777615/0", 'shortName':"SATML",'ccfRank':"N",'deadline':"2025-09-24 23:59:59",'accept_rate':"",
+		'timezone':'UTC-12','id':1056,'date':"March 23-25, 2026",'link':'https://www.satml.org','place':"Munich, Germany",'year':'2026'})
+	
+	rows.push({'type':"DS",'qr_code': "https://wework.qpic.cn/wwpic3az/416818_R3NV4uywQaizKsx_1763777671/0", 'shortName':"ICPADS",'ccfRank':"C",'deadline':"2025-08-31 18:00:00",'accept_rate':"",
+		'timezone':'UTC+8','id':1057,'date':"December 14-18, 2025",'link':'http://ieee-icpads.org.cn/','place':"Hefei, China",'year':'2025'})
+	
+	rows.push({'type':"AI",'qr_code': "https://wework.qpic.cn/wwpic3az/473834_xrbznpOOQDeyv5L_1763777579/0", 'shortName':"LOG",'ccfRank':"N",'deadline':"2025-08-29 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':1058,'date':"December 10-12, 2025",'link':'https://logconference.org/','place':"Arizona State University, Phoenix, USA",'year':'2025'})
+	
+	rows.push({'type':"NW",'qr_code': "https://wework.qpic.cn/wwpic3az/546813_A40_CbzJQrC3FtA_1763777731/0", 'shortName':"MMSys",'ccfRank':"N",'deadline':"2025-11-21 23:59:59",'accept_rate':"24.1%(19/79 25')",
+		'timezone':'AoE','id':1059,'date':"April 4 - 8, 2026",'link':'https://2026.acmmmsys.org','place':"Hong Kong SAR",'year':'2026'})
+	
+	rows.push({'type':"AI",'qr_code': "https://wework.qpic.cn/wwpic3az/698488_2H73XkIBRuGIcqA_1763777896/0", 'shortName':"EACL",'ccfRank':"N",'deadline':"2025-10-06 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':1060,'date':"March 24-29, 2026",'link':'https://2026.eacl.org/','place':"Rabat, Morocco",'year':'2026'})
+	
+	rows.push({'type':"CT",'qr_code': "https://wework.qpic.cn/wwpic3az/942538_ONAax03aQled7qZ_1763777765/0", 'shortName':"ISIT",'ccfRank':"N",'deadline':"2026-01-16 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':1061,'date':"June 28 - July 3, 2026",'link':'https://2026.ieee-isit.org/','place':"Guangzhou, China",'year':'2026'})
+	
+	rows.push({'type':"SC",'qr_code': "https://wework.qpic.cn/wwpic3az/924308_SLKz6u5vS6eBRUl_1763777452/0", 'shortName':"DFRWS APAC",'ccfRank':"C",'deadline':"2025-05-23 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':1062,'date':"November 10-12, 2025",'link':'https://dfrws.org/conferences/dfrws-apac-2025/','place':"Seoul, South Korea",'year':'2025'})
+	
+	rows.push({'type':"CT",'qr_code': "https://wework.qpic.cn/wwpic3az/230453_upmjCSefT2qRtAO_1763777911/0", 'shortName':"HSCC",'ccfRank':"B",'deadline':"2025-11-13 23:59:59",'accept_rate':"",
+		'timezone':'AoE','id':1063,'date':"May 11-14, 2026",'link':'https://www.isis.vanderbilt.edu/events/hscciccps-2026','place':"Saint Malo, France",'year':'2026'})
+	
+
+	query();
+
+	// $(".exportToExcel").click(function(e){
+    //
+	// 	var table = $(".table2excel");
+	// 	if(table && table.length){
+	// 		$(table).table2excel({
+	// 			exclude: ".noExl",
+	// 			name: "Excel Document Name",
+	// 			filename: "CCF Conference Deadlines.xls",
+	// 			fileext: ".xls",
+	// 			exclude_img: true,
+	// 			exclude_links: false,
+	// 			exclude_inputs: true,
+	// 			preserveColors: true
+	// 		});
+	// 	}
+	// });
+
+
+	function query() {
+		var meetingName = $('#meetingName').val();
+		var type = $('#typeFrom').val();
+		var ccfRank = $('#ccfRank').val();
+		var meetingNameReg = new RegExp(meetingName,"i");
+		var typeReg = new RegExp(type,"i");
+		var ccfRankReg = new RegExp(ccfRank,"i");
+		var only_like = false;
+		if($('#kaiguan').attr('xlink:href')==='#icon-kaiguan'){only_like = true}
+		if(type ===''){typeReg  = /./;}
+		if(ccfRank===''){ccfRankReg = /./;}
+		if(meetingName===''){meetingNameReg = /./;}
+		let str = "";
+		var ids=[];
+		var deadlines = [];
+		for (let i = 0; i <rows.length ; i++) {
+			var row = rows[i]
+			if(row.shortName==='NeurIPS'){
+				var row_shortName='NeurIPS|NIPS'
+			}else{
+				row_shortName=row.shortName
+			}
+			if (typeReg.test(row.type) && meetingNameReg.test(row_shortName+" "+row.year) && ccfRankReg.test(row.ccfRank) && ( !only_like || like_meetings.includes(row.id))) {
+
+				var place_arr =row.place.split(',');
+				var place = place_arr[place_arr.length-1];
+				var beijing_deadline_time = +new Date(row.deadline.replace(/-/g, "/"))+timeMap[row.timezone]
+				beijing_deadline = formatDateTime(beijing_deadline_time)
+				var daojishi = countDown_result(beijing_deadline_time,row.id)
+				if(row.deadline==='TBD'){
+					beijing_deadline = 'TBD';
+					daojishi = '待定';
+				}
+				str+="<td align='center'><a href=' "+row.link+"'> "+row.shortName+"&nbsp;"+row.year+"</a> </td>"
+						+"<td align='center'>"+typeMap[row.type]+"</td>"
+						+"<td align='center'>"+row.ccfRank[0]+"</td>"
+						+"<td align='center' type='string'>"+row.date+"</td>"
+						+"<td align='center' type='string' >"+beijing_deadline+"</td>"
+						+"<td align='center' id='countdown"+row.id+"' type='string' class='noExl'>"+daojishi+"</td>"
+						+"<td align='center' title='"+row.place+"' >"+place+"</td>"
+						+"<td align='center' type='string'>"+row.accept_rate+"</td>"
+                        +"<td align='center' type='string'> <a href="+row.qr_code+ ">点击进群</a> </td>"
+						+"<td align='center' onclick='like("+row.id+")' class='noExl'>"
+				if(!like_meetings.includes(row.id)){
+					str+="<svg class='icon' aria-hidden='true' id='icon"+row.id+"' style='fill:#707070;' >"
+							+"<use xlink:href='#icon-shoucang'></use> </svg> </td> </tr>";
+				}else{
+					str+="<svg class='icon' aria-hidden='true' id='icon"+row.id+"' style='fill:red;'> "
+							+"<use xlink:href='#icon-shoucang'></use> </svg> </td> </tr>";
+				}
+				ids.push(row.id);
+				deadlines.push(beijing_deadline_time);
+			}
+		}
+
+
+		document.getElementById('tbody').innerHTML = str;
+		if(ids.length===0){
+			$("#no-data").show()
+			$("#data-src").hide();
+		}else{
+			$("#no-data").hide();
+			$("#data-src").show()
+		}
+		clearInterval();
+		for (let i = 0; i <ids.length ; i++) {
+			if(deadlines[i]- (+new Date())<0&&document.getElementById("countdown"+ids[i].toString())!==null){
+				document.getElementById("countdown"+ids[i].toString()).innerHTML = '已截稿';
+			}else{
+				setInterval(function(){countDown(deadlines[i],ids[i])}, 1000);
+			}
+		}
+		var resort = true,
+				callback = function() {
+
+					// do something after the updateAll method has completed
+				};
+		$("table").trigger("updateAll", [ resort, callback ]);
+
+	}
+
+	function countDown(inputTime,row_id) {
+		if(document.getElementById("countdown"+row_id.toString())!==null){
+			document.getElementById("countdown"+row_id.toString()).innerHTML = countDown_result(inputTime,row_id);
+		}
+	}
+
+	function countDown_result(inputTime,row_id) {
+		var nowTime = +new Date();
+		var times = (inputTime - nowTime) / 1000;
+		if(times>0){
+			var d = parseInt(times / 60 / 60 / 24);
+			d = d < 10 ? '0' + d : d;
+			var h = parseInt(times / 60 / 60 % 24);
+			h = h < 10 ? "0" + h : h;
+			var m = parseInt(times / 60 % 60);
+			m = m < 10 ? "0" + m : m;
+			var s = parseInt(times % 60);
+			s = s < 10 ? "0" + s : s;
+			return d+"d "+h+"h "+m+"m "+s+"s ";
+		}else{
+			return "已截稿";
+		}
+	}
+
+
+	function kaiguan() {
+		var kaiguan_name = $('#kaiguan').attr('xlink:href');
+		if(kaiguan_name==='#icon-kaiguan'){
+			$('#kaiguan').attr('xlink:href','#icon-kaiguan1');
+			localStorage.setItem('only_like',false);
+			query();
+		}else{
+			localStorage.setItem('only_like',true);
+			$('#kaiguan').attr('xlink:href','#icon-kaiguan');
+			query()
+		}
+	}
+
+
+function like(meetingId) {
+	if($("#icon"+meetingId).css("fill")==="rgb(112, 112, 112)"){
+		like_meetings.push(meetingId);
+		$("#icon"+meetingId).css({"fill":"red"});
+	}else{
+		like_meetings = like_meetings.filter((x) => x !== meetingId);
+		$("#icon"+meetingId).css({"fill":"#707070"});
+	}
+	localStorage.setItem("like_meetings",JSON.stringify(like_meetings));
+}
+
+	function formatDateTime (inputTime){
+		var date = new Date(inputTime);
+		var y = date.getFullYear();
+		var m = date.getMonth() + 1;
+		m = m < 10 ? ('0' + m) : m;
+		var d = date.getDate();
+		d = d < 10 ? ('0' + d) : d;
+		var h = date.getHours();
+		h = h < 10 ? ('0' + h) : h;
+		var minute = date.getMinutes();
+		var second = date.getSeconds();
+		minute = minute < 10 ? ('0' + minute) : minute;
+		second = second < 10 ? ('0' + second) : second;
+		return y + '-' + m + '-' + d + ' ' + h + ':' + minute + ':' + second;
+	}
+
+
+</script>
+</body>
+</html>

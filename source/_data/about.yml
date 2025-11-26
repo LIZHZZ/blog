@@ -63,9 +63,9 @@
     selfInfoContent3: "5"
   personalities:
     author_name: 你是？
-    personality_type: INTJ - 建筑师
-    personality_type_color: "#ac899c"
-    personality_img: /img/personality.webp
+    personality_type: ENFP - 活动家
+    personality_type_color: "#57B08C"
+    personality_img: /img/about/enfp-t.svg
     photo_url: /img/myphoto.jpg
     name_url: https://www.16personalities.com/intj-personality
   maxim:

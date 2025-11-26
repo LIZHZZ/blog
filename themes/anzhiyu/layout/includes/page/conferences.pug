@@ -1,0 +1,39 @@
+link(rel="stylesheet" href=url_for("/js/conferences-page.css"))
+- var conferences = []
+- if (site.data && site.data.conferences)
+  - conferences = site.data.conferences.conferences || []
+script(type="application/json" data-conferences).
+  !{JSON.stringify(conferences)}
+script(src=url_for("/js/conferences-page.js") defer)
+
+div#conferences-page
+  .conferences-header
+    h1 📅 会议DDL信息
+    p.subtitle 关注的重要学术会议截止日期
+    #conferences-stats
+
+  .conferences-container
+    .conferences-controls
+      .conferences-filters
+        button.filter-btn.active(data-filter="all") 全部
+        button.filter-btn(data-filter="A") CCF-A
+        button.filter-btn(data-filter="B") CCF-B
+        button.filter-btn(data-filter="C") CCF-C
+        button.filter-btn(data-filter="upcoming") 即将截止
+        button.filter-btn(data-filter="urgent") 紧急 (≤30天)
+        button.filter-btn(data-filter="favorite") ⭐ 我的收藏
+      .conferences-search
+        .search-box
+          i.anzhiyufont.anzhiyu-icon-magnifying-glass
+          input#conference-search(type="text" placeholder="搜索会议..." autocomplete="off")
+          button#search-clear.search-clear(style="display: none;" title="清除搜索")
+            i.anzhiyufont.anzhiyu-icon-xmark
+
+    #conferences-list.conferences-list-page
+
+  .conferences-footer
+    p 💡 提示：更多会议信息请访问 
+      a(href="https://ccfddl.com/" target="_blank" rel="noopener noreferrer") CCF DDL
+    p 📌 数据来源：
+      a(href="https://ccfddl.com/" target="_blank" rel="noopener noreferrer") ccfddl.com
+

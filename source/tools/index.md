@@ -207,24 +207,24 @@ function updateHistoryDisplay() {
           const result = firstSplit[1];
           const parts = beforeResult.split('：');
           if (parts.length >= 4) {
-            const num1Dec = parts[0];
-            const num1Bin = parts[1];
-            const num2Dec = parts[2];
-            const num2Bin = parts[3];
-            
-            // 格式化二进制显示
-            const formatBin = (bin) => {
+        const num1Dec = parts[0];
+        const num1Bin = parts[1];
+        const num2Dec = parts[2];
+        const num2Bin = parts[3];
+        
+        // 格式化二进制显示
+        const formatBin = (bin) => {
               if (!bin) return '';
               const binStr = String(bin);
               if (binStr.length === 32) {
-                // 32位：每8位一组
+            // 32位：每8位一组
                 return binStr.replace(/(.{8})/g, '$1 ').trim();
               } else if (binStr.length === 64) {
-                // 64位：每8位一组
+            // 64位：每8位一组
                 return binStr.replace(/(.{8})/g, '$1 ').trim();
-              }
+          }
               return binStr;
-            };
+        };
             
             // 确保值存在且是字符串
             const safeNum1Dec = String(num1Dec || '');
@@ -232,14 +232,14 @@ function updateHistoryDisplay() {
             const safeNum2Dec = String(num2Dec || '');
             const safeNum2Bin = String(num2Bin || '');
             const safeResult = String(result || '');
-            
+        
             displayContent = '<div style="font-size: 0.85em; line-height: 1.4;">' +
               '<div style="margin: 3px 0;"><strong>操作数1:</strong> 十进制 <code style="background: #e3f2fd; padding: 2px 5px; border-radius: 3px; color: #1565c0;">' + safeNum1Dec + '</code>，二进制 <code style="background: #fff3cd; padding: 2px 5px; border-radius: 3px; color: #856404; font-family: monospace; font-size: 0.9em; word-break: break-all;">' + formatBin(safeNum1Bin) + '</code></div>' +
               '<div style="margin: 3px 0;"><strong>操作数2:</strong> 十进制 <code style="background: #e3f2fd; padding: 2px 5px; border-radius: 3px; color: #1565c0;">' + safeNum2Dec + '</code>，二进制 <code style="background: #fff3cd; padding: 2px 5px; border-radius: 3px; color: #856404; font-family: monospace; font-size: 0.9em; word-break: break-all;">' + formatBin(safeNum2Bin) + '</code></div>' +
               '<div style="margin: 3px 0; padding-top: 5px; border-top: 1px solid #ddd;"><strong>异或结果:</strong> <code style="background: #e8f5e9; padding: 2px 5px; border-radius: 3px; color: #2e7d32; font-weight: bold;">' + safeResult + '</code></div>' +
               '</div>';
-          } else {
-            // 如果格式不正确，显示原始内容
+      } else {
+        // 如果格式不正确，显示原始内容
             displayContent = '<div style="font-size: 0.85em; line-height: 1.3;">' +
               '<div style="margin: 2px 0;">' + String(item.from) + '</div>' +
               '</div>';

@@ -1,0 +1,16 @@
+if site.data.conferences
+  - const conferences = site.data.conferences.conferences || []
+  .card-widget.card-conferences.card-conferences-favorites(data-widget="favorites")
+    .item-headline
+      i.anzhiyufont.anzhiyu-icon-calendar-check
+      span 我的收藏会议
+    .conferences-list.conference-favorites-list
+      .conference-empty 请先在“会议”页面收藏感兴趣的会议
+    .conferences-footer
+      a.conferences-link(href=url_for('/conferences/') target="_blank" rel="noopener noreferrer")
+        i.anzhiyufont.anzhiyu-icon-link
+        span 前往会议信息页面
+    script(type="application/json" data-conference-source).
+      !{JSON.stringify(conferences)}
+    script(src=url_for("/js/conferences-widget.js") defer)
+
